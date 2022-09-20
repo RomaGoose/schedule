@@ -12,3 +12,17 @@ C:\Users\user\Desktop\мамка\clientчето там\clientчето там\obj
 C:\Users\user\Desktop\мамка\clientчето там\clientчето там\obj\Debug\clientчето_там.prepodForm.resources
 C:\Users\user\Desktop\мамка\clientчето там\clientчето там\obj\Debug\clientчето_там.main.resources
 C:\Users\user\Desktop\мамка\clientчето там\clientчето там\obj\Debug\clientчето_там.aut.resources
+C:\Users\user\Source\Repos\schedule\clientчето там\bin\Debug\clientчето там.exe.config
+C:\Users\user\Source\Repos\schedule\clientчето там\bin\Debug\clientчето там.exe
+C:\Users\user\Source\Repos\schedule\clientчето там\bin\Debug\clientчето там.pdb
+C:\Users\user\Source\Repos\schedule\clientчето там\obj\Debug\clientчето там.csproj.AssemblyReference.cache
+C:\Users\user\Source\Repos\schedule\clientчето там\obj\Debug\clientчето там.csproj.SuggestedBindingRedirects.cache
+C:\Users\user\Source\Repos\schedule\clientчето там\obj\Debug\clientчето_там.aut.resources
+C:\Users\user\Source\Repos\schedule\clientчето там\obj\Debug\clientчето_там.login.resources
+C:\Users\user\Source\Repos\schedule\clientчето там\obj\Debug\clientчето_там.prepodForm.resources
+C:\Users\user\Source\Repos\schedule\clientчето там\obj\Debug\clientчето_там.main.resources
+C:\Users\user\Source\Repos\schedule\clientчето там\obj\Debug\clientчето_там.Properties.Resources.resources
+C:\Users\user\Source\Repos\schedule\clientчето там\obj\Debug\clientчето там.csproj.GenerateResource.cache
+C:\Users\user\Source\Repos\schedule\clientчето там\obj\Debug\clientчето там.csproj.CoreCompileInputs.cache
+C:\Users\user\Source\Repos\schedule\clientчето там\obj\Debug\clientчето там.exe
+C:\Users\user\Source\Repos\schedule\clientчето там\obj\Debug\clientчето там.pdb
