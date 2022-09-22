@@ -31,10 +31,16 @@ namespace clientчето_там
         public int Classroom4;
         public string Teacher4;
 
-        public DotW(string _Name, string _Subject1, int _Classroom1, string _Teacher1,
-                                  string _Subject2, int _Classroom2, string _Teacher2,
-                                  string _Subject3, int _Classroom3, string _Teacher3,
-                                  string _Subject4, int _Classroom4, string _Teacher4)
+        public Label lbl;
+        public TableLayoutPanel pan;
+
+
+        public DotW(string _Name, string _Subject1, string _Subject2, string _Subject3, string _Subject4, 
+                                  string _Teacher1, string _Teacher2, string _Teacher3, string _Teacher4,
+                                   int _Classroom1,  int _Classroom2,  int _Classroom3,  int _Classroom4)
+
+
+
         {
             Name = _Name;
 
@@ -69,16 +75,44 @@ namespace clientчето_там
             foreach (string line in lines)
             {
                 string[] parts = line.Split(new string[] { ", " }, StringSplitOptions.None);
-                DotW day = new DotW (parts[0], parts[1],  Convert.ToInt32(parts[2]),  parts[3],
-                                               parts[4],  Convert.ToInt32(parts[5]),  parts[6],
-                                               parts[7],  Convert.ToInt32(parts[8]),  parts[9],
-                                               parts[10], Convert.ToInt32(parts[11]), parts[12]);
+                DotW day = new DotW (parts[0], parts[1], parts[2], parts[3], parts[4],
+                                               parts[5], parts[6], parts[7], parts[8],
+                                               Convert.ToInt32(parts[9]), Convert.ToInt32(parts[10]), Convert.ToInt32(parts[11]), Convert.ToInt32(parts[12]));
                 dotWs.Add(day);
             }
 
+
             foreach (DotW day in dotWs)
             {
+                int x = 0;
+                int y = 0;
+                int f = 0;
+               /* for (int i = 0; i < 15; i++)
+                {
+                    day.lbl.Anchor = AnchorStyles.None;
+                    day.lbl.Location = new Point(60 + x, 58 + y);
+                    day.lbl.Name = day.Name + i;
+                    day.lbl.Size = new Size(51, 16);
+                    day.lbl.TabIndex = 1;
+                    day.lbl.Text = day.;
+                    
 
+                    y += 43;
+
+                    if (y == 43 * 4 && f == 0)
+                    {
+                        y = 0;
+                        x = 171;
+                        f = 1;
+                    }
+
+                    if (y == 43 * 4 && f == 1)
+                    {
+                        y = 0;
+                        x = 114;
+                        f = 0;
+                    }
+                }*/
             }
         }
 
