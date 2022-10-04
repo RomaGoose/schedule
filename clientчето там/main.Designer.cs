@@ -41,29 +41,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.FiltrBut = new System.Windows.Forms.Button();
-            this.downpan = new System.Windows.Forms.Panel();
-            this.sat = new System.Windows.Forms.Label();
-            this.wed = new System.Windows.Forms.Label();
-            this.fri = new System.Windows.Forms.Label();
-            this.tue = new System.Windows.Forms.Label();
-            this.thu = new System.Windows.Forms.Label();
-            this.mon = new System.Windows.Forms.Label();
             this.monpan = new System.Windows.Forms.TableLayoutPanel();
-            this.subject2 = new System.Windows.Forms.Label();
-            this.subject3 = new System.Windows.Forms.Label();
-            this.subject4 = new System.Windows.Forms.Label();
-            this.subject5 = new System.Windows.Forms.Label();
-            this.teacher1 = new System.Windows.Forms.Label();
-            this.teacher2 = new System.Windows.Forms.Label();
-            this.teacher3 = new System.Windows.Forms.Label();
-            this.teacher4 = new System.Windows.Forms.Label();
-            this.teacher5 = new System.Windows.Forms.Label();
-            this.classroom1 = new System.Windows.Forms.Label();
-            this.classroom2 = new System.Windows.Forms.Label();
-            this.classroom3 = new System.Windows.Forms.Label();
-            this.classroom4 = new System.Windows.Forms.Label();
-            this.classroom5 = new System.Windows.Forms.Label();
-            this.subject1 = new System.Windows.Forms.Label();
+            this.mon = new System.Windows.Forms.Label();
+            this.thu = new System.Windows.Forms.Label();
+            this.tue = new System.Windows.Forms.Label();
+            this.fri = new System.Windows.Forms.Label();
+            this.wed = new System.Windows.Forms.Label();
+            this.sat = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -144,14 +128,14 @@
             this.label77 = new System.Windows.Forms.Label();
             this.label78 = new System.Windows.Forms.Label();
             this.label79 = new System.Windows.Forms.Label();
+            this.downpan = new System.Windows.Forms.Panel();
             this.FiltrPanel.SuspendLayout();
-            this.downpan.SuspendLayout();
-            this.monpan.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            this.downpan.SuspendLayout();
             this.SuspendLayout();
             // 
             // FiltrPanel
@@ -304,88 +288,6 @@
             this.FiltrBut.UseVisualStyleBackColor = true;
             this.FiltrBut.Click += new System.EventHandler(this.FiltrBut_Click);
             // 
-            // downpan
-            // 
-            this.downpan.AutoScroll = true;
-            this.downpan.Controls.Add(this.tableLayoutPanel5);
-            this.downpan.Controls.Add(this.tableLayoutPanel4);
-            this.downpan.Controls.Add(this.tableLayoutPanel3);
-            this.downpan.Controls.Add(this.tableLayoutPanel2);
-            this.downpan.Controls.Add(this.tableLayoutPanel1);
-            this.downpan.Controls.Add(this.sat);
-            this.downpan.Controls.Add(this.wed);
-            this.downpan.Controls.Add(this.fri);
-            this.downpan.Controls.Add(this.tue);
-            this.downpan.Controls.Add(this.thu);
-            this.downpan.Controls.Add(this.mon);
-            this.downpan.Controls.Add(this.monpan);
-            this.downpan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.downpan.Location = new System.Drawing.Point(0, 197);
-            this.downpan.Name = "downpan";
-            this.downpan.Size = new System.Drawing.Size(884, 858);
-            this.downpan.TabIndex = 1;
-            // 
-            // sat
-            // 
-            this.sat.AutoSize = true;
-            this.sat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.sat.Location = new System.Drawing.Point(449, 589);
-            this.sat.Name = "sat";
-            this.sat.Size = new System.Drawing.Size(220, 25);
-            this.sat.TabIndex = 9;
-            this.sat.Text = "Суббота, число месяц";
-            // 
-            // wed
-            // 
-            this.wed.AutoSize = true;
-            this.wed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.wed.Location = new System.Drawing.Point(27, 589);
-            this.wed.Name = "wed";
-            this.wed.Size = new System.Drawing.Size(200, 25);
-            this.wed.TabIndex = 8;
-            this.wed.Text = "Среда, число месяц";
-            // 
-            // fri
-            // 
-            this.fri.AutoSize = true;
-            this.fri.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.fri.Location = new System.Drawing.Point(449, 302);
-            this.fri.Name = "fri";
-            this.fri.Size = new System.Drawing.Size(224, 25);
-            this.fri.TabIndex = 7;
-            this.fri.Text = "Пятница, число месяц";
-            // 
-            // tue
-            // 
-            this.tue.AutoSize = true;
-            this.tue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.tue.Location = new System.Drawing.Point(27, 302);
-            this.tue.Name = "tue";
-            this.tue.Size = new System.Drawing.Size(221, 25);
-            this.tue.TabIndex = 6;
-            this.tue.Text = "Вторник, число месяц";
-            // 
-            // thu
-            // 
-            this.thu.AutoSize = true;
-            this.thu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.thu.Location = new System.Drawing.Point(452, 16);
-            this.thu.Name = "thu";
-            this.thu.Size = new System.Drawing.Size(219, 25);
-            this.thu.TabIndex = 5;
-            this.thu.Text = "Четверг, число месяц";
-            // 
-            // mon
-            // 
-            this.mon.AutoSize = true;
-            this.mon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.mon.Location = new System.Drawing.Point(27, 16);
-            this.mon.Name = "mon";
-            this.mon.Size = new System.Drawing.Size(267, 25);
-            this.mon.TabIndex = 4;
-            this.mon.Text = "Понедельник, число месяц";
-            this.mon.Click += new System.EventHandler(this.label4_Click);
-            // 
             // monpan
             // 
             this.monpan.BackColor = System.Drawing.Color.Bisque;
@@ -394,21 +296,6 @@
             this.monpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
             this.monpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
             this.monpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.monpan.Controls.Add(this.subject2, 0, 1);
-            this.monpan.Controls.Add(this.subject3, 0, 2);
-            this.monpan.Controls.Add(this.subject4, 0, 3);
-            this.monpan.Controls.Add(this.subject5, 0, 4);
-            this.monpan.Controls.Add(this.teacher1, 1, 0);
-            this.monpan.Controls.Add(this.teacher2, 1, 1);
-            this.monpan.Controls.Add(this.teacher3, 1, 2);
-            this.monpan.Controls.Add(this.teacher4, 1, 3);
-            this.monpan.Controls.Add(this.teacher5, 1, 4);
-            this.monpan.Controls.Add(this.classroom1, 2, 0);
-            this.monpan.Controls.Add(this.classroom2, 2, 1);
-            this.monpan.Controls.Add(this.classroom3, 2, 2);
-            this.monpan.Controls.Add(this.classroom4, 2, 3);
-            this.monpan.Controls.Add(this.classroom5, 2, 4);
-            this.monpan.Controls.Add(this.subject1, 0, 0);
             this.monpan.Location = new System.Drawing.Point(32, 44);
             this.monpan.Name = "monpan";
             this.monpan.RowCount = 6;
@@ -422,160 +309,66 @@
             this.monpan.TabIndex = 0;
             this.monpan.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
-            // subject2
+            // mon
             // 
-            this.subject2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.subject2.AutoSize = true;
-            this.subject2.Location = new System.Drawing.Point(57, 58);
-            this.subject2.Name = "subject2";
-            this.subject2.Size = new System.Drawing.Size(57, 16);
-            this.subject2.TabIndex = 1;
-            this.subject2.Text = "subject1";
+            this.mon.AutoSize = true;
+            this.mon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.mon.Location = new System.Drawing.Point(27, 16);
+            this.mon.Name = "mon";
+            this.mon.Size = new System.Drawing.Size(267, 25);
+            this.mon.TabIndex = 4;
+            this.mon.Text = "Понедельник, число месяц";
+            this.mon.Click += new System.EventHandler(this.label4_Click);
             // 
-            // subject3
+            // thu
             // 
-            this.subject3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.subject3.AutoSize = true;
-            this.subject3.Location = new System.Drawing.Point(60, 101);
-            this.subject3.Name = "subject3";
-            this.subject3.Size = new System.Drawing.Size(51, 16);
-            this.subject3.TabIndex = 2;
-            this.subject3.Text = "label13";
+            this.thu.AutoSize = true;
+            this.thu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.thu.Location = new System.Drawing.Point(452, 16);
+            this.thu.Name = "thu";
+            this.thu.Size = new System.Drawing.Size(219, 25);
+            this.thu.TabIndex = 5;
+            this.thu.Text = "Четверг, число месяц";
             // 
-            // subject4
+            // tue
             // 
-            this.subject4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.subject4.AutoSize = true;
-            this.subject4.Location = new System.Drawing.Point(60, 144);
-            this.subject4.Name = "subject4";
-            this.subject4.Size = new System.Drawing.Size(51, 16);
-            this.subject4.TabIndex = 3;
-            this.subject4.Text = "label14";
+            this.tue.AutoSize = true;
+            this.tue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tue.Location = new System.Drawing.Point(27, 302);
+            this.tue.Name = "tue";
+            this.tue.Size = new System.Drawing.Size(221, 25);
+            this.tue.TabIndex = 6;
+            this.tue.Text = "Вторник, число месяц";
             // 
-            // subject5
+            // fri
             // 
-            this.subject5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.subject5.AutoSize = true;
-            this.subject5.Location = new System.Drawing.Point(60, 187);
-            this.subject5.Name = "subject5";
-            this.subject5.Size = new System.Drawing.Size(51, 16);
-            this.subject5.TabIndex = 4;
-            this.subject5.Text = "label15";
+            this.fri.AutoSize = true;
+            this.fri.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.fri.Location = new System.Drawing.Point(449, 302);
+            this.fri.Name = "fri";
+            this.fri.Size = new System.Drawing.Size(224, 25);
+            this.fri.TabIndex = 7;
+            this.fri.Text = "Пятница, число месяц";
             // 
-            // teacher1
+            // wed
             // 
-            this.teacher1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.teacher1.AutoSize = true;
-            this.teacher1.Location = new System.Drawing.Point(228, 15);
-            this.teacher1.Name = "teacher1";
-            this.teacher1.Size = new System.Drawing.Size(51, 16);
-            this.teacher1.TabIndex = 5;
-            this.teacher1.Text = "label16";
+            this.wed.AutoSize = true;
+            this.wed.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.wed.Location = new System.Drawing.Point(27, 589);
+            this.wed.Name = "wed";
+            this.wed.Size = new System.Drawing.Size(200, 25);
+            this.wed.TabIndex = 8;
+            this.wed.Text = "Среда, число месяц";
             // 
-            // teacher2
+            // sat
             // 
-            this.teacher2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.teacher2.AutoSize = true;
-            this.teacher2.Location = new System.Drawing.Point(228, 58);
-            this.teacher2.Name = "teacher2";
-            this.teacher2.Size = new System.Drawing.Size(51, 16);
-            this.teacher2.TabIndex = 6;
-            this.teacher2.Text = "label17";
-            // 
-            // teacher3
-            // 
-            this.teacher3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.teacher3.AutoSize = true;
-            this.teacher3.Location = new System.Drawing.Point(228, 101);
-            this.teacher3.Name = "teacher3";
-            this.teacher3.Size = new System.Drawing.Size(51, 16);
-            this.teacher3.TabIndex = 7;
-            this.teacher3.Text = "label18";
-            // 
-            // teacher4
-            // 
-            this.teacher4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.teacher4.AutoSize = true;
-            this.teacher4.Location = new System.Drawing.Point(228, 144);
-            this.teacher4.Name = "teacher4";
-            this.teacher4.Size = new System.Drawing.Size(51, 16);
-            this.teacher4.TabIndex = 8;
-            this.teacher4.Text = "label19";
-            // 
-            // teacher5
-            // 
-            this.teacher5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.teacher5.AutoSize = true;
-            this.teacher5.Location = new System.Drawing.Point(228, 187);
-            this.teacher5.Name = "teacher5";
-            this.teacher5.Size = new System.Drawing.Size(51, 16);
-            this.teacher5.TabIndex = 9;
-            this.teacher5.Text = "label20";
-            // 
-            // classroom1
-            // 
-            this.classroom1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.classroom1.AutoSize = true;
-            this.classroom1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.classroom1.Location = new System.Drawing.Point(342, 14);
-            this.classroom1.Name = "classroom1";
-            this.classroom1.Size = new System.Drawing.Size(32, 17);
-            this.classroom1.TabIndex = 10;
-            this.classroom1.Text = "102";
-            // 
-            // classroom2
-            // 
-            this.classroom2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.classroom2.AutoSize = true;
-            this.classroom2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.classroom2.Location = new System.Drawing.Point(342, 57);
-            this.classroom2.Name = "classroom2";
-            this.classroom2.Size = new System.Drawing.Size(32, 17);
-            this.classroom2.TabIndex = 11;
-            this.classroom2.Text = "102";
-            // 
-            // classroom3
-            // 
-            this.classroom3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.classroom3.AutoSize = true;
-            this.classroom3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.classroom3.Location = new System.Drawing.Point(342, 100);
-            this.classroom3.Name = "classroom3";
-            this.classroom3.Size = new System.Drawing.Size(32, 17);
-            this.classroom3.TabIndex = 12;
-            this.classroom3.Text = "102";
-            // 
-            // classroom4
-            // 
-            this.classroom4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.classroom4.AutoSize = true;
-            this.classroom4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.classroom4.Location = new System.Drawing.Point(342, 143);
-            this.classroom4.Name = "classroom4";
-            this.classroom4.Size = new System.Drawing.Size(32, 17);
-            this.classroom4.TabIndex = 13;
-            this.classroom4.Text = "102";
-            // 
-            // classroom5
-            // 
-            this.classroom5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.classroom5.AutoSize = true;
-            this.classroom5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
-            this.classroom5.Location = new System.Drawing.Point(342, 186);
-            this.classroom5.Name = "classroom5";
-            this.classroom5.Size = new System.Drawing.Size(32, 17);
-            this.classroom5.TabIndex = 14;
-            this.classroom5.Text = "102";
-            // 
-            // subject1
-            // 
-            this.subject1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.subject1.AutoSize = true;
-            this.subject1.Location = new System.Drawing.Point(57, 15);
-            this.subject1.Name = "subject1";
-            this.subject1.Size = new System.Drawing.Size(57, 16);
-            this.subject1.TabIndex = 0;
-            this.subject1.Text = "subject1";
+            this.sat.AutoSize = true;
+            this.sat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.sat.Location = new System.Drawing.Point(449, 589);
+            this.sat.Name = "sat";
+            this.sat.Size = new System.Drawing.Size(220, 25);
+            this.sat.TabIndex = 9;
+            this.sat.Text = "Суббота, число месяц";
             // 
             // tableLayoutPanel1
             // 
@@ -1470,7 +1263,7 @@
             this.label74.Name = "label74";
             this.label74.Size = new System.Drawing.Size(32, 17);
             this.label74.TabIndex = 10;
-            this.label74.Text = "102";
+            this.label74.Text = "104";
             // 
             // label75
             // 
@@ -1520,11 +1313,33 @@
             // 
             this.label79.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label79.AutoSize = true;
-            this.label79.Location = new System.Drawing.Point(60, 15);
+            this.label79.Location = new System.Drawing.Point(22, 7);
             this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(51, 16);
+            this.label79.Size = new System.Drawing.Size(126, 32);
             this.label79.TabIndex = 0;
-            this.label79.Text = "label79";
+            this.label79.Text = "защита от темных искусств";
+            this.label79.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // downpan
+            // 
+            this.downpan.AutoScroll = true;
+            this.downpan.Controls.Add(this.tableLayoutPanel5);
+            this.downpan.Controls.Add(this.tableLayoutPanel4);
+            this.downpan.Controls.Add(this.tableLayoutPanel3);
+            this.downpan.Controls.Add(this.tableLayoutPanel2);
+            this.downpan.Controls.Add(this.tableLayoutPanel1);
+            this.downpan.Controls.Add(this.sat);
+            this.downpan.Controls.Add(this.wed);
+            this.downpan.Controls.Add(this.fri);
+            this.downpan.Controls.Add(this.tue);
+            this.downpan.Controls.Add(this.thu);
+            this.downpan.Controls.Add(this.mon);
+            this.downpan.Controls.Add(this.monpan);
+            this.downpan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.downpan.Location = new System.Drawing.Point(0, 197);
+            this.downpan.Name = "downpan";
+            this.downpan.Size = new System.Drawing.Size(884, 858);
+            this.downpan.TabIndex = 1;
             // 
             // main
             // 
@@ -1538,10 +1353,6 @@
             this.Load += new System.EventHandler(this.main_Load);
             this.FiltrPanel.ResumeLayout(false);
             this.FiltrPanel.PerformLayout();
-            this.downpan.ResumeLayout(false);
-            this.downpan.PerformLayout();
-            this.monpan.ResumeLayout(false);
-            this.monpan.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -1552,6 +1363,8 @@
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
+            this.downpan.ResumeLayout(false);
+            this.downpan.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1570,30 +1383,14 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button presearch;
-        private System.Windows.Forms.Panel downpan;
+        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TableLayoutPanel monpan;
         private System.Windows.Forms.Label mon;
-        private System.Windows.Forms.Label sat;
-        private System.Windows.Forms.Label wed;
-        private System.Windows.Forms.Label fri;
-        private System.Windows.Forms.Label tue;
         private System.Windows.Forms.Label thu;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label subject2;
-        private System.Windows.Forms.Label subject3;
-        private System.Windows.Forms.Label subject4;
-        private System.Windows.Forms.Label subject5;
-        private System.Windows.Forms.Label teacher1;
-        private System.Windows.Forms.Label teacher2;
-        private System.Windows.Forms.Label teacher3;
-        private System.Windows.Forms.Label teacher4;
-        private System.Windows.Forms.Label teacher5;
-        private System.Windows.Forms.Label classroom1;
-        private System.Windows.Forms.Label classroom2;
-        private System.Windows.Forms.Label classroom3;
-        private System.Windows.Forms.Label classroom4;
-        private System.Windows.Forms.Label classroom5;
-        private System.Windows.Forms.Label subject1;
+        private System.Windows.Forms.Label tue;
+        private System.Windows.Forms.Label fri;
+        private System.Windows.Forms.Label wed;
+        private System.Windows.Forms.Label sat;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -1610,54 +1407,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.Label label65;
-        private System.Windows.Forms.Label label66;
-        private System.Windows.Forms.Label label67;
-        private System.Windows.Forms.Label label68;
-        private System.Windows.Forms.Label label69;
-        private System.Windows.Forms.Label label70;
-        private System.Windows.Forms.Label label71;
-        private System.Windows.Forms.Label label72;
-        private System.Windows.Forms.Label label73;
-        private System.Windows.Forms.Label label74;
-        private System.Windows.Forms.Label label75;
-        private System.Windows.Forms.Label label76;
-        private System.Windows.Forms.Label label77;
-        private System.Windows.Forms.Label label78;
-        private System.Windows.Forms.Label label79;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.Label label52;
-        private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.Label label54;
-        private System.Windows.Forms.Label label55;
-        private System.Windows.Forms.Label label56;
-        private System.Windows.Forms.Label label57;
-        private System.Windows.Forms.Label label58;
-        private System.Windows.Forms.Label label59;
-        private System.Windows.Forms.Label label60;
-        private System.Windows.Forms.Label label61;
-        private System.Windows.Forms.Label label62;
-        private System.Windows.Forms.Label label63;
-        private System.Windows.Forms.Label label64;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.Label label49;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label sbuject22;
         private System.Windows.Forms.Label sbuject23;
@@ -1674,6 +1423,55 @@
         private System.Windows.Forms.Label classroom24;
         private System.Windows.Forms.Label classroom25;
         private System.Windows.Forms.Label sbuject21;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.Label label69;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.Label label71;
+        private System.Windows.Forms.Label label72;
+        private System.Windows.Forms.Label label73;
+        private System.Windows.Forms.Label label74;
+        private System.Windows.Forms.Label label75;
+        private System.Windows.Forms.Label label76;
+        private System.Windows.Forms.Label label77;
+        private System.Windows.Forms.Label label78;
+        private System.Windows.Forms.Label label79;
+        private System.Windows.Forms.Panel downpan;
     }
 }
 

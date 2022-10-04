@@ -26,3 +26,5 @@ C:\Users\user\Source\Repos\schedule\clientчето там\obj\Debug\clientчет
 C:\Users\user\Source\Repos\schedule\clientчето там\obj\Debug\clientчето там.csproj.CoreCompileInputs.cache
 C:\Users\user\Source\Repos\schedule\clientчето там\obj\Debug\clientчето там.exe
 C:\Users\user\Source\Repos\schedule\clientчето там\obj\Debug\clientчето там.pdb
+C:\Users\user\source\repos\schedule\clientчето там\bin\Debug\MySql.Data.dll
+C:\Users\user\source\repos\schedule\clientчето там\obj\Debug\clientчето там.csproj.CopyComplete
