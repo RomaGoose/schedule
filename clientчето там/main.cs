@@ -11,6 +11,7 @@ using System.IO;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using System.Data.Common;
+using System.Xml.Linq;
 
 namespace clientчето_там
 {
@@ -34,13 +35,17 @@ namespace clientчето_там
         public string Classroom4;
         public string Teacher4;
 
+        public string Subject5;
+        public string Classroom5;
+        public string Teacher5;
+
         // public Label lbl;
         //public TableLayoutPanel pan;
 
 
-        public DotW(string _Name, string _Subject1, string _Subject2, string _Subject3, string _Subject4,
-                                  string _Teacher1, string _Teacher2, string _Teacher3, string _Teacher4,
-                                  string _Classroom1, string _Classroom2, string _Classroom3, string _Classroom4)//, TableLayoutPanel _pan)
+        public DotW(string _Name, string _Subject1, string _Subject2, string _Subject3, string _Subject4, string _Subject5,
+                                  string _Teacher1, string _Teacher2, string _Teacher3, string _Teacher4, string _Teacher5,
+                                  string _Classroom1, string _Classroom2, string _Classroom3, string _Classroom4, string _Classroom5)//, TableLayoutPanel _pan)
 
 
 
@@ -63,57 +68,63 @@ namespace clientчето_там
             Classroom4 = _Classroom4;
             Teacher4 = _Teacher4;
 
+            Subject5 = _Subject5;
+            Classroom5 = _Classroom5;
+            Teacher5 = _Teacher5;
+
             //pan = _pan;
         }
     }
 
     public partial class main : Form
     {
-        const string connection_string = "SslMode=none;Server=localhost;Database=schedule;Uid=root;";
-        
+       
         public static List<DotW> dotWs = new List<DotW>();
+
+        public static List<string> MySelect(string cmdtext)
+        {
+            List<string> list = new List<string>();
+
+            MySqlCommand cmd = new MySqlCommand(cmdtext, Program.CONN);
+            DbDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {   
+                for(int i = 0; i < reader.FieldCount; i++)
+                {
+                    list.Add(reader.GetValue(i).ToString());
+                }
+
+            }
+            reader.Close();
+
+            return list;
+        }
+
+
+
 
         public main()
         {
             InitializeComponent();
+            List<string> list = MySelect("SELECT name, subject1, subject2, subject3, subject4, subject5, " +
+                                                      "Teacher1, Teacher2, Teacher3, Teacher4, Teacher5, " +
+                                                      "Classroom1, Classroom2, Classroom3, Classroom4, Classroom5 FROM fullday");
 
+            //"SELECT name, subject1, subject2, subject3, subject4, subject5, Teacher1, Teacher2, Teacher3, Teacher4, Teacher5, Classroom1, Classroom2, Classroom3, Classroom4, Classroom5 FROM fullday"
 
-            MySqlConnection conn = new MySqlConnection(connection_string);
-            conn.Open();
-
-            MySqlCommand cmd = new MySqlCommand("SELECT name, subject1, subject2, subject3, subject4, Teacher1, Teacher2, Teacher3, Teacher4, Classroom1, Classroom2, Classroom3, Classroom4 FROM fullday", conn);
-            DbDataReader reader = cmd.ExecuteReader();
-            while(reader.Read())
+            for(int i =0; i < list.Count; i+=16)
             {
-                string name = reader.GetValue(0).ToString();
-                string subject1 = reader.GetValue(1).ToString();
-                string subject2 = reader.GetValue(2).ToString();
-                string subject3 = reader.GetValue(3).ToString();
-                string subject4 = reader.GetValue(4).ToString();
-                string teacher1 = reader.GetValue(5).ToString();
-                string teacher2 = reader.GetValue(6).ToString();
-                string teacher3 = reader.GetValue(7).ToString();
-                string teacher4 = reader.GetValue(8).ToString();
-                string classroom1 = reader.GetValue(9).ToString();
-                string classroom2 = reader.GetValue(10).ToString();
-                string classroom3 = reader.GetValue(11).ToString();
-                string classroom4 = reader.GetValue(12).ToString();
 
-
-                DotW day = new DotW(name, subject1, subject2, subject3, subject4,
-                                          teacher1, teacher2, teacher3, teacher4,
-                                          classroom1, classroom2, classroom3, classroom4);
+                DotW day = new DotW(list[i], list[i+1], list[i+2], list[i+3], list[i+4], list[i+5],
+                                             list[i+6], list[i+7], list[i+8], list[i+9], list[i+10],
+                                             list[i+11], list[i+12], list[i+13], list[i+14], list[i+15]);
                 dotWs.Add(day);
+
             }
-            reader.Close();
-
-            conn.Close();
-
-
 
             foreach (DotW day in dotWs)
             {
-
+ 
                 #region str1
                 Label label1 = new Label();
                 label1.Anchor = AnchorStyles.None;
@@ -234,6 +245,35 @@ namespace clientчето_там
                 monpan.Controls.Add(cls4);
                 #endregion
 
+                #region str5
+                Label label5 = new Label();
+                label5.Anchor = AnchorStyles.None;
+                label5.Name = day.Name + "subj5";
+                label5.Size = new Size(126, 32);
+                label5.TabIndex = 9;
+                label5.Text = day.Subject5;
+                label5.TextAlign = ContentAlignment.MiddleCenter;
+                monpan.Controls.Add(label5);
+
+                Label prep5 = new Label();
+                prep5.Anchor = AnchorStyles.None;
+                prep5.Name = day.Name + "prep5";
+                prep5.Size = new Size(126, 32);
+                prep5.TabIndex = 10;
+                prep5.Text = day.Teacher5;
+                prep5.TextAlign = ContentAlignment.MiddleCenter;
+                monpan.Controls.Add(prep5);
+
+                Label cls5 = new Label();
+                cls1.Font = new Font("Microsoft Sans Serif", 7F);
+                cls5.Anchor = AnchorStyles.None;
+                cls5.Name = day.Name + "cls5";
+                cls5.Size = new Size(50, 17);
+                cls5.TabIndex = 11;
+                cls5.Text = Convert.ToString(day.Classroom5);
+                cls5.TextAlign = ContentAlignment.MiddleCenter;
+                monpan.Controls.Add(cls5);
+                #endregion
             }
         }
 
@@ -254,9 +294,6 @@ namespace clientчето_там
         {
             login li = new login();
             li.ShowDialog();
-
-           
-   
         }
 
         private void main_Load(object sender, EventArgs e)
