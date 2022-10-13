@@ -12,6 +12,7 @@ using MySql.Data;
 using MySql.Data.MySqlClient;
 using System.Data.Common;
 using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace clientчето_там
 {
@@ -122,9 +123,32 @@ namespace clientчето_там
 
             }
 
+
+            int x;
+            for (int i = 1; i < 16; i++)
+            {
+                if (i < 6) x = 0;
+                else if (i > 5 && i < 11) x = 1;
+                else x = 2;
+
+                Label label = new Label();
+                label.Anchor = AnchorStyles.None;
+                label.Size = new Size(126, 32);
+                label.Location = new Point(3, 0);
+                label.Text = list[i];
+                label.TextAlign = ContentAlignment.MiddleCenter;
+                monpan.Controls.Add(label, x, i - x * 5 - 1);
+            }
+           
+
+
+
+
             foreach (DotW day in dotWs)
             {
- 
+                
+
+                /*
                 #region str1
                 Label label1 = new Label();
                 label1.Anchor = AnchorStyles.None;
@@ -274,6 +298,7 @@ namespace clientчето_там
                 cls5.TextAlign = ContentAlignment.MiddleCenter;
                 monpan.Controls.Add(cls5);
                 #endregion
+               */
             }
         }
 
