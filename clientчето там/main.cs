@@ -81,6 +81,11 @@ namespace clientчето_там
     {
        
         public static List<DotW> dotWs = new List<DotW>();
+        /// <summary>
+        /// Функция Select-запроса
+        /// </summary>
+      
+
 
         public static List<string> MySelect(string cmdtext)
         {
@@ -101,6 +106,12 @@ namespace clientчето_там
             return list;
         }
 
+        public static void MyUpdate(string cmdText)
+        {
+            MySqlCommand cmd = new MySqlCommand(cmdText, Program.CONN);
+            DbDataReader reader = cmd.ExecuteReader();
+            reader.Close();
+        }
 
 
 
@@ -369,6 +380,12 @@ namespace clientчето_там
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Admin sus = new Admin();
+            sus.ShowDialog();
         }
     }
 }
