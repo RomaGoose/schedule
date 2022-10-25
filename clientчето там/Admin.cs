@@ -22,5 +22,11 @@ namespace clientчето_там
             AdminTeacher sus = new AdminTeacher();
             sus.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AdminSubject sus = new AdminSubject();
+            sus.ShowDialog();
+        }
     }
 }

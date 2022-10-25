@@ -1,10 +1,7 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.Common;
-using MySql.Data.MySqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,20 +10,21 @@ using System.Windows.Forms;
 
 namespace clientчето_там
 {
-    public partial class AdminTeacher : Form
+    public partial class AdminSubject : Form
     {
-        public AdminTeacher()
+        public AdminSubject()
         {
             InitializeComponent();
         }
 
-        private void AdminTeacher_Load(object sender, EventArgs e)
+
+        private void AdminSubject_Load(object sender, EventArgs e)
         {
-            List<string> list = main.MySelect("SELECT name FROM teachers");
+            List<string> list = main.MySelect("SELECT name FROM subjects");
             deletepan.Controls.Clear();
 
             int y = 30;
-            for(int i=0; i < list.Count; i++)
+            for (int i = 0; i < list.Count; i++)
             {
                 Label lbl = new Label();
                 lbl.Location = new Point(50, y);
@@ -47,18 +45,19 @@ namespace clientчето_там
             }
         }
 
+
         private void DeleteHotelClick(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
             int y = btn.Location.Y;
 
-            foreach(Control control in deletepan.Controls)
+            foreach (Control control in deletepan.Controls)
             {
-                if(control.Location == new Point (50, y))
+                if (control.Location == new Point(50, y))
                 {
-                    main.MyUpdate("DELETE FROM teachers WHERE name = '" + control.Text + "'");
+                    main.MyUpdate("DELETE FROM subjects WHERE name = '" + control.Text + "'");
                     MessageBox.Show("Низвёл до атомов");
-                    AdminTeacher_Load(sender, e);
+                    AdminSubject_Load(sender, e);
                     return;
                 }
             }
@@ -66,21 +65,24 @@ namespace clientчето_там
 
         private void UpdateClick(object sender, EventArgs e)
         {
-            main.MyUpdate("INSERT INTO teachers (name, password, subject, subject2, mail)" +
-                          "VALUES('" + namebx.Text + "', '" + passbx.Text + "', '" + subjbx.Text + "', '"
-                          + subj2bx.Text + "', '" + mailbx.Text + "')");
+            main.MyUpdate("INSERT INTO subjects (name)" +
+                          "VALUES('" + namebx.Text +  "')");
             MessageBox.Show("Сохранено");
+            AdminSubject_Load(sender, e);
 
-            namebx.Text  = " ";
-            passbx.Text = " ";
-            subjbx.Text = " ";
-            subj2bx.Text = " ";
-            mailbx.Text = " ";
-
-            AdminTeacher_Load(sender, e);
+            namebx.Text = " ";
             return;
         }
 
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

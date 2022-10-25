@@ -16,6 +16,13 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace clientчето_там
 {
+    #region подсказки типа
+    /* авто инкрементирование A_I, чтобы айди сам увеличивался
+     * в уадление тоже айди дбавить и удалить запрос длеать по айдишнику тоже
+     * айди как тэг добавить в лейбл который за имя отвечает и соответственоо по нему удалить
+     */
+    #endregion
+
     public struct DotW
     {
         public string Name;
