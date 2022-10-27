@@ -18,6 +18,15 @@ namespace clientчето_там
         public AdminTeacher()
         {
             InitializeComponent();
+
+            List<string> subject_list = main.MySelect("SELECT name, ID FROM subjects");
+
+            subj1cbx.Items.Clear();
+            for (int i = 0; i < subject_list.Count; i += 2)
+            {
+                subj1cbx.Items.Add(subject_list[i] + "," + subject_list[i + 1]);
+                subj2cbx.Items.Add(subject_list[i] + "," + subject_list[i + 1]);
+            }
         }
 
         private void AdminTeacher_Load(object sender, EventArgs e)
@@ -66,21 +75,33 @@ namespace clientчето_там
 
         private void UpdateClick(object sender, EventArgs e)
         {
-            main.MyUpdate("INSERT INTO teachers (name, password, subject, subject2, mail)" +
-                          "VALUES('" + namebx.Text + "', '" + passbx.Text + "', '" + subjbx.Text + "', '"
-                          + subj2bx.Text + "', '" + mailbx.Text + "')");
-            MessageBox.Show("Сохранено");
+            string[] parts1 = subj1cbx.Text.Split(new char[] { ',' });
+            string[] parts2 = subj2cbx.Text.Split(new char[] { ',' });
+
+            if (subj1cbx.Text == subj2cbx.Text)
+                MessageBox.Show("О, Юлий Цезарь, выбери два РАЗНЫХ предмета.");
+               
+            else
+            {
+                main.MyUpdate("INSERT INTO teachers (name, password, mail, subjID, subj2ID)" +
+                              "VALUES('" + namebx.Text + "', '" + passbx.Text + "', '" + mailbx.Text + "', '" 
+                              + parts1[1] + "', '" + parts2[1] + "')");
+                MessageBox.Show("Сохранено");
+            }
 
             namebx.Text  = " ";
             passbx.Text = " ";
-            subjbx.Text = " ";
-            subj2bx.Text = " ";
+            subj1cbx.Text = " ";
+            subj2cbx.Text = " ";
             mailbx.Text = " ";
 
             AdminTeacher_Load(sender, e);
             return;
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
