@@ -31,3 +31,4 @@ C:\Users\user\source\repos\schedule\clientчето там\obj\Debug\clientчет
 C:\Users\user\source\repos\schedule\clientчето там\obj\Debug\clientчето_там.Admin.resources
 C:\Users\user\source\repos\schedule\clientчето там\obj\Debug\clientчето_там.AdminTeacher.resources
 C:\Users\user\source\repos\schedule\clientчето там\obj\Debug\clientчето_там.AdminSubject.resources
+C:\Users\user\source\repos\schedule\clientчето там\obj\Debug\clientчето_там.AdminRequestTeachers.resources

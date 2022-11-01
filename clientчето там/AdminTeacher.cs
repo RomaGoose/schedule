@@ -83,13 +83,14 @@ namespace clientчето_там
                
             else
             {
-                main.MyUpdate("INSERT INTO teachers (name, password, mail, subjID, subj2ID)" +
-                              "VALUES('" + namebx.Text + "', '" + passbx.Text + "', '" + mailbx.Text + "', '" 
+                main.MyUpdate("INSERT INTO teachers (name, login, password, mail, subjID, subj2ID)" +
+                              "VALUES('" + namebx.Text + "', '" + loginbx.Text + "', '" + passbx.Text + "', '" + mailbx.Text + "', '" 
                               + parts1[1] + "', '" + parts2[1] + "')");
                 MessageBox.Show("Сохранено");
             }
 
-            namebx.Text  = " ";
+            loginbx.Text = " ";
+            namebx.Text = " ";
             passbx.Text = " ";
             subj1cbx.Text = " ";
             subj2cbx.Text = " ";

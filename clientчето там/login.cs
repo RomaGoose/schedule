@@ -28,16 +28,31 @@ namespace clientчето_там
 
         }
         private void button1_Click(object sender, EventArgs e)
-        {
-            if(nametb.Text == "" || passtb.Text == "")
+        {   
+            if(logintb.Text == "" || passtb.Text == "")
             {
                 MessageBox.Show("Заполните все поля!", "Да блин");
             }
             else
             {
-                prepodForm pf = new prepodForm();
-                pf.ShowDialog();
+                List<string> user_data = main.MySelect("SELECT login, name FROM requestteachers WHERE login = '" + logintb.Text + "' and password = '" + passtb.Text + "'");
+                List<string> fakeuser_data = main.MySelect("SELECT login, name FROM teachers WHERE login = '" + logintb.Text + "' and password = '" + passtb.Text + "'");
+                if (fakeuser_data.Count > 0)
+                    MessageBox.Show("Погоди, админы спят или им просто лень принимать заявку", "Рано тебе сюда...");
+
+                if (user_data.Count > 0)
+                {
+                    prepodForm pf = new prepodForm(user_data[1]);
+                    pf.ShowDialog();
+                }
+
+               
             }
+        }
+
+        private void login_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

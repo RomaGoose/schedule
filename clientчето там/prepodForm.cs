@@ -12,15 +12,22 @@ namespace clientчето_там
 {
     public partial class prepodForm : Form
     {
-        public prepodForm()
+        public prepodForm(string name)
         {
             InitializeComponent();
+
+            label1.Text = "Вы вошли как " + name;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             change brr = new change();
             brr.ShowDialog();
+        }
+
+        private void prepodForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

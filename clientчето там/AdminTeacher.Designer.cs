@@ -31,6 +31,8 @@
             this.deletepan = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.addpan = new System.Windows.Forms.Panel();
+            this.subj2cbx = new System.Windows.Forms.ComboBox();
+            this.subj1cbx = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,8 +43,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.mailbx = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.subj1cbx = new System.Windows.Forms.ComboBox();
-            this.subj2cbx = new System.Windows.Forms.ComboBox();
+            this.loginbx = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.addpan.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,6 +71,8 @@
             // addpan
             // 
             this.addpan.AutoScroll = true;
+            this.addpan.Controls.Add(this.loginbx);
+            this.addpan.Controls.Add(this.label8);
             this.addpan.Controls.Add(this.subj2cbx);
             this.addpan.Controls.Add(this.subj1cbx);
             this.addpan.Controls.Add(this.button1);
@@ -84,8 +88,26 @@
             this.addpan.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.addpan.Location = new System.Drawing.Point(0, 272);
             this.addpan.Name = "addpan";
-            this.addpan.Size = new System.Drawing.Size(800, 293);
+            this.addpan.Size = new System.Drawing.Size(800, 322);
             this.addpan.TabIndex = 1;
+            // 
+            // subj2cbx
+            // 
+            this.subj2cbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.subj2cbx.FormattingEnabled = true;
+            this.subj2cbx.Location = new System.Drawing.Point(233, 222);
+            this.subj2cbx.Name = "subj2cbx";
+            this.subj2cbx.Size = new System.Drawing.Size(184, 24);
+            this.subj2cbx.TabIndex = 27;
+            // 
+            // subj1cbx
+            // 
+            this.subj1cbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.subj1cbx.FormattingEnabled = true;
+            this.subj1cbx.Location = new System.Drawing.Point(232, 183);
+            this.subj1cbx.Name = "subj1cbx";
+            this.subj1cbx.Size = new System.Drawing.Size(186, 24);
+            this.subj1cbx.TabIndex = 26;
             // 
             // button1
             // 
@@ -101,7 +123,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 193);
+            this.label6.Location = new System.Drawing.Point(9, 233);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(210, 16);
             this.label6.TabIndex = 24;
@@ -120,7 +142,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(10, 237);
+            this.label5.Location = new System.Drawing.Point(10, 277);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(151, 16);
             this.label5.TabIndex = 22;
@@ -128,7 +150,7 @@
             // 
             // namebx
             // 
-            this.namebx.Location = new System.Drawing.Point(231, 55);
+            this.namebx.Location = new System.Drawing.Point(232, 96);
             this.namebx.Name = "namebx";
             this.namebx.Size = new System.Drawing.Size(185, 22);
             this.namebx.TabIndex = 15;
@@ -136,7 +158,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 146);
+            this.label4.Location = new System.Drawing.Point(9, 190);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(160, 16);
             this.label4.TabIndex = 21;
@@ -144,7 +166,7 @@
             // 
             // passbx
             // 
-            this.passbx.Location = new System.Drawing.Point(232, 99);
+            this.passbx.Location = new System.Drawing.Point(233, 140);
             this.passbx.Name = "passbx";
             this.passbx.Size = new System.Drawing.Size(185, 22);
             this.passbx.TabIndex = 16;
@@ -152,7 +174,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 102);
+            this.label3.Location = new System.Drawing.Point(9, 146);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(151, 16);
             this.label3.TabIndex = 20;
@@ -160,7 +182,7 @@
             // 
             // mailbx
             // 
-            this.mailbx.Location = new System.Drawing.Point(232, 234);
+            this.mailbx.Location = new System.Drawing.Point(233, 271);
             this.mailbx.Name = "mailbx";
             this.mailbx.Size = new System.Drawing.Size(185, 22);
             this.mailbx.TabIndex = 18;
@@ -168,35 +190,33 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 58);
+            this.label7.Location = new System.Drawing.Point(9, 102);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(136, 16);
             this.label7.TabIndex = 19;
             this.label7.Text = "Введите Ваше имя...";
             // 
-            // subj1cbx
+            // loginbx
             // 
-            this.subj1cbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.subj1cbx.FormattingEnabled = true;
-            this.subj1cbx.Location = new System.Drawing.Point(231, 146);
-            this.subj1cbx.Name = "subj1cbx";
-            this.subj1cbx.Size = new System.Drawing.Size(186, 24);
-            this.subj1cbx.TabIndex = 26;
+            this.loginbx.Location = new System.Drawing.Point(232, 56);
+            this.loginbx.Name = "loginbx";
+            this.loginbx.Size = new System.Drawing.Size(185, 22);
+            this.loginbx.TabIndex = 28;
             // 
-            // subj2cbx
+            // label8
             // 
-            this.subj2cbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.subj2cbx.FormattingEnabled = true;
-            this.subj2cbx.Location = new System.Drawing.Point(232, 185);
-            this.subj2cbx.Name = "subj2cbx";
-            this.subj2cbx.Size = new System.Drawing.Size(184, 24);
-            this.subj2cbx.TabIndex = 27;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(9, 62);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(142, 16);
+            this.label8.TabIndex = 29;
+            this.label8.Text = "Введите Ваш логин...";
             // 
             // AdminTeacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 565);
+            this.ClientSize = new System.Drawing.Size(800, 594);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.addpan);
             this.Controls.Add(this.deletepan);
@@ -227,5 +247,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox subj2cbx;
         private System.Windows.Forms.ComboBox subj1cbx;
+        private System.Windows.Forms.TextBox loginbx;
+        private System.Windows.Forms.Label label8;
     }
 }

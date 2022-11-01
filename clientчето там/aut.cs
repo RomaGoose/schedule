@@ -15,6 +15,16 @@ namespace clientчето_там
         public aut()
         {
             InitializeComponent();
+
+
+            List<string> subject_list = main.MySelect("SELECT name, ID FROM subjects");
+
+            subj1cbx.Items.Clear();
+            for (int i = 0; i < subject_list.Count; i += 2)
+            {
+                subj1cbx.Items.Add(subject_list[i] + "," + subject_list[i + 1]);
+                subj2cbx.Items.Add(subject_list[i] + "," + subject_list[i + 1]);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -25,7 +35,26 @@ namespace clientчето_там
             }
             else 
             {
-                MessageBox.Show("Вы успешно зарегистрированы, пожалуйста, перейдите на вкладку авторизации и войдите в аккаунт", "Крутяк");
+                if (passtb.Text != pass2tb.Text)
+                    MessageBox.Show("Пароли не совпадают!", "Перепроверь");
+
+                else
+                {
+
+                    string[] parts1 = subj1cbx.Text.Split(new char[] { ',' });
+                    string[] parts2 = subj2cbx.Text.Split(new char[] { ',' });
+
+                    if (subj1cbx.Text == subj2cbx.Text)
+                        MessageBox.Show("О, Юлий Цезарь, выбери два РАЗНЫХ предмета.");
+
+                    else
+                    {
+                        main.MyUpdate("INSERT INTO requestteachers (name, login, password, mail, subjID, subj2ID)" +
+                                      "VALUES('" + nametb.Text + "', '" + logintb.Text + "', '" + passtb.Text + "', '" + mailtb.Text + "', '"
+                                      + parts1[1] + "', '" + parts2[1] + "')");
+                        MessageBox.Show("Вы успешно зарегистрированы, ожидайте подтверждения", "Крутяк");
+                    }
+                }
             }
         }
 
