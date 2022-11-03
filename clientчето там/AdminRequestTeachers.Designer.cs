@@ -28,30 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // panel1
+            // panel
             // 
-            this.panel1.Location = new System.Drawing.Point(12, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(776, 426);
-            this.panel1.TabIndex = 0;
+            this.panel.AutoScroll = true;
+            this.panel.Location = new System.Drawing.Point(12, 45);
+            this.panel.Name = "panel";
+            this.panel.Size = new System.Drawing.Size(917, 476);
+            this.panel.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.label1.Location = new System.Drawing.Point(7, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(211, 29);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Заявки учителей";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // AdminRequestTeachers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(941, 533);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel);
             this.Name = "AdminRequestTeachers";
             this.Text = "AdminRequestTeachers";
+            this.Load += new System.EventHandler(this.AdminRequestTeachers_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel;
+        private System.Windows.Forms.Label label1;
     }
 }

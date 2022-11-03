@@ -31,7 +31,6 @@
             this.FiltrPanel = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.presearch = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -114,6 +113,7 @@
             this.label78 = new System.Windows.Forms.Label();
             this.label79 = new System.Windows.Forms.Label();
             this.downpan = new System.Windows.Forms.Panel();
+            this.teachercbx = new System.Windows.Forms.ComboBox();
             this.FiltrPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -126,9 +126,9 @@
             // 
             this.FiltrPanel.BackColor = System.Drawing.Color.DarkOrange;
             this.FiltrPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.FiltrPanel.Controls.Add(this.teachercbx);
             this.FiltrPanel.Controls.Add(this.label10);
             this.FiltrPanel.Controls.Add(this.presearch);
-            this.FiltrPanel.Controls.Add(this.textBox1);
             this.FiltrPanel.Controls.Add(this.label3);
             this.FiltrPanel.Controls.Add(this.button2);
             this.FiltrPanel.Controls.Add(this.button1);
@@ -155,19 +155,12 @@
             // 
             // presearch
             // 
-            this.presearch.Location = new System.Drawing.Point(329, 145);
+            this.presearch.Location = new System.Drawing.Point(329, 147);
             this.presearch.Name = "presearch";
             this.presearch.Size = new System.Drawing.Size(115, 33);
             this.presearch.TabIndex = 12;
             this.presearch.Text = "Найти";
             this.presearch.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(12, 156);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(206, 22);
-            this.textBox1.TabIndex = 11;
             // 
             // label3
             // 
@@ -177,9 +170,9 @@
             this.label3.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.label3.Location = new System.Drawing.Point(9, 133);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(283, 20);
+            this.label3.Size = new System.Drawing.Size(293, 20);
             this.label3.TabIndex = 10;
-            this.label3.Text = "ИЛИ введите фамилию препода";
+            this.label3.Text = "ИЛИ выберите фамилию препода";
             // 
             // button2
             // 
@@ -203,12 +196,13 @@
             // 
             // stusearch
             // 
+            this.stusearch.BackColor = System.Drawing.SystemColors.ControlLight;
             this.stusearch.Location = new System.Drawing.Point(488, 83);
             this.stusearch.Name = "stusearch";
             this.stusearch.Size = new System.Drawing.Size(115, 33);
             this.stusearch.TabIndex = 6;
             this.stusearch.Text = "Найти";
-            this.stusearch.UseVisualStyleBackColor = true;
+            this.stusearch.UseVisualStyleBackColor = false;
             this.stusearch.Click += new System.EventHandler(this.search_Click);
             // 
             // label2
@@ -1156,6 +1150,15 @@
             this.downpan.Size = new System.Drawing.Size(884, 858);
             this.downpan.TabIndex = 1;
             // 
+            // teachercbx
+            // 
+            this.teachercbx.FormattingEnabled = true;
+            this.teachercbx.Location = new System.Drawing.Point(13, 156);
+            this.teachercbx.Name = "teachercbx";
+            this.teachercbx.Size = new System.Drawing.Size(292, 24);
+            this.teachercbx.TabIndex = 14;
+            this.teachercbx.SelectedIndexChanged += new System.EventHandler(this.teachercbx_SelectedIndexChanged);
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1193,7 +1196,6 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button presearch;
         private System.Windows.Forms.Label label10;
@@ -1270,6 +1272,7 @@
         private System.Windows.Forms.Label label78;
         private System.Windows.Forms.Label label79;
         private System.Windows.Forms.Panel downpan;
+        private System.Windows.Forms.ComboBox teachercbx;
     }
 }
 

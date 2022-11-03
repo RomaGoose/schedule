@@ -35,8 +35,8 @@ namespace clientчето_там
             }
             else
             {
-                List<string> user_data = main.MySelect("SELECT login, name FROM requestteachers WHERE login = '" + logintb.Text + "' and password = '" + passtb.Text + "'");
-                List<string> fakeuser_data = main.MySelect("SELECT login, name FROM teachers WHERE login = '" + logintb.Text + "' and password = '" + passtb.Text + "'");
+                List<string> user_data = main.MySelect("SELECT login, name FROM teachers WHERE login = '" + logintb.Text + "' and password = '" + passtb.Text + "'");
+                List<string> fakeuser_data = main.MySelect("SELECT login, name FROM requestteachers WHERE login = '" + logintb.Text + "' and password = '" + passtb.Text + "'");
                 if (fakeuser_data.Count > 0)
                     MessageBox.Show("Погоди, админы спят или им просто лень принимать заявку", "Рано тебе сюда...");
 

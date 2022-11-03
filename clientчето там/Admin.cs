@@ -15,6 +15,14 @@ namespace clientчето_там
         public Admin()
         {
             InitializeComponent();
+
+            List<string> list = main.MySelect("SELECT name FROM requestteachers");
+
+            if (list.Count > 0)
+                button3.BackColor = Color.Gold;
+
+        
+        
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,6 +40,8 @@ namespace clientчето_там
         private void button3_Click(object sender, EventArgs e)
         {
 
+            AdminRequestTeachers sus = new AdminRequestTeachers();
+            sus.ShowDialog();
         }
     }
 }

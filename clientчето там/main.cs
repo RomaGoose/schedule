@@ -131,9 +131,18 @@ namespace clientчето_там
                                                       "Teacher1, Teacher2, Teacher3, Teacher4, Teacher5, " +
                                                       "Classroom1, Classroom2, Classroom3, Classroom4, Classroom5 FROM fullday");
 
+            List<string> teacher_list = MySelect("SELECT name FROM teachers");
+
+            for (int i = 0; i < teacher_list.Count; i++)
+            {
+                teachercbx.Items.Add(teacher_list[i]);
+
+            }
+
+
             //"SELECT name, subject1, subject2, subject3, subject4, subject5, Teacher1, Teacher2, Teacher3, Teacher4, Teacher5, Classroom1, Classroom2, Classroom3, Classroom4, Classroom5 FROM fullday"
 
-            for(int i =0; i < list.Count; i+=16)
+            for (int i =0; i < list.Count; i+=16)
             {
 
                 DotW day = new DotW(list[i], list[i+1], list[i+2], list[i+3], list[i+4], list[i+5],
@@ -395,6 +404,11 @@ namespace clientчето_там
         {
             Admin sus = new Admin();
             sus.ShowDialog();
+        }
+
+        private void teachercbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
