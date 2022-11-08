@@ -32,7 +32,7 @@ namespace clientчето_там
                 lbl.Location = new Point(20, y);
                 lbl.Size = new Size(150, 50);
                 lbl.Font = new Font("Microsoft Sans Serif", 12);
-                lbl.Text = list[i];
+                lbl.Text = list[i]; 
                 panel.Controls.Add(lbl);
 
                 Label subjlbl = new Label();
