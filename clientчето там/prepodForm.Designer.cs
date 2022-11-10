@@ -76,15 +76,15 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(858, 105);
+            this.panel1.Size = new System.Drawing.Size(873, 142);
             this.panel1.TabIndex = 22;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button1.Location = new System.Drawing.Point(708, 12);
+            this.button1.Location = new System.Drawing.Point(12, 68);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(138, 77);
+            this.button1.Size = new System.Drawing.Size(248, 39);
             this.button1.TabIndex = 0;
             this.button1.Text = "Изменить расписание";
             this.button1.UseVisualStyleBackColor = true;
@@ -262,7 +262,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(858, 898);
+            this.ClientSize = new System.Drawing.Size(873, 898);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label9);
