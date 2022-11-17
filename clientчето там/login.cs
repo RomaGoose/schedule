@@ -55,7 +55,7 @@ namespace clientчето_там
                 }
 
                 if (user_data.Count == 0 && fakeuser_data.Count == 0 && wrong_user_data.Count == 0 && wrong_fakeuser_data.Count == 0)
-                    MessageBox.Show("Не знаем такого, может Вы еще не зарегисстрировались?", "Вы чёто перепутали");
+                    MessageBox.Show("Не знаем такого, может Вы еще не зарегистрировались?", "Вы чёто перепутали");
 
                
             }

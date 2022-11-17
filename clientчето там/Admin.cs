@@ -43,5 +43,11 @@ namespace clientчето_там
             AdminRequestTeachers sus = new AdminRequestTeachers();
             sus.ShowDialog();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            AdminFacultiesGrs sus = new AdminFacultiesGrs();
+            sus.ShowDialog();
+        }
     }
 }

@@ -114,8 +114,18 @@ namespace clientчето_там
 
             return list;
         }
-
-        public static void MyUpdate(string cmdText)
+        /*
+        private void Search_Click(object sender, EventArgs e)
+        {
+            HotelsPanel.Controls.Clear();
+            string command = "SELECT Name, City, Rating, Image, ID FROM hotels WHERE 1";
+            if (CityComboBox.Text != "")
+                command += " AND City = '" + CityComboBox.Text + "'";
+            if (RatingComboBox.Text != "")
+                command += " AND Rating >= '" + RatingComboBox.Text + "'";
+            List<string> otels = MySelect(command);
+        }*/
+            public static void MyUpdate(string cmdText)
         {
             MySqlCommand cmd = new MySqlCommand(cmdText, Program.CONN);
             DbDataReader reader = cmd.ExecuteReader();
