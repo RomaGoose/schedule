@@ -49,8 +49,6 @@ namespace clientчето_там
         public string Classroom5;
         public string Teacher5;
 
-        // public Label lbl;
-        //public TableLayoutPanel pan;
 
 
         public DotW(string _Name, string _Subject1, string _Subject2, string _Subject3, string _Subject4, string _Subject5,

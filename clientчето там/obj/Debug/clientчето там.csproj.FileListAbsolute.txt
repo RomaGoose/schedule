@@ -33,3 +33,24 @@ C:\Users\user\source\repos\schedule\clientчето там\obj\Debug\clientчет
 C:\Users\user\source\repos\schedule\clientчето там\obj\Debug\clientчето_там.AdminSubject.resources
 C:\Users\user\source\repos\schedule\clientчето там\obj\Debug\clientчето_там.AdminRequestTeachers.resources
 C:\Users\user\source\repos\schedule\clientчето там\obj\Debug\clientчето_там.AdminFacultiesGrs.resources
+C:\Users\Роман\Source\Repos\schedule\clientчето там\bin\Debug\clientчето там.exe.config
+C:\Users\Роман\Source\Repos\schedule\clientчето там\bin\Debug\clientчето там.exe
+C:\Users\Роман\Source\Repos\schedule\clientчето там\bin\Debug\clientчето там.pdb
+C:\Users\Роман\Source\Repos\schedule\clientчето там\bin\Debug\MySql.Data.dll
+C:\Users\Роман\Source\Repos\schedule\clientчето там\obj\Debug\clientчето там.csproj.AssemblyReference.cache
+C:\Users\Роман\Source\Repos\schedule\clientчето там\obj\Debug\clientчето там.csproj.SuggestedBindingRedirects.cache
+C:\Users\Роман\Source\Repos\schedule\clientчето там\obj\Debug\clientчето_там.Admin.resources
+C:\Users\Роман\Source\Repos\schedule\clientчето там\obj\Debug\clientчето_там.AdminFacultiesGrs.resources
+C:\Users\Роман\Source\Repos\schedule\clientчето там\obj\Debug\clientчето_там.AdminSubject.resources
+C:\Users\Роман\Source\Repos\schedule\clientчето там\obj\Debug\clientчето_там.AdminTeacher.resources
+C:\Users\Роман\Source\Repos\schedule\clientчето там\obj\Debug\clientчето_там.aut.resources
+C:\Users\Роман\Source\Repos\schedule\clientчето там\obj\Debug\clientчето_там.login.resources
+C:\Users\Роман\Source\Repos\schedule\clientчето там\obj\Debug\clientчето_там.prepodForm.resources
+C:\Users\Роман\Source\Repos\schedule\clientчето там\obj\Debug\clientчето_там.main.resources
+C:\Users\Роман\Source\Repos\schedule\clientчето там\obj\Debug\clientчето_там.Properties.Resources.resources
+C:\Users\Роман\Source\Repos\schedule\clientчето там\obj\Debug\clientчето_там.AdminRequestTeachers.resources
+C:\Users\Роман\Source\Repos\schedule\clientчето там\obj\Debug\clientчето там.csproj.GenerateResource.cache
+C:\Users\Роман\Source\Repos\schedule\clientчето там\obj\Debug\clientчето там.csproj.CoreCompileInputs.cache
+C:\Users\Роман\Source\Repos\schedule\clientчето там\obj\Debug\clientчето там.csproj.CopyComplete
+C:\Users\Роман\Source\Repos\schedule\clientчето там\obj\Debug\clientчето там.exe
+C:\Users\Роман\Source\Repos\schedule\clientчето там\obj\Debug\clientчето там.pdb
