@@ -31,18 +31,26 @@ namespace clientчето_там
 
         private void AdminTeacher_Load(object sender, EventArgs e)
         {
-            List<string> list = main.MySelect("SELECT name FROM teachers");
+            List<string> list = main.MySelect("SELECT name, mail, ID FROM teachers");
             deletepan.Controls.Clear();
 
             int y = 30;
-            for(int i=0; i < list.Count; i++)
+            for(int i=0; i < list.Count; i+=3)
             {
                 Label lbl = new Label();
                 lbl.Location = new Point(50, y);
-                lbl.Size = new Size(250, 20);
+                lbl.Size = new Size(150, 20);
                 lbl.Font = new Font("Microsoft Sans Serif", 12);
                 lbl.Text = list[i];
+                lbl.Tag = list[i + 2];
                 deletepan.Controls.Add(lbl);
+
+                Label lbl2 = new Label();
+                lbl2.Location = new Point(200, y);
+                lbl2.Size = new Size(150, 20);
+                lbl2.Font = new Font("Microsoft Sans Serif", 12);
+                lbl2.Text = list[i + 1];
+                deletepan.Controls.Add(lbl2);
 
                 Button btn = new Button();
                 btn.Location = new Point(350, y);
@@ -79,7 +87,7 @@ namespace clientчето_там
             string[] parts2 = subj2cbx.Text.Split(new char[] { ',' });
 
             if (subj1cbx.Text == subj2cbx.Text)
-                MessageBox.Show("О, Юлий Цезарь, выбери два РАЗНЫХ предмета.");
+                MessageBox.Show("Bыбери два РАЗНЫХ предмета.");
                
             else
             {

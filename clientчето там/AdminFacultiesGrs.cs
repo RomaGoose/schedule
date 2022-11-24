@@ -134,7 +134,7 @@ namespace clientчето_там
 
             else
             {
-                main.MyUpdate("INSERT INTO groups (name, facID) VALUES('" + groupnametb.Text + "', '" + parts[1] +"')");
+                main.MyUpdate("INSERT INTO groups (name, facID) VALUES('" + groupnametb.Text + "','" + parts[1] +"')");
                 MessageBox.Show("Сохранено", "Успешно");
             }
 

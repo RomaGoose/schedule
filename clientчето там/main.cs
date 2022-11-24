@@ -135,48 +135,55 @@ namespace clientчето_там
         public main()
         {
             InitializeComponent();
-            List<string> list = MySelect("SELECT name, subject1, subject2, subject3, subject4, subject5, " +
-                                                      "Teacher1, Teacher2, Teacher3, Teacher4, Teacher5, " +
-                                                      "Classroom1, Classroom2, Classroom3, Classroom4, Classroom5 FROM fullday");
+            //List<string> list = MySelect("SELECT name, subject1, subject2, subject3, subject4, subject5, " +
+            //                                          "Teacher1, Teacher2, Teacher3, Teacher4, Teacher5, " +
+            //                                          "Classroom1, Classroom2, Classroom3, Classroom4, Classroom5 FROM fullday");
 
             List<string> teacher_list = MySelect("SELECT name FROM teachers");
 
             for (int i = 0; i < teacher_list.Count; i++)
-            {
                 teachercbx.Items.Add(teacher_list[i]);
+            
+            List<string> fac_list = MySelect("SELECT name, ID FROM faculties");
 
-            }
+            for (int i = 0; i < fac_list.Count; i += 2)
+                faccbx.Items.Add(fac_list[i] + ',' + fac_list[i+1]);
+
+            List<string> gr_list = MySelect("SELECT name, ID FROM groups");
+
+            for (int i = 0; i < gr_list.Count; i += 2)
+                grcbx.Items.Add(gr_list[i] + ',' + gr_list[i + 1]);
 
 
             //"SELECT name, subject1, subject2, subject3, subject4, subject5, Teacher1, Teacher2, Teacher3, Teacher4, Teacher5, Classroom1, Classroom2, Classroom3, Classroom4, Classroom5 FROM fullday"
 
-            for (int i =0; i < list.Count; i+=16)
-            {
+            /* for (int i =0; i < list.Count; i+=16)
+             {
 
-                DotW day = new DotW(list[i], list[i+1], list[i+2], list[i+3], list[i+4], list[i+5],
-                                             list[i+6], list[i+7], list[i+8], list[i+9], list[i+10],
-                                             list[i+11], list[i+12], list[i+13], list[i+14], list[i+15]);
-                dotWs.Add(day);
+                 DotW day = new DotW(list[i], list[i+1], list[i+2], list[i+3], list[i+4], list[i+5],
+                                              list[i+6], list[i+7], list[i+8], list[i+9], list[i+10],
+                                              list[i+11], list[i+12], list[i+13], list[i+14], list[i+15]);
+                 dotWs.Add(day);
 
-            }
+             }
 
 
-            int x;
-            for (int i = 1; i < 16; i++)
-            {
-                if (i < 6) x = 0;
-                else if (i > 5 && i < 11) x = 1;
-                else x = 2;
+             int x;
+             for (int i = 1; i < 16; i++)
+             {
+                 if (i < 6) x = 0;
+                 else if (i > 5 && i < 11) x = 1;
+                 else x = 2;
 
-                Label label = new Label();
-                label.Anchor = AnchorStyles.None;
-                label.Size = new Size(126, 32);
-                label.Location = new Point(3, 0);
-                label.Text = list[i];
-                label.TextAlign = ContentAlignment.MiddleCenter;
-                monpan.Controls.Add(label, x, i - x * 5 - 1);
-            }
-           
+                 Label label = new Label();
+                 label.Anchor = AnchorStyles.None;
+                 label.Size = new Size(126, 32);
+                 label.Location = new Point(3, 0);
+                 label.Text = list[i];
+                 label.TextAlign = ContentAlignment.MiddleCenter;
+                 monpan.Controls.Add(label, x, i - x * 5 - 1);
+             }*/
+
 
 
 

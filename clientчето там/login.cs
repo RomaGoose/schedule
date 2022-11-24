@@ -37,7 +37,7 @@ namespace clientчето_там
             {
                 List<string> wrong_user_data = main.MySelect("SELECT name FROM teachers WHERE login = '" + logintb.Text + "'");
                 List<string> wrong_fakeuser_data = main.MySelect("SELECT name FROM requestteachers WHERE login = '" + logintb.Text + "'");
-                List<string> user_data = main.MySelect("SELECT login, name FROM teachers WHERE login = '" + logintb.Text + "' and password = '" + passtb.Text + "'");
+                List<string> user_data = main.MySelect("SELECT login, name, ID FROM teachers WHERE login = '" + logintb.Text + "' and password = '" + passtb.Text + "'");
                 List<string> fakeuser_data = main.MySelect("SELECT login, name FROM requestteachers WHERE login = '" + logintb.Text + "' and password = '" + passtb.Text + "'");
                 if (fakeuser_data.Count == 0 && wrong_fakeuser_data.Count > 0)
                     MessageBox.Show("Во-первых," + wrong_fakeuser_data[0] + ", Вы не угадали пароль, во-вторых админы вашу заявку ещё не одобрили", "Комбо");
@@ -50,7 +50,7 @@ namespace clientчето_там
                 
                 if (user_data.Count > 0)
                 {
-                    prepodForm pf = new prepodForm(user_data[1]);
+                    prepodForm pf = new prepodForm(user_data[2]);
                     pf.ShowDialog();
                 }
 
