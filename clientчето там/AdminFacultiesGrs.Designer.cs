@@ -42,7 +42,6 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.eventLog1 = new System.Diagnostics.EventLog();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             this.SuspendLayout();
@@ -51,7 +50,7 @@
             // 
             this.facpan.AutoScroll = true;
             this.facpan.Location = new System.Drawing.Point(9, 48);
-            this.facpan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.facpan.Margin = new System.Windows.Forms.Padding(2);
             this.facpan.Name = "facpan";
             this.facpan.Size = new System.Drawing.Size(500, 191);
             this.facpan.TabIndex = 0;
@@ -60,7 +59,7 @@
             // 
             this.grpan.AutoScroll = true;
             this.grpan.Location = new System.Drawing.Point(514, 48);
-            this.grpan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpan.Margin = new System.Windows.Forms.Padding(2);
             this.grpan.Name = "grpan";
             this.grpan.Size = new System.Drawing.Size(500, 191);
             this.grpan.TabIndex = 1;
@@ -124,7 +123,7 @@
             // facnametb
             // 
             this.facnametb.Location = new System.Drawing.Point(12, 305);
-            this.facnametb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.facnametb.Margin = new System.Windows.Forms.Padding(2);
             this.facnametb.Name = "facnametb";
             this.facnametb.Size = new System.Drawing.Size(213, 20);
             this.facnametb.TabIndex = 7;
@@ -132,7 +131,7 @@
             // groupnametb
             // 
             this.groupnametb.Location = new System.Drawing.Point(514, 305);
-            this.groupnametb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupnametb.Margin = new System.Windows.Forms.Padding(2);
             this.groupnametb.Name = "groupnametb";
             this.groupnametb.Size = new System.Drawing.Size(213, 20);
             this.groupnametb.TabIndex = 9;
@@ -164,7 +163,7 @@
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(514, 355);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(213, 21);
             this.comboBox1.TabIndex = 11;
@@ -173,7 +172,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.button1.Location = new System.Drawing.Point(12, 349);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 26);
             this.button1.TabIndex = 12;
@@ -185,23 +184,13 @@
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.button2.Location = new System.Drawing.Point(758, 349);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(93, 26);
             this.button2.TabIndex = 13;
             this.button2.Text = "Добавить";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.AddGrClick);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(438, 273);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(345, 13);
-            this.label8.TabIndex = 14;
-            this.label8.Text = "баг при удалении нужно дописать аутоскролл икс, чекни сплиттер";
             // 
             // eventLog1
             // 
@@ -212,7 +201,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1020, 396);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
@@ -227,7 +215,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.grpan);
             this.Controls.Add(this.facpan);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AdminFacultiesGrs";
             this.Text = "AdminFacultiesGrs";
             this.Load += new System.EventHandler(this.AdminFacultiesGrs_Load);
@@ -253,7 +241,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label8;
         private System.Diagnostics.EventLog eventLog1;
     }
 }

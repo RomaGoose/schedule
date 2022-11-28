@@ -114,6 +114,7 @@
             this.label78 = new System.Windows.Forms.Label();
             this.label79 = new System.Windows.Forms.Label();
             this.downpan = new System.Windows.Forms.Panel();
+            this.label20 = new System.Windows.Forms.Label();
             this.FiltrPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -126,6 +127,7 @@
             // 
             this.FiltrPanel.BackColor = System.Drawing.Color.DarkOrange;
             this.FiltrPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.FiltrPanel.Controls.Add(this.label20);
             this.FiltrPanel.Controls.Add(this.teachercbx);
             this.FiltrPanel.Controls.Add(this.label10);
             this.FiltrPanel.Controls.Add(this.presearch);
@@ -140,7 +142,7 @@
             this.FiltrPanel.Controls.Add(this.FiltrBut);
             this.FiltrPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.FiltrPanel.Location = new System.Drawing.Point(0, 0);
-            this.FiltrPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FiltrPanel.Margin = new System.Windows.Forms.Padding(2);
             this.FiltrPanel.Name = "FiltrPanel";
             this.FiltrPanel.Size = new System.Drawing.Size(663, 160);
             this.FiltrPanel.TabIndex = 0;
@@ -149,7 +151,7 @@
             // 
             this.teachercbx.FormattingEnabled = true;
             this.teachercbx.Location = new System.Drawing.Point(10, 127);
-            this.teachercbx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.teachercbx.Margin = new System.Windows.Forms.Padding(2);
             this.teachercbx.Name = "teachercbx";
             this.teachercbx.Size = new System.Drawing.Size(220, 21);
             this.teachercbx.TabIndex = 14;
@@ -168,7 +170,7 @@
             // presearch
             // 
             this.presearch.Location = new System.Drawing.Point(247, 119);
-            this.presearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.presearch.Margin = new System.Windows.Forms.Padding(2);
             this.presearch.Name = "presearch";
             this.presearch.Size = new System.Drawing.Size(86, 27);
             this.presearch.TabIndex = 12;
@@ -191,7 +193,7 @@
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(566, 10);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(88, 33);
             this.button2.TabIndex = 8;
@@ -202,7 +204,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(474, 10);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 33);
             this.button1.TabIndex = 7;
@@ -214,7 +216,7 @@
             // 
             this.stusearch.BackColor = System.Drawing.SystemColors.ControlLight;
             this.stusearch.Location = new System.Drawing.Point(366, 67);
-            this.stusearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.stusearch.Margin = new System.Windows.Forms.Padding(2);
             this.stusearch.Name = "stusearch";
             this.stusearch.Size = new System.Drawing.Size(86, 27);
             this.stusearch.TabIndex = 6;
@@ -245,7 +247,7 @@
             "не очень",
             "лишняя хромосома"});
             this.grcbx.Location = new System.Drawing.Point(173, 67);
-            this.grcbx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grcbx.Margin = new System.Windows.Forms.Padding(2);
             this.grcbx.Name = "grcbx";
             this.grcbx.Size = new System.Drawing.Size(161, 28);
             this.grcbx.TabIndex = 4;
@@ -275,7 +277,7 @@
             "когтевран",
             "пуффендуй"});
             this.faccbx.Location = new System.Drawing.Point(9, 67);
-            this.faccbx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.faccbx.Margin = new System.Windows.Forms.Padding(2);
             this.faccbx.Name = "faccbx";
             this.faccbx.Size = new System.Drawing.Size(161, 28);
             this.faccbx.TabIndex = 1;
@@ -283,7 +285,7 @@
             // FiltrBut
             // 
             this.FiltrBut.Location = new System.Drawing.Point(9, 10);
-            this.FiltrBut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FiltrBut.Margin = new System.Windows.Forms.Padding(2);
             this.FiltrBut.Name = "FiltrBut";
             this.FiltrBut.Size = new System.Drawing.Size(88, 33);
             this.FiltrBut.TabIndex = 0;
@@ -300,7 +302,7 @@
             this.monpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44F));
             this.monpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
             this.monpan.Location = new System.Drawing.Point(24, 36);
-            this.monpan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.monpan.Margin = new System.Windows.Forms.Padding(2);
             this.monpan.Name = "monpan";
             this.monpan.RowCount = 6;
             this.monpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
@@ -404,7 +406,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label18, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.label19, 0, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(340, 268);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
@@ -595,7 +597,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel2.Location = new System.Drawing.Point(24, 268);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 6;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
@@ -631,7 +633,7 @@
             this.tableLayoutPanel3.Controls.Add(this.label48, 2, 4);
             this.tableLayoutPanel3.Controls.Add(this.label49, 0, 0);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(24, 501);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 6;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
@@ -837,7 +839,7 @@
             this.tableLayoutPanel4.Controls.Add(this.label63, 2, 4);
             this.tableLayoutPanel4.Controls.Add(this.label64, 0, 0);
             this.tableLayoutPanel4.Location = new System.Drawing.Point(343, 501);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 6;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
@@ -1043,7 +1045,7 @@
             this.tableLayoutPanel5.Controls.Add(this.label78, 2, 4);
             this.tableLayoutPanel5.Controls.Add(this.label79, 0, 0);
             this.tableLayoutPanel5.Location = new System.Drawing.Point(343, 36);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 5;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
@@ -1242,10 +1244,19 @@
             this.downpan.Controls.Add(this.monpan);
             this.downpan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.downpan.Location = new System.Drawing.Point(0, 160);
-            this.downpan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.downpan.Margin = new System.Windows.Forms.Padding(2);
             this.downpan.Name = "downpan";
             this.downpan.Size = new System.Drawing.Size(663, 678);
             this.downpan.TabIndex = 1;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(269, 20);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(154, 13);
+            this.label20.TabIndex = 15;
+            this.label20.Text = "апдейт у4чителя не работает";
             // 
             // main
             // 
@@ -1254,7 +1265,7 @@
             this.ClientSize = new System.Drawing.Size(663, 838);
             this.Controls.Add(this.downpan);
             this.Controls.Add(this.FiltrPanel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "main";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.main_Load);
@@ -1362,6 +1373,7 @@
         private System.Windows.Forms.Label label79;
         private System.Windows.Forms.Panel downpan;
         private System.Windows.Forms.ComboBox teachercbx;
+        private System.Windows.Forms.Label label20;
     }
 }
 

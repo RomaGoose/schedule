@@ -425,5 +425,11 @@ namespace clientчето_там
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form1 sus = new Form1();
+            sus.ShowDialog();
+        }
     }
 }

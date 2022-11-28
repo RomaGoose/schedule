@@ -13,13 +13,14 @@ namespace clientчето_там
     public partial class Account : Form
     {
         public int teacherid;
+        public List<string> subject_list;
         public Account(string ID)
         {
             InitializeComponent();
             
             teacherid = Convert.ToInt32(ID);
 
-            List<string> subject_list = main.MySelect("SELECT name, ID FROM subjects");
+            subject_list = main.MySelect("SELECT name, ID FROM subjects");
 
             subj1cbx.Items.Clear();
             for (int i = 0; i < subject_list.Count; i += 2)
@@ -63,19 +64,39 @@ namespace clientчето_там
             subj1cbx.Enabled = true;
             subj2cbx.Enabled = true;
 
+            subj1cbx.Visible = true;
+            subj2cbx.Visible = true;
+
+            sub1lbl.Visible = false;
+            sub2lbl.Visible = false;
+
+            linkLabel1.Visible = false; 
+
         }
         private void UpdateClick(object sender, EventArgs e)
         {
             string[] parts1 = subj1cbx.Text.Split(new char[] { ',' });
             string[] parts2 = subj2cbx.Text.Split(new char[] { ',' });
 
-            main.MyUpdate("UPDATE teachers SET name='" + nametb.Text + "' , login='" + logintb.Text + "' , password='" + passtb.Text + "' , subjID='" + parts1[1] + "' , subj2ID='" + parts2[1] + "'");
+            main.MyUpdate("UPDATE teachers SET name='" + nametb.Text + "' , login='" + logintb.Text + "' , password='" + passtb.Text + "' , subjID='" + parts1[1] + "' , subj2ID='" + parts2[1] + "' WHERE ID ='" + teacherid + "'");
             MessageBox.Show("Сохранено");
             Account_Load(sender, e); 
         }
 
         private void Account_Load(object sender, EventArgs e)
         {
+            nametb.Enabled = false;
+            passtb.Enabled = false;
+            logintb.Enabled = false;
+            mailtb.Enabled = false;
+            subj1cbx.Enabled = false;
+            subj2cbx.Enabled = false;
+            subj1cbx.Visible = false;
+            subj2cbx.Visible = false;
+            sub1lbl.Visible = true;
+            sub2lbl.Visible = true;
+            linkLabel1.Visible = true;
+            btn.Visible = false;
 
             string name = label1.Text; //еще mail гдето, спросиь можгно ли один цикл фор использовать а не два одинаковых сверху и снизуу
             List<string> user_data = main.MySelect("SELECT name, login, password, mail, subjID, subj2ID FROM teachers WHERE ID = '" + teacherid + "'");
@@ -83,14 +104,25 @@ namespace clientчето_там
             List<string> sub1 = main.MySelect("SELECT name FROM subjects WHERE ID = '" + user_data[4] + "'");
             List<string> sub2 = main.MySelect("SELECT name FROM subjects WHERE ID = '" + user_data[5] + "'");
 
+            int sub1ind = 0;
+            int sub2ind = 0;
 
+            for (int i = 0; i < subject_list.Count; i += 2)
+            {
+                if (subject_list[i] == sub1[0])
+                    sub1ind = i/2;
+                if (subject_list[i] == sub2[0])
+                    sub2ind = i/2;
+            }
 
             nametb.Text = user_data[0];
             logintb.Text = user_data[1];
             passtb.Text = user_data[2];
             mailtb.Text = user_data[3];
-            subj1cbx.Text = sub1[0];
-            subj2cbx.Text = sub2[0];
+            sub1lbl.Text = sub1[0];
+            sub2lbl.Text = sub2[0];
+            subj1cbx.SelectedIndex = sub1ind;
+            subj2cbx.SelectedIndex = sub2ind;
 
         }
     }

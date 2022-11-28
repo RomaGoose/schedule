@@ -46,14 +46,14 @@ namespace clientчето_там
                 deletepan.Controls.Add(lbl);
 
                 Label lbl2 = new Label();
-                lbl2.Location = new Point(200, y);
+                lbl2.Location = new Point(200, y); //(200, y);
                 lbl2.Size = new Size(150, 20);
                 lbl2.Font = new Font("Microsoft Sans Serif", 12);
                 lbl2.Text = list[i + 1];
                 deletepan.Controls.Add(lbl2);
 
                 Button btn = new Button();
-                btn.Location = new Point(350, y);
+                btn.Location = new Point(350, y); //(350, y);
                 btn.Size = new Size(100, 30);
                 btn.Font = new Font("Microsoft Sans Serif", 12);
                 btn.Click += new EventHandler(DeleteHotelClick);
@@ -109,6 +109,21 @@ namespace clientчето_там
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void namepan_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void mailpan_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
         {
 
         }

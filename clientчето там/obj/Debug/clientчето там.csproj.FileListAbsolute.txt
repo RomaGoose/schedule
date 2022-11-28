@@ -55,3 +55,4 @@ C:\Users\Роман\Source\Repos\schedule\clientчето там\obj\Debug\client
 C:\Users\Роман\Source\Repos\schedule\clientчето там\obj\Debug\clientчето там.exe
 C:\Users\Роман\Source\Repos\schedule\clientчето там\obj\Debug\clientчето там.pdb
 C:\Users\Роман\source\repos\schedule\clientчето там\obj\Debug\clientчето_там.Account.resources
+C:\Users\Роман\source\repos\schedule\clientчето там\obj\Debug\clientчето_там.Form1.resources

@@ -34,45 +34,46 @@ namespace clientчето_там
             
             facpan.Controls.Clear();
 
-            int y = 30;
+            int fy = 30;
             for (int i = 0; i < faclist.Count; i += 2)
             {
                 Label lbl = new Label();
-                lbl.Location = new Point(30, y);
+                lbl.Location = new Point(30, fy);
                 lbl.Size = new Size(250, 20);
                 lbl.Font = new Font("Microsoft Sans Serif", 12);
                 lbl.Text = faclist[i];
                 facpan.Controls.Add(lbl);
 
                 Button btn = new Button();
-                btn.Location = new Point(350, y);
+                btn.Location = new Point(350, fy);
                 btn.Size = new Size(100, 30);
                 btn.Font = new Font("Microsoft Sans Serif", 12);
                 btn.Click += new EventHandler(DeleteFacClick);
                 btn.Text = "Удалить";
                 facpan.Controls.Add(btn);
 
-                y += 30;
+                fy += 30;
             }
-           
+
+            int gy = 30;
             for (int i = 0; i < grlist.Count; i++)
             {
                 Label lbl = new Label();
-                lbl.Location = new Point(30, y);
+                lbl.Location = new Point(30, gy);
                 lbl.Size = new Size(250, 20);
                 lbl.Font = new Font("Microsoft Sans Serif", 12);
                 lbl.Text = grlist[i];
                 grpan.Controls.Add(lbl);
 
                 Button btn = new Button();
-                btn.Location = new Point(350, y);
+                btn.Location = new Point(350, gy);
                 btn.Size = new Size(100, 30);
                 btn.Font = new Font("Microsoft Sans Serif", 12);
                 btn.Click += new EventHandler(DeleteGrClick);
                 btn.Text = "Удалить";
                 grpan.Controls.Add(btn);
 
-                y += 30;
+                gy += 30;
             }
         }
         private void DeleteFacClick(object sender, EventArgs e)
@@ -109,19 +110,18 @@ namespace clientчето_там
                 }
             }
         }
-       
         private void AddFacClick(object sender, EventArgs e)
         {
-            if (facnametb.Text == " ")
+            if (facnametb.Text == "")
                 MessageBox.Show("Заполните поле", "Обшибка");
-
             else
             {
                 main.MyUpdate("INSERT INTO faculties (name) VALUES('" + facnametb.Text + "')");
                 MessageBox.Show("Сохранено", "Успешно");
             }
+           
 
-            facnametb.Text = " ";
+            facnametb.Text = "";
 
             AdminFacultiesGrs_Load(sender, e);
         }
@@ -129,16 +129,16 @@ namespace clientчето_там
         {
             string[] parts = comboBox1.Text.Split(new char[] { ',' });
 
-            if (groupnametb.Text == " ")
-                MessageBox.Show("Заполните поле", "Обшибка");
+            if (groupnametb.Text == "" || comboBox1.Text == "")
+                MessageBox.Show("Заполните поля", "Обшибка");
 
-            else
-            {
+             if (!(groupnametb.Text == "") && !(comboBox1.Text == ""))
+             {
                 main.MyUpdate("INSERT INTO groups (name, facID) VALUES('" + groupnametb.Text + "','" + parts[1] +"')");
                 MessageBox.Show("Сохранено", "Успешно");
-            }
+             }
 
-            groupnametb.Text = " ";
+            groupnametb.Text = "";
 
             AdminFacultiesGrs_Load(sender, e);
 
