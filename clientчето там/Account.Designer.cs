@@ -47,6 +47,7 @@
             this.subj2cbx = new System.Windows.Forms.ComboBox();
             this.sub1lbl = new System.Windows.Forms.Label();
             this.sub2lbl = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -238,11 +239,24 @@
             this.sub2lbl.TabIndex = 54;
             this.sub2lbl.Text = "label9";
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.button1.Location = new System.Drawing.Point(362, 296);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(122, 30);
+            this.button1.TabIndex = 55;
+            this.button1.Text = "Сохранить";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.UpdateClick);
+            // 
             // Account
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(495, 331);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.sub2lbl);
             this.Controls.Add(this.sub1lbl);
             this.Controls.Add(this.subj2cbx);
@@ -290,5 +304,6 @@
         private System.Windows.Forms.ComboBox subj2cbx;
         private System.Windows.Forms.Label sub1lbl;
         private System.Windows.Forms.Label sub2lbl;
+        private System.Windows.Forms.Button button1;
     }
 }

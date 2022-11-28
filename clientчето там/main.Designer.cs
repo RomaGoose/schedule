@@ -114,7 +114,6 @@
             this.label78 = new System.Windows.Forms.Label();
             this.label79 = new System.Windows.Forms.Label();
             this.downpan = new System.Windows.Forms.Panel();
-            this.label20 = new System.Windows.Forms.Label();
             this.FiltrPanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -127,7 +126,6 @@
             // 
             this.FiltrPanel.BackColor = System.Drawing.Color.DarkOrange;
             this.FiltrPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.FiltrPanel.Controls.Add(this.label20);
             this.FiltrPanel.Controls.Add(this.teachercbx);
             this.FiltrPanel.Controls.Add(this.label10);
             this.FiltrPanel.Controls.Add(this.presearch);
@@ -1249,15 +1247,6 @@
             this.downpan.Size = new System.Drawing.Size(663, 678);
             this.downpan.TabIndex = 1;
             // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(269, 20);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(154, 13);
-            this.label20.TabIndex = 15;
-            this.label20.Text = "апдейт у4чителя не работает";
-            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1373,7 +1362,6 @@
         private System.Windows.Forms.Label label79;
         private System.Windows.Forms.Panel downpan;
         private System.Windows.Forms.ComboBox teachercbx;
-        private System.Windows.Forms.Label label20;
     }
 }
 

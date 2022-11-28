@@ -49,13 +49,7 @@ namespace clientчето_там
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Button btn = new Button();
-            btn.Location = new Point(362, 296);
-            btn.Name = "btn";
-            btn.Size = new Size(122, 30);
-            btn.Text = "Сохранить";
-            btn.Click += new EventHandler(UpdateClick);
-            Controls.Add(btn);
+            button1.Visible = true;
 
             nametb.Enabled = true;
             passtb.Enabled = true;
@@ -96,7 +90,7 @@ namespace clientчето_там
             sub1lbl.Visible = true;
             sub2lbl.Visible = true;
             linkLabel1.Visible = true;
-            btn.Visible = false;
+            button1.Visible = false;
 
             string name = label1.Text; //еще mail гдето, спросиь можгно ли один цикл фор использовать а не два одинаковых сверху и снизуу
             List<string> user_data = main.MySelect("SELECT name, login, password, mail, subjID, subj2ID FROM teachers WHERE ID = '" + teacherid + "'");
