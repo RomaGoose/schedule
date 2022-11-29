@@ -49,5 +49,17 @@ namespace clientчето_там
             AdminFacultiesGrs sus = new AdminFacultiesGrs();
             sus.ShowDialog();
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            AdminAddSchedule sus = new AdminAddSchedule();
+            sus.ShowDialog();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            AdminClasses sus = new AdminClasses();
+            sus.ShowDialog();
+        }
     }
 }

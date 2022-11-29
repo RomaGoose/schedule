@@ -62,11 +62,23 @@
     <Compile Include="Admin.Designer.cs">
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminClasses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminClasses.Designer.cs">
+      <DependentUpon>AdminClasses.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminFacultiesGrs.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AdminFacultiesGrs.Designer.cs">
       <DependentUpon>AdminFacultiesGrs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminAddSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminAddSchedule.Designer.cs">
+      <DependentUpon>AdminAddSchedule.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminSubject.cs">
       <SubType>Form</SubType>
@@ -130,8 +142,14 @@
     <EmbeddedResource Include="Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminClasses.resx">
+      <DependentUpon>AdminClasses.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminFacultiesGrs.resx">
       <DependentUpon>AdminFacultiesGrs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminAddSchedule.resx">
+      <DependentUpon>AdminAddSchedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminSubject.resx">
       <DependentUpon>AdminSubject.cs</DependentUpon>

@@ -21,6 +21,8 @@ namespace clientчето_там
 
             List<string> subject_list = main.MySelect("SELECT name, ID FROM subjects");
 
+
+
             subj1cbx.Items.Clear();
             for (int i = 0; i < subject_list.Count; i += 2)
             {
@@ -38,22 +40,22 @@ namespace clientчето_там
             for(int i=0; i < list.Count; i+=3)
             {
                 Label lbl = new Label();
-                lbl.Location = new Point(50, y);
+                lbl.Location = new Point(10, y);
                 lbl.Size = new Size(150, 20);
                 lbl.Font = new Font("Microsoft Sans Serif", 12);
                 lbl.Text = list[i];
                 lbl.Tag = list[i + 2];
-                deletepan.Controls.Add(lbl);
+                namepan.Controls.Add(lbl);
 
                 Label lbl2 = new Label();
-                lbl2.Location = new Point(200, y); //(200, y);
+                lbl2.Location = new Point(10, y); //(200, y);
                 lbl2.Size = new Size(150, 20);
                 lbl2.Font = new Font("Microsoft Sans Serif", 12);
                 lbl2.Text = list[i + 1];
-                deletepan.Controls.Add(lbl2);
+                mailpan.Controls.Add(lbl2);
 
                 Button btn = new Button();
-                btn.Location = new Point(350, y); //(350, y);
+                btn.Location = new Point(10, y); //(350, y);
                 btn.Size = new Size(100, 30);
                 btn.Font = new Font("Microsoft Sans Serif", 12);
                 btn.Click += new EventHandler(DeleteHotelClick);
@@ -126,6 +128,14 @@ namespace clientчето_там
         private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
         {
 
+        }
+
+        private void AdminTeacher_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1.PerformClick();
+            }
         }
     }
 }

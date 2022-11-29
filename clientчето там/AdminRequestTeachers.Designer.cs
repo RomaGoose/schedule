@@ -35,29 +35,32 @@
             // panel
             // 
             this.panel.AutoScroll = true;
-            this.panel.Location = new System.Drawing.Point(12, 45);
+            this.panel.Location = new System.Drawing.Point(9, 37);
+            this.panel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(917, 476);
+            this.panel.Size = new System.Drawing.Size(816, 387);
             this.panel.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.label1.Location = new System.Drawing.Point(7, 9);
+            this.label1.Location = new System.Drawing.Point(5, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(211, 29);
+            this.label1.Size = new System.Drawing.Size(170, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Заявки учителей";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // AdminRequestTeachers
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(941, 533);
+            this.ClientSize = new System.Drawing.Size(836, 433);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AdminRequestTeachers";
             this.Text = "AdminRequestTeachers";
             this.Load += new System.EventHandler(this.AdminRequestTeachers_Load);
