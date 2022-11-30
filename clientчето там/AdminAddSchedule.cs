@@ -17,10 +17,12 @@ namespace clientчето_там
             InitializeComponent();
 
             List<string> faculties = main.MySelect("SELECT name, ID FROM faculties");
-            List<string> groups = main.MySelect("SELECT name, ID FROM groups");
-            for (int i = 0; i < faculties.Count; i += 2) faccbx.Items.Add(faculties[i] + "," + faculties[i + 1]);
-            for (int i = 0; i < groups.Count; i += 2) grcbx.Items.Add(groups[i] + "," + groups[i + 1]);
-
+            List<string> groups = main.MySelect("SELECT name, facID, ID FROM groups");
+           
+            for (int i = 0; i < groups.Count; i += 3)
+               for (int j = 0; j < faculties.Count; j += 2)
+                    if (groups[i + 1] == faculties[j + 1])
+                        grcbx.Items.Add(groups[i] + "," + faculties[j] + "," + groups[i + 2]);
 
             List<string> subject_list = main.MySelect("SELECT name, ID FROM subjects");
             List<string> teachers_list = main.MySelect("SELECT name, ID, subjID, subj2ID FROM teachers");
@@ -167,6 +169,97 @@ namespace clientчето_там
 
         }
 
+      
+
+        private void AddClick(object sender, EventArgs e)
+        {
+            string daytext = "";
+            char[] aaaa = { 's', 'u', 'b', 't', 'e', 'a', 'c', 'h', 'e', 'r', 'c', 'l', 'a', 's', 's' };
+            string[] gparts = grcbx.Text.Split(new char[] { ',' });
+            
+            // hz = control.Name.TrimEnd(aaaa);
+            if (gparts.Count() > 1)
+            {             
+
+                for (int dotw = 0; dotw < 1; dotw++)
+                {
+                    if (dotw == 0) daytext = "mon";
+                    if (dotw == 1) daytext = "tue";
+                    if (dotw == 2) daytext = "wen";
+                    if (dotw == 3) daytext = "thu";
+                    if (dotw == 4) daytext = "fri";
+                    if (dotw == 5) daytext = "sat";
+
+                    for (int less = 1; less < 6; less++)
+                    {
+                        string[] tparts = { };
+                        string[] sparts = { };
+                        string[] cparts = { };
+          
+                        int flag = 0;
+                        string message = "";
+
+                        foreach (Control control in pan.Controls)
+                        {
+                            if (control.Name == (daytext + less + "teacher"))
+                            {
+                                if (control.Text == "") 
+                                {
+                                    flag += 1;
+                                    message += daytext + less + "teacher, не заполнено \n";
+                                }
+                                else tparts = control.Text.Split(new char[] { ',' });
+                            }
+
+                            if (control.Name == (daytext + less + "sub"))
+                            {
+                                if (control.Text == "") 
+                                { 
+                                    message += daytext + less + "sub, не заполнено \n"; 
+                                    flag += 1;
+                                }
+                                else sparts = control.Text.Split(new char[] { ',' });
+                            }
+
+
+                            if (control.Name == (daytext + less + "class"))
+                            {
+                                if (control.Text == "")
+                                {
+                                    message += daytext + less + "class, не заполнено \n";
+                                    flag += 1;
+                                }
+                                else cparts = control.Text.Split(new char[] { ',' });
+                            }
+
+                    
+
+                        }
+
+                        if (flag != 0 && flag != 3)
+                        {
+                            MessageBox.Show(message, "Ошибка");
+                            goto leave;
+
+                        }
+
+                        if(flag == 0)
+                        main.MyUpdate("INSERT INTO lessons (teacherID, subjID, groupID, classroomID)" +
+                                      "VALUES('" + tparts[1] + "', '" + sparts[1] + "', '" + gparts[2] + "', '" + cparts[1] + "')");
+                  
+                    }
+                  
+                           
+                }
+            
+            leave:
+                ; 
+            
+            }
+            else
+                MessageBox.Show("Выберите группу", "Ошибка");
+        }
+        
         private void toolStripComboBox2_Click(object sender, EventArgs e)
         {
 

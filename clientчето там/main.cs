@@ -124,11 +124,11 @@ namespace clientчето_там
             List<string> otels = MySelect(command);
         }*/
             public static void MyUpdate(string cmdText)
-        {
+            {
             MySqlCommand cmd = new MySqlCommand(cmdText, Program.CONN);
             DbDataReader reader = cmd.ExecuteReader();
             reader.Close();
-        }
+            }
 
 
 
@@ -430,6 +430,10 @@ namespace clientчето_там
         {
             Form1 sus = new Form1();
             sus.ShowDialog();
+        }
+
+        private void presearch_Click(object sender, EventArgs e)
+        {
         }
     }
 }

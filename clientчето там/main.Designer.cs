@@ -174,6 +174,7 @@
             this.presearch.TabIndex = 12;
             this.presearch.Text = "Найти";
             this.presearch.UseVisualStyleBackColor = true;
+            this.presearch.Click += new System.EventHandler(this.presearch_Click);
             // 
             // label3
             // 
