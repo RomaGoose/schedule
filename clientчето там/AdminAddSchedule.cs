@@ -24,14 +24,14 @@ namespace clientчето_там
                     if (groups[i + 1] == faculties[j + 1])
                         grcbx.Items.Add(groups[i] + "," + faculties[j] + "," + groups[i + 2]);
 
-            List<string> subject_list = main.MySelect("SELECT name, ID FROM subjects");
-            List<string> teachers_list = main.MySelect("SELECT name, ID, subjID, subj2ID FROM teachers");
+            List<string> subject_list    = main.MySelect("SELECT name, ID FROM subjects");
+            List<string> teachers_list   = main.MySelect("SELECT name, ID, subjID, subj2ID FROM teachers");
             List<string> classrooms_list = main.MySelect("SELECT name, ID FROM classrooms");
 
             string daytext = "";
             int x = 0;
             int y = 0;
-
+            
 
             for (int dotw = 0; dotw < 6; dotw++)
             {

@@ -60,6 +60,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.pan = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // grcbx
@@ -364,11 +366,31 @@
             this.pan.Size = new System.Drawing.Size(999, 464);
             this.pan.TabIndex = 171;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(623, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(206, 13);
+            this.label1.TabIndex = 172;
+            this.label1.Text = "-можно делать окна (свободные уроки)";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(623, 32);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(136, 13);
+            this.label9.TabIndex = 173;
+            this.label9.Text = "-можно делать выходные";
+            // 
             // AdminAddSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1125, 581);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pan);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label25);
@@ -439,5 +461,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel pan;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label9;
     }
 }

@@ -136,6 +136,7 @@
     <Compile Include="AdminRequestTeachers.Designer.cs">
       <DependentUpon>AdminRequestTeachers.cs</DependentUpon>
     </Compile>
+    <Compile Include="sql.cs" />
     <EmbeddedResource Include="Account.resx">
       <DependentUpon>Account.cs</DependentUpon>
     </EmbeddedResource>

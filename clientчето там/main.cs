@@ -94,24 +94,7 @@ namespace clientчето_там
       
 
 
-        public static List<string> MySelect(string cmdtext)
-        {
-            List<string> list = new List<string>();
-
-            MySqlCommand cmd = new MySqlCommand(cmdtext, Program.CONN);
-            DbDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {   
-                for(int i = 0; i < reader.FieldCount; i++)
-                {
-                    list.Add(reader.GetValue(i).ToString());
-                }
-
-            }
-            reader.Close();
-
-            return list;
-        }
+      
         /*
         private void Search_Click(object sender, EventArgs e)
         {
@@ -123,33 +106,29 @@ namespace clientчето_там
                 command += " AND Rating >= '" + RatingComboBox.Text + "'";
             List<string> otels = MySelect(command);
         }*/
-            public static void MyUpdate(string cmdText)
-            {
-            MySqlCommand cmd = new MySqlCommand(cmdText, Program.CONN);
-            DbDataReader reader = cmd.ExecuteReader();
-            reader.Close();
-            }
+
+          
 
 
 
         public main()
         {
             InitializeComponent();
-            //List<string> list = MySelect("SELECT name, subject1, subject2, subject3, subject4, subject5, " +
+            //List<string> list = sql.Select("SELECT name, subject1, subject2, subject3, subject4, subject5, " +
             //                                          "Teacher1, Teacher2, Teacher3, Teacher4, Teacher5, " +
             //                                          "Classroom1, Classroom2, Classroom3, Classroom4, Classroom5 FROM fullday");
 
-            List<string> teacher_list = MySelect("SELECT name FROM teachers");
+            List<string> teacher_list = sql.Select("SELECT name FROM teachers");
 
             for (int i = 0; i < teacher_list.Count; i++)
                 teachercbx.Items.Add(teacher_list[i]);
             
-            List<string> fac_list = MySelect("SELECT name, ID FROM faculties");
+            List<string> fac_list = sql.Select("SELECT name, ID FROM faculties");
 
             for (int i = 0; i < fac_list.Count; i += 2)
                 faccbx.Items.Add(fac_list[i] + ',' + fac_list[i+1]);
 
-            List<string> gr_list = MySelect("SELECT name, ID FROM groups");
+            List<string> gr_list = sql.Select("SELECT name, ID FROM groups");
 
             for (int i = 0; i < gr_list.Count; i += 2)
                 grcbx.Items.Add(gr_list[i] + ',' + gr_list[i + 1]);

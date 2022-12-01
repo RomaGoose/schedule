@@ -10,8 +10,6 @@ namespace clientчето_там
     
     internal static class Program
     {
-        public const string connection_string = "SslMode=none;Server=localhost;Database=schedule;Uid=root;";
-        public static MySqlConnection CONN;
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
@@ -21,12 +19,12 @@ namespace clientчето_там
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            CONN = new MySqlConnection(connection_string);
-            CONN.Open();
+            sql.CONN = new MySqlConnection(sql.connection_string);
+            sql.CONN.Open();
 
             Application.Run(new main());
 
-            CONN.Close();
+            sql.CONN.Close();
         }
     }
 }
