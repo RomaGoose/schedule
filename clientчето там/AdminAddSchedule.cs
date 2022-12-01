@@ -179,9 +179,9 @@ namespace clientчето_там
             
             // hz = control.Name.TrimEnd(aaaa);
             if (gparts.Count() > 1)
-            {             
-
-                for (int dotw = 0; dotw < 1; dotw++)
+            {
+                int dayflag = 0;
+                for (int dotw = 0; dotw < 6; dotw++)
                 {
                     if (dotw == 0) daytext = "mon";
                     if (dotw == 1) daytext = "tue";
@@ -190,6 +190,11 @@ namespace clientчето_там
                     if (dotw == 4) daytext = "fri";
                     if (dotw == 5) daytext = "sat";
 
+                    main.MyUpdate("INSERT INTO dotw (name, groupID) VALUES('" + daytext + "', '" + gparts[2] + "')");
+                    List<string> list = main.MySelect("SELECT ID FROM dotw");
+                    List<string> lessid = new List<string>();
+                    int listflag = 0;
+                       
                     for (int less = 1; less < 6; less++)
                     {
                         string[] tparts = { };
@@ -205,8 +210,8 @@ namespace clientчето_там
                             {
                                 if (control.Text == "") 
                                 {
-                                    flag += 1;
                                     message += daytext + less + "teacher, не заполнено \n";
+                                    flag++; listflag++;
                                 }
                                 else tparts = control.Text.Split(new char[] { ',' });
                             }
@@ -215,8 +220,8 @@ namespace clientчето_там
                             {
                                 if (control.Text == "") 
                                 { 
-                                    message += daytext + less + "sub, не заполнено \n"; 
-                                    flag += 1;
+                                    message += daytext + less + "sub, не заполнено \n";
+                                    flag++; listflag++;
                                 }
                                 else sparts = control.Text.Split(new char[] { ',' });
                             }
@@ -227,7 +232,7 @@ namespace clientчето_там
                                 if (control.Text == "")
                                 {
                                     message += daytext + less + "class, не заполнено \n";
-                                    flag += 1;
+                                    flag++; listflag++;
                                 }
                                 else cparts = control.Text.Split(new char[] { ',' });
                             }
@@ -235,25 +240,49 @@ namespace clientчето_там
                     
 
                         }
-
+                         
+                           
                         if (flag != 0 && flag != 3)
                         {
                             MessageBox.Show(message, "Ошибка");
+                            main.MyUpdate("DELETE FROM dotw WHERE ID = '" + list.Last() + "'");
                             goto leave;
-
                         }
 
-                        if(flag == 0)
-                        main.MyUpdate("INSERT INTO lessons (teacherID, subjID, groupID, classroomID)" +
-                                      "VALUES('" + tparts[1] + "', '" + sparts[1] + "', '" + gparts[2] + "', '" + cparts[1] + "')");
-                  
+                        if (flag == 3)
+                            lessid.Add("0");
+
+                        if (flag == 0)
+                        {
+                            main.MyUpdate("INSERT INTO lessons (teacherID, subjID, groupID, classroomID, dayID)" +
+                                          "VALUES('" + tparts[1] + "', '" + sparts[1] + "', '" + gparts[2] + "', '" + cparts[1] + "', '" + list.Last() + "')");
+                            List<string> lesslist = main.MySelect("SELECT ID FROM lessons");
+                            lessid.Add(lesslist.Last());
+                        }
+                        //for less
                     }
-                  
-                           
+                    //for dotw
+                    if (listflag == 15)
+                    {
+                      //  MessageBox.Show("Заполните" + daytext, "Ошибка");
+                        main.MyUpdate("DELETE FROM dotw WHERE ID = '" + list.Last() + "'");
+                        dayflag++;
+                        //goto leave;
+                    }
+                    if (lessid.Count>0 && listflag != 15)
+                    {
+                        main.MyUpdate("UPDATE dotw SET s1ID ='" + lessid[0] + "' , s2ID ='" + lessid[1] + "' , s3ID ='" + lessid[2] + "' , s4ID ='" + lessid[3] + "' , s5ID ='" + lessid[4] + "' WHERE ID = '" + list.Last() + "'");
+                        MessageBox.Show("Сохранено " + daytext, "Успешно");
+                    }
+                          
                 }
-            
-            leave:
-                ; 
+
+                if (dayflag == 6)
+                    MessageBox.Show("Заполните хотя бы один день", "Ошибка");
+                dayflag = 0;
+
+                leave:
+                   ; 
             
             }
             else
