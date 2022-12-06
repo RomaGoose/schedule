@@ -20,7 +20,7 @@ namespace clientчето_там
             
             teacherid = Convert.ToInt32(ID);
 
-            subject_list = main.MySelect("SELECT name, ID FROM subjects");
+            subject_list = sql.Select("SELECT name, ID FROM subjects");
 
             subj1cbx.Items.Clear();
             for (int i = 0; i < subject_list.Count; i += 2)
@@ -72,7 +72,7 @@ namespace clientчето_там
             string[] parts1 = subj1cbx.Text.Split(new char[] { ',' });
             string[] parts2 = subj2cbx.Text.Split(new char[] { ',' });
 
-            main.MyUpdate("UPDATE teachers SET name='" + nametb.Text + "' , login='" + logintb.Text + "' , password='" + passtb.Text + "' , subjID='" + parts1[1] + "' , subj2ID='" + parts2[1] + "' WHERE ID ='" + teacherid + "'");
+            sql.Select("UPDATE teachers SET name='" + nametb.Text + "' , login='" + logintb.Text + "' , password='" + passtb.Text + "' , subjID='" + parts1[1] + "' , subj2ID='" + parts2[1] + "' WHERE ID ='" + teacherid + "'");
             MessageBox.Show("Сохранено");
             Account_Load(sender, e); 
         }
@@ -93,10 +93,10 @@ namespace clientчето_там
             button1.Visible = false;
 
             string name = label1.Text; //еще mail гдето, спросиь можгно ли один цикл фор использовать а не два одинаковых сверху и снизуу
-            List<string> user_data = main.MySelect("SELECT name, login, password, mail, subjID, subj2ID FROM teachers WHERE ID = '" + teacherid + "'");
+            List<string> user_data = sql.Select("SELECT name, login, password, mail, subjID, subj2ID FROM teachers WHERE ID = '" + teacherid + "'");
            
-            List<string> sub1 = main.MySelect("SELECT name FROM subjects WHERE ID = '" + user_data[4] + "'");
-            List<string> sub2 = main.MySelect("SELECT name FROM subjects WHERE ID = '" + user_data[5] + "'");
+            List<string> sub1 = sql.Select("SELECT name FROM subjects WHERE ID = '" + user_data[4] + "'");
+            List<string> sub2 = sql.Select("SELECT name FROM subjects WHERE ID = '" + user_data[5] + "'");
 
             int sub1ind = 0;
             int sub2ind = 0;

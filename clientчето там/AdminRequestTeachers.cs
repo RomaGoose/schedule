@@ -19,14 +19,14 @@ namespace clientчето_там
 
         private void AdminRequestTeachers_Load(object sender, EventArgs e)
         {
-            List<string> list = main.MySelect("SELECT name, subjID, subj2ID FROM requestteachers");
+            List<string> list = sql.Select("SELECT name, subjID, subj2ID FROM requestteachers");
             panel.Controls.Clear();
 
             int y = 30;
             for (int i = 0; i < list.Count; i += 3)
             {
-                List<string> sublist = main.MySelect("SELECT name FROM subjects WHERE ID = '" + list[i + 1] + "'");
-                List<string> sub2list = main.MySelect("SELECT name FROM subjects WHERE ID = '" + list[i + 2] + "'");
+                List<string> sublist = sql.Select("SELECT name FROM subjects WHERE ID = '" + list[i + 1] + "'");
+                List<string> sub2list = sql.Select("SELECT name FROM subjects WHERE ID = '" + list[i + 2] + "'");
 
                 Label lbl = new Label();
                 lbl.Location = new Point(20, y);
@@ -82,14 +82,14 @@ namespace clientчето_там
             {
                 if (control.Location == new Point(20 + x, y))
                 {
-                    List<string> list = main.MySelect("SELECT name, login, password, mail, subjID, subj2ID FROM requestteachers WHERE name = '" + control.Text + "'");
+                    List<string> list = sql.Select("SELECT name, login, password, mail, subjID, subj2ID FROM requestteachers WHERE name = '" + control.Text + "'");
 
 
-                    main.MyUpdate("INSERT INTO teachers (name, login, password, mail, subjID, subj2ID)" +
+                    sql.Select("INSERT INTO teachers (name, login, password, mail, subjID, subj2ID)" +
                                   "VALUES('" + list[0] + "', '" + list[1] + "', '" + list[2] + 
                                   "', '" + list[3] + "', '" + list[4] + "', '" + list[5] + "')"); 
                     
-                    main.MyUpdate("DELETE FROM requestteachers WHERE name = '" + control.Text + "'");
+                    sql.Select("DELETE FROM requestteachers WHERE name = '" + control.Text + "'");
                     MessageBox.Show("Плюс один кадр", "Принято");
 
                     AdminRequestTeachers_Load(sender, e);
@@ -108,7 +108,7 @@ namespace clientчето_там
             {
                 if (control.Location == new Point(20 + x, y))
                 {
-                    main.MyUpdate("DELETE FROM requestteachers WHERE name = '" + control.Text + "'");
+                    sql.Select("DELETE FROM requestteachers WHERE name = '" + control.Text + "'");
                     MessageBox.Show("Жалко его","Отклонено");
                     AdminRequestTeachers_Load(sender, e);
                     return;

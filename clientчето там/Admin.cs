@@ -16,7 +16,7 @@ namespace clientчето_там
         {
             InitializeComponent();
 
-            List<string> list = main.MySelect("SELECT name FROM requestteachers");
+            List<string> list = sql.Select("SELECT name FROM requestteachers");
 
             if (list.Count > 0)
                 button3.BackColor = Color.Gold;

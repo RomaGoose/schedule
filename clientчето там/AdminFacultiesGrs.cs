@@ -24,8 +24,8 @@ namespace clientчето_там
 
         private void AdminFacultiesGrs_Load(object sender, EventArgs e)
         {
-            List<string> faclist = main.MySelect("SELECT name, ID FROM faculties");
-            List<string> grlist = main.MySelect("SELECT name FROM groups");
+            List<string> faclist = sql.Select("SELECT name, ID FROM faculties");
+            List<string> grlist = sql.Select("SELECT name FROM groups");
 
             comboBox1.Items.Clear();
             for (int i = 0; i < faclist.Count; i += 2)
@@ -86,7 +86,7 @@ namespace clientчето_там
             {
                 if (control.Location == new Point(30 + x, y))
                 {
-                    main.MyUpdate("DELETE FROM faculties WHERE name = '" + control.Text + "'");
+                    sql.Select("DELETE FROM faculties WHERE name = '" + control.Text + "'");
                     MessageBox.Show("Низвёл до атомов");
                     AdminFacultiesGrs_Load(sender, e);
                     return;
@@ -103,7 +103,7 @@ namespace clientчето_там
             {
                 if (control.Location == new Point(30 + x, y))
                 {
-                    main.MyUpdate("DELETE FROM groups WHERE name = '" + control.Text + "'");
+                    sql.Select("DELETE FROM groups WHERE name = '" + control.Text + "'");
                     MessageBox.Show("Низвёл до атомов");
                     AdminFacultiesGrs_Load(sender, e);
                     return;
@@ -116,7 +116,7 @@ namespace clientчето_там
                 MessageBox.Show("Заполните поле", "Обшибка");
             else
             {
-                main.MyUpdate("INSERT INTO faculties (name) VALUES('" + facnametb.Text + "')");
+                sql.Select("INSERT INTO faculties (name) VALUES('" + facnametb.Text + "')");
                 MessageBox.Show("Сохранено", "Успешно");
             }
            
@@ -134,7 +134,7 @@ namespace clientчето_там
 
              if (!(groupnametb.Text == "") && !(comboBox1.Text == ""))
              {
-                main.MyUpdate("INSERT INTO groups (name, facID) VALUES('" + groupnametb.Text + "','" + parts[1] +"')");
+                sql.Select("INSERT INTO groups (name, facID) VALUES('" + groupnametb.Text + "','" + parts[1] +"')");
                 MessageBox.Show("Сохранено", "Успешно");
              }
 

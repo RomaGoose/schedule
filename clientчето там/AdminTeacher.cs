@@ -19,7 +19,7 @@ namespace clientчето_там
         {
             InitializeComponent();
 
-            List<string> subject_list = main.MySelect("SELECT name, ID FROM subjects");
+            List<string> subject_list = sql.Select("SELECT name, ID FROM subjects");
 
 
 
@@ -33,8 +33,10 @@ namespace clientчето_там
 
         private void AdminTeacher_Load(object sender, EventArgs e)
         {
-            List<string> list = main.MySelect("SELECT name, mail, ID FROM teachers");
+            List<string> list = sql.Select("SELECT name, mail, ID FROM teachers");
             deletepan.Controls.Clear();
+            namepan.Controls.Clear();
+            mailpan.Controls.Clear();
 
             int y = 30;
             for(int i=0; i < list.Count; i+=3)
@@ -44,18 +46,54 @@ namespace clientчето_там
                 lbl.Size = new Size(150, 20);
                 lbl.Font = new Font("Microsoft Sans Serif", 12);
                 lbl.Text = list[i];
+                lbl.Name = "lbl" + i;
                 lbl.Tag = list[i + 2];
-                namepan.Controls.Add(lbl);
+                lbl.Visible = true;
+                namepan.Controls.Add(lbl); 
+         
+                TextBox tb = new TextBox();
+                tb.Location = new Point(10, y);
+                tb.Size = new Size(250, 20);
+                tb.Font = new Font("Microsoft Sans Serif", 12);
+                tb.Name = "tb" + i; 
+                tb.Visible = false;
+                tb.Text = list[i];
+                tb.Tag = list[i + 2];
+                namepan.Controls.Add(tb);
 
                 Label lbl2 = new Label();
-                lbl2.Location = new Point(10, y); //(200, y);
+                lbl2.Location = new Point(10, y); 
                 lbl2.Size = new Size(150, 20);
                 lbl2.Font = new Font("Microsoft Sans Serif", 12);
                 lbl2.Text = list[i + 1];
-                mailpan.Controls.Add(lbl2);
+                lbl2.Name = "lbl2" + i;
+                lbl2.Tag = list[i + 2];
+                lbl2.Visible = true;
+                mailpan.Controls.Add(lbl2); 
+                
+                TextBox tb2 = new TextBox();
+                tb2.Location = new Point(10, y);
+                tb2.Size = new Size(250, 20);
+                tb2.Font = new Font("Microsoft Sans Serif", 12);
+                tb2.Name = "tb2" + i; 
+                tb2.Visible = false;
+                tb2.Text = list[i + 1];
+                tb2.Tag = list[i + 2];
+                mailpan.Controls.Add(tb2);
+
+                PictureBox pb = new PictureBox();
+                pb = new PictureBox();
+                pb.Load("../../pictures/change.png");
+                pb.Click += new EventHandler(UpdateNameClick);
+                pb.Location = new Point(10, y);
+                pb.Size = new Size(30, 30);
+                pb.SizeMode = PictureBoxSizeMode.Zoom; 
+                toolTip1.SetToolTip(pb, "Изменить");
+                deletepan.Controls.Add(pb);
+
 
                 Button btn = new Button();
-                btn.Location = new Point(10, y); //(350, y);
+                btn.Location = new Point(50, y); //(350, y);
                 btn.Size = new Size(100, 30);
                 btn.Font = new Font("Microsoft Sans Serif", 12);
                 btn.Click += new EventHandler(DeleteHotelClick);
@@ -65,17 +103,85 @@ namespace clientчето_там
                 y += 30;
             }
         }
+        private void UpdateNameClick(object sender, EventArgs e)
+        {
+            PictureBox btn = (PictureBox)sender;
+            int y = btn.Location.Y;
+            foreach (Control control in namepan.Controls)
+            {
+                if (control.Location == new Point(10, y))
+                {
+                    if (control.Name.StartsWith("tb"))
+                        control.Visible = true;
+                    if (control.Name.StartsWith("lbl"))
+                        control.Visible = false;
+                }
+            }
+            foreach (Control control in mailpan.Controls)
+            {
+                if (control.Location.Y == y)
+                {
+                    if (control.Name.StartsWith("tb"))
+                        control.Visible = true;
+                    if (control.Name.StartsWith("lbl"))
+                        control.Visible = false;
+                }
+            }
+            btn.Load("../../pictures/save.png");
+            btn.Click += new EventHandler(SaveClick);
+            toolTip1.SetToolTip(btn, "Сохранить");
+
+
+        }
+        private void SaveClick(object sender, EventArgs e)
+        {
+            PictureBox btn = (PictureBox)sender;
+            int y = btn.Location.Y;
+            foreach (Control control in namepan.Controls)
+            {
+                if (control.Location == new Point(10, y))
+                {
+                    if (control.Name.StartsWith("tb"))
+                    {
+                        control.Visible = false;
+                        sql.Update("UPDATE teachers SET name='" + control.Text + "' WHERE ID ='" + control.Tag + "'");
+                    }
+                    if (control.Name.StartsWith("lbl"))
+                        control.Visible = true;
+                }
+            }
+
+            foreach (Control control in mailpan.Controls)
+            {
+                if (control.Location.Y == y)
+                {
+                    if (control.Name.StartsWith("tb"))
+                    {
+                        control.Visible = false;
+                        sql.Update("UPDATE teachers SET mail='" + control.Text + "' WHERE ID ='" + control.Tag + "'");
+                        MessageBox.Show("Сохранено"); 
+                      
+                    }
+                    if (control.Name.StartsWith("lbl"))
+                        control.Visible = true;
+                }
+            }
+            btn.Load("../../pictures/change.png");
+            btn.Click += new EventHandler(UpdateNameClick);
+            AdminTeacher_Load(sender, e);
+                 
+        }
 
         private void DeleteHotelClick(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
             int y = btn.Location.Y;
 
-            foreach(Control control in deletepan.Controls)
+            foreach(Control control in namepan.Controls)
             {
-                if(control.Location == new Point (50, y))
+                if(control.Location == new Point (10, y))
                 {
-                    main.MyUpdate("DELETE FROM teachers WHERE name = '" + control.Text + "'");
+                    sql.Select("DELETE FROM teachers WHERE ID = '" + control.Tag + "'");
                     MessageBox.Show("Низвёл до атомов");
                     AdminTeacher_Load(sender, e);
                     return;
@@ -93,18 +199,18 @@ namespace clientчето_там
                
             else
             {
-                main.MyUpdate("INSERT INTO teachers (name, login, password, mail, subjID, subj2ID)" +
+                sql.Select("INSERT INTO teachers (name, login, password, mail, subjID, subj2ID)" +
                               "VALUES('" + namebx.Text + "', '" + loginbx.Text + "', '" + passbx.Text + "', '" + mailbx.Text + "', '" 
                               + parts1[1] + "', '" + parts2[1] + "')");
                 MessageBox.Show("Сохранено");
             }
 
-            loginbx.Text = " ";
-            namebx.Text = " ";
-            passbx.Text = " ";
-            subj1cbx.Text = " ";
-            subj2cbx.Text = " ";
-            mailbx.Text = " ";
+            loginbx.Text = "";
+            namebx.Text = "";
+            passbx.Text = "";
+            subj1cbx.Text = "";
+            subj2cbx.Text = "";
+            mailbx.Text = "";
 
             AdminTeacher_Load(sender, e);
             return;
@@ -136,6 +242,11 @@ namespace clientчето_там
             {
                 button1.PerformClick();
             }
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
         }
     }
 }

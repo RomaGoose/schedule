@@ -17,7 +17,7 @@ namespace clientчето_там
             InitializeComponent();
 
 
-            List<string> subject_list = main.MySelect("SELECT name, ID FROM subjects");
+            List<string> subject_list = sql.Select("SELECT name, ID FROM subjects");
 
             subj1cbx.Items.Clear();
             for (int i = 0; i < subject_list.Count; i += 2)
@@ -49,7 +49,7 @@ namespace clientчето_там
 
                     else
                     {
-                        main.MyUpdate("INSERT INTO requestteachers (name, login, password, mail, subjID, subj2ID)" +
+                        sql.Select("INSERT INTO requestteachers (name, login, password, mail, subjID, subj2ID)" +
                                       "VALUES('" + nametb.Text + "', '" + logintb.Text + "', '" + passtb.Text + "', '" + mailtb.Text + "', '"
                                       + parts1[1] + "', '" + parts2[1] + "')");
                         MessageBox.Show("Вы успешно зарегистрированы, ожидайте подтверждения", "Крутяк");

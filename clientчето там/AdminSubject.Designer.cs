@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.deletepan = new System.Windows.Forms.Panel();
             this.addpan = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
@@ -35,6 +36,7 @@
             this.namebx = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.addpan.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,7 +45,7 @@
             this.deletepan.AutoScroll = true;
             this.deletepan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.deletepan.Location = new System.Drawing.Point(0, 31);
-            this.deletepan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.deletepan.Margin = new System.Windows.Forms.Padding(2);
             this.deletepan.Name = "deletepan";
             this.deletepan.Size = new System.Drawing.Size(600, 273);
             this.deletepan.TabIndex = 0;
@@ -56,7 +58,7 @@
             this.addpan.Controls.Add(this.label2);
             this.addpan.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.addpan.Location = new System.Drawing.Point(0, 309);
-            this.addpan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.addpan.Margin = new System.Windows.Forms.Padding(2);
             this.addpan.Name = "addpan";
             this.addpan.Size = new System.Drawing.Size(600, 197);
             this.addpan.TabIndex = 1;
@@ -65,7 +67,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.button1.Location = new System.Drawing.Point(464, 142);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(127, 46);
             this.button1.TabIndex = 3;
@@ -87,7 +89,7 @@
             // namebx
             // 
             this.namebx.Location = new System.Drawing.Point(13, 60);
-            this.namebx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.namebx.Margin = new System.Windows.Forms.Padding(2);
             this.namebx.Name = "namebx";
             this.namebx.Size = new System.Drawing.Size(122, 20);
             this.namebx.TabIndex = 1;
@@ -125,7 +127,7 @@
             this.Controls.Add(this.addpan);
             this.Controls.Add(this.deletepan);
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AdminSubject";
             this.Text = "AdminSubject";
             this.Load += new System.EventHandler(this.AdminSubject_Load);
@@ -146,5 +148,6 @@
         private System.Windows.Forms.TextBox namebx;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

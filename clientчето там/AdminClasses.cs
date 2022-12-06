@@ -19,7 +19,7 @@ namespace clientчето_там
 
         private void button1_Click(object sender, EventArgs e)
         {
-            main.MyUpdate("INSERT INTO classrooms (name)" +
+            sql.Update("INSERT INTO classrooms (name)" +
                          "VALUES('" + namebx.Text + "')");
             MessageBox.Show("Сохранено");
             AdminClasses_Load(sender, e);
@@ -36,7 +36,7 @@ namespace clientчето_там
             {
                 if (control.Location == new Point(50, y))
                 {
-                    main.MyUpdate("DELETE FROM classrooms WHERE name = '" + control.Text + "'");
+                    sql.Select("DELETE FROM classrooms WHERE name = '" + control.Text + "'");
                     MessageBox.Show("Низвёл до атомов");
                     AdminClasses_Load(sender, e);
                     return;
@@ -46,7 +46,7 @@ namespace clientчето_там
 
         private void AdminClasses_Load(object sender, EventArgs e)
         {
-            List<string> list = main.MySelect("SELECT name FROM classrooms");
+            List<string> list = sql.Select("SELECT name FROM classrooms");
             deletepan.Controls.Clear();
 
             int y = 30;

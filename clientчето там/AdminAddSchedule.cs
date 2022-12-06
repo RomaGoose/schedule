@@ -16,17 +16,17 @@ namespace clientчето_там
         {
             InitializeComponent();
 
-            List<string> faculties = main.MySelect("SELECT name, ID FROM faculties");
-            List<string> groups = main.MySelect("SELECT name, facID, ID FROM groups");
+            List<string> faculties = sql.Select("SELECT name, ID FROM faculties");
+            List<string> groups = sql.Select("SELECT name, facID, ID FROM groups");
            
             for (int i = 0; i < groups.Count; i += 3)
                for (int j = 0; j < faculties.Count; j += 2)
                     if (groups[i + 1] == faculties[j + 1])
                         grcbx.Items.Add(groups[i] + "," + faculties[j] + "," + groups[i + 2]);
 
-            List<string> subject_list    = main.MySelect("SELECT name, ID FROM subjects");
-            List<string> teachers_list   = main.MySelect("SELECT name, ID, subjID, subj2ID FROM teachers");
-            List<string> classrooms_list = main.MySelect("SELECT name, ID FROM classrooms");
+            List<string> subject_list    = sql.Select("SELECT name, ID FROM subjects");
+            List<string> teachers_list   = sql.Select("SELECT name, ID, subjID, subj2ID FROM teachers");
+            List<string> classrooms_list = sql.Select("SELECT name, ID FROM classrooms");
 
             string daytext = "";
             int x = 0;
@@ -153,9 +153,9 @@ namespace clientчето_там
 
                     string[] parts = teacher.Text.Split(new char[] { ',' });
 
-                    List<string> teacher_data = main.MySelect("SELECT name, ID, subjID, subj2ID FROM teachers WHERE ID = '" + parts[1] + "'");
-                    List<string> sub1 = main.MySelect("SELECT name, ID FROM subjects WHERE ID ='" + teacher_data[2] + "'");
-                    List<string> sub2 = main.MySelect("SELECT name, ID FROM subjects WHERE ID ='" + teacher_data[3] + "'");
+                    List<string> teacher_data = sql.Select("SELECT name, ID, subjID, subj2ID FROM teachers WHERE ID = '" + parts[1] + "'");
+                    List<string> sub1 = sql.Select("SELECT name, ID FROM subjects WHERE ID ='" + teacher_data[2] + "'");
+                    List<string> sub2 = sql.Select("SELECT name, ID FROM subjects WHERE ID ='" + teacher_data[3] + "'");
                     sub.Items.Add(sub1[0] + "," + sub1[1]);
                     sub.Items.Add(sub2[0] + "," + sub2[1]);
                 }
@@ -190,8 +190,8 @@ namespace clientчето_там
                     if (dotw == 4) daytext = "fri";
                     if (dotw == 5) daytext = "sat";
 
-                    main.MyUpdate("INSERT INTO dotw (name, groupID) VALUES('" + daytext + "', '" + gparts[2] + "')");
-                    List<string> list = main.MySelect("SELECT ID FROM dotw");
+                    sql.Update("INSERT INTO dotw (name, groupID) VALUES('" + daytext + "', '" + gparts[2] + "')");
+                    List<string> list = sql.Select("SELECT ID FROM dotw");
                     List<string> lessid = new List<string>();
                     int listflag = 0;
                        
@@ -245,7 +245,7 @@ namespace clientчето_там
                         if (flag != 0 && flag != 3)
                         {
                             MessageBox.Show(message, "Ошибка");
-                            main.MyUpdate("DELETE FROM dotw WHERE ID = '" + list.Last() + "'");
+                            sql.Update("DELETE FROM dotw WHERE ID = '" + list.Last() + "'");
                             goto leave;
                         }
 
@@ -254,9 +254,9 @@ namespace clientчето_там
 
                         if (flag == 0)
                         {
-                            main.MyUpdate("INSERT INTO lessons (teacherID, subjID, groupID, classroomID, dayID)" +
+                            sql.Update("INSERT INTO lessons (teacherID, subjID, groupID, classroomID, dayID)" +
                                           "VALUES('" + tparts[1] + "', '" + sparts[1] + "', '" + gparts[2] + "', '" + cparts[1] + "', '" + list.Last() + "')");
-                            List<string> lesslist = main.MySelect("SELECT ID FROM lessons");
+                            List<string> lesslist = sql.Select("SELECT ID FROM lessons");
                             lessid.Add(lesslist.Last());
                         }
                         //for less
@@ -265,13 +265,13 @@ namespace clientчето_там
                     if (listflag == 15)
                     {
                       //  MessageBox.Show("Заполните" + daytext, "Ошибка");
-                        main.MyUpdate("DELETE FROM dotw WHERE ID = '" + list.Last() + "'");
+                        sql.Update("INSERT INTO dotw (name, groupID) VALUES('" + daytext + "', '" + gparts[2] +"') WHERE ID = '" + list.Last() + "'");
                         dayflag++;
                         //goto leave;
                     }
                     if (lessid.Count>0 && listflag != 15)
                     {
-                        main.MyUpdate("UPDATE dotw SET s1ID ='" + lessid[0] + "' , s2ID ='" + lessid[1] + "' , s3ID ='" + lessid[2] + "' , s4ID ='" + lessid[3] + "' , s5ID ='" + lessid[4] + "' WHERE ID = '" + list.Last() + "'");
+                        sql.Update("UPDATE dotw SET s1ID ='" + lessid[0] + "' , s2ID ='" + lessid[1] + "' , s3ID ='" + lessid[2] + "' , s4ID ='" + lessid[3] + "' , s5ID ='" + lessid[4] + "' WHERE ID = '" + list.Last() + "'");
                         MessageBox.Show("Сохранено " + daytext, "Успешно");
                     }
                           

@@ -18,7 +18,7 @@ namespace clientчето_там
         public prepodForm(string ID)
         {
             InitializeComponent();
-            List<string> list = main.MySelect("SELECT name FROM teachers WHERE ID = '" + ID + "'");
+            List<string> list = sql.Select("SELECT name FROM teachers WHERE ID = '" + ID + "'");
            
             id = ID;
             label1.Text = list[0];

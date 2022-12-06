@@ -147,6 +147,7 @@
             // 
             // teachercbx
             // 
+            this.teachercbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.teachercbx.FormattingEnabled = true;
             this.teachercbx.Location = new System.Drawing.Point(10, 127);
             this.teachercbx.Margin = new System.Windows.Forms.Padding(2);
@@ -1103,12 +1104,12 @@
             // 
             this.label69.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label69.AutoSize = true;
-            this.label69.Location = new System.Drawing.Point(165, 12);
+            this.label69.Location = new System.Drawing.Point(137, 6);
             this.label69.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(41, 13);
+            this.label69.Size = new System.Drawing.Size(97, 26);
             this.label69.TabIndex = 5;
-            this.label69.Text = "label16";
+            this.label69.Text = "учитель типа мегадлинное имя";
             // 
             // label70
             // 
@@ -1223,7 +1224,7 @@
             this.label79.Name = "label79";
             this.label79.Size = new System.Drawing.Size(100, 26);
             this.label79.TabIndex = 0;
-            this.label79.Text = "защита от темных искусств";
+            this.label79.Text = "защита от темных искусств предм";
             this.label79.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // downpan
@@ -1245,14 +1246,14 @@
             this.downpan.Location = new System.Drawing.Point(0, 160);
             this.downpan.Margin = new System.Windows.Forms.Padding(2);
             this.downpan.Name = "downpan";
-            this.downpan.Size = new System.Drawing.Size(663, 678);
+            this.downpan.Size = new System.Drawing.Size(663, 703);
             this.downpan.TabIndex = 1;
             // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(663, 838);
+            this.ClientSize = new System.Drawing.Size(663, 863);
             this.Controls.Add(this.downpan);
             this.Controls.Add(this.FiltrPanel);
             this.Margin = new System.Windows.Forms.Padding(2);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.addpan = new System.Windows.Forms.Panel();
             this.loginbx = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -48,6 +49,7 @@
             this.deletepan = new System.Windows.Forms.Panel();
             this.mailpan = new System.Windows.Forms.Panel();
             this.splitter2 = new System.Windows.Forms.Splitter();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.addpan.SuspendLayout();
             this.mailpan.SuspendLayout();
             this.SuspendLayout();
@@ -123,6 +125,7 @@
             this.button1.Size = new System.Drawing.Size(112, 34);
             this.button1.TabIndex = 25;
             this.button1.Text = "Добавить";
+            this.toolTip1.SetToolTip(this.button1, "Изменить");
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.UpdateClick);
             // 
@@ -233,9 +236,9 @@
             // 
             this.deletepan.BackColor = System.Drawing.SystemColors.Control;
             this.deletepan.Dock = System.Windows.Forms.DockStyle.Right;
-            this.deletepan.Location = new System.Drawing.Point(482, 0);
+            this.deletepan.Location = new System.Drawing.Point(443, 0);
             this.deletepan.Name = "deletepan";
-            this.deletepan.Size = new System.Drawing.Size(120, 221);
+            this.deletepan.Size = new System.Drawing.Size(159, 221);
             this.deletepan.TabIndex = 4;
             // 
             // mailpan
@@ -244,7 +247,7 @@
             this.mailpan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mailpan.Location = new System.Drawing.Point(128, 0);
             this.mailpan.Name = "mailpan";
-            this.mailpan.Size = new System.Drawing.Size(354, 221);
+            this.mailpan.Size = new System.Drawing.Size(315, 221);
             this.mailpan.TabIndex = 5;
             // 
             // splitter2
@@ -252,11 +255,15 @@
             this.splitter2.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.splitter2.Dock = System.Windows.Forms.DockStyle.Right;
             this.splitter2.Enabled = false;
-            this.splitter2.Location = new System.Drawing.Point(351, 0);
+            this.splitter2.Location = new System.Drawing.Point(312, 0);
             this.splitter2.Name = "splitter2";
             this.splitter2.Size = new System.Drawing.Size(3, 221);
             this.splitter2.TabIndex = 0;
             this.splitter2.TabStop = false;
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
             // 
             // AdminTeacher
             // 
@@ -302,5 +309,6 @@
         private System.Windows.Forms.Panel deletepan;
         private System.Windows.Forms.Panel mailpan;
         private System.Windows.Forms.Splitter splitter2;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
