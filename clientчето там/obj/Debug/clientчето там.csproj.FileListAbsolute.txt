@@ -58,3 +58,4 @@ C:\Users\Роман\source\repos\schedule\clientчето там\obj\Debug\client
 C:\Users\Роман\source\repos\schedule\clientчето там\obj\Debug\clientчето_там.Form1.resources
 C:\Users\Роман\source\repos\schedule\clientчето там\obj\Debug\clientчето_там.AdminAddSchedule.resources
 C:\Users\Роман\source\repos\schedule\clientчето там\obj\Debug\clientчето_там.AdminClasses.resources
+C:\Users\Роман\source\repos\schedule\clientчето там\obj\Debug\clientчето_там.AdminLogin.resources

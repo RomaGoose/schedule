@@ -168,7 +168,7 @@
             // 
             // presearch
             // 
-            this.presearch.Location = new System.Drawing.Point(247, 119);
+            this.presearch.Location = new System.Drawing.Point(248, 121);
             this.presearch.Margin = new System.Windows.Forms.Padding(2);
             this.presearch.Name = "presearch";
             this.presearch.Size = new System.Drawing.Size(86, 27);
@@ -215,7 +215,7 @@
             // stusearch
             // 
             this.stusearch.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.stusearch.Location = new System.Drawing.Point(366, 67);
+            this.stusearch.Location = new System.Drawing.Point(359, 68);
             this.stusearch.Margin = new System.Windows.Forms.Padding(2);
             this.stusearch.Name = "stusearch";
             this.stusearch.Size = new System.Drawing.Size(86, 27);
@@ -240,12 +240,9 @@
             // grcbx
             // 
             this.grcbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.grcbx.Enabled = false;
             this.grcbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.grcbx.FormattingEnabled = true;
-            this.grcbx.Items.AddRange(new object[] {
-            "гении",
-            "не очень",
-            "лишняя хромосома"});
             this.grcbx.Location = new System.Drawing.Point(173, 67);
             this.grcbx.Margin = new System.Windows.Forms.Padding(2);
             this.grcbx.Name = "grcbx";
@@ -271,11 +268,6 @@
             this.faccbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.faccbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.faccbx.FormattingEnabled = true;
-            this.faccbx.Items.AddRange(new object[] {
-            "гриффендор",
-            "слиезрин",
-            "когтевран",
-            "пуффендуй"});
             this.faccbx.Location = new System.Drawing.Point(9, 67);
             this.faccbx.Margin = new System.Windows.Forms.Padding(2);
             this.faccbx.Name = "faccbx";

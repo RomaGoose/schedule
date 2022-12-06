@@ -12,7 +12,7 @@ namespace clientчето_там
 {
     public partial class Admin : Form
     {
-        public Admin()
+        public Admin(string login)
         {
             InitializeComponent();
 
@@ -21,6 +21,7 @@ namespace clientчето_там
             if (list.Count > 0)
                 button3.BackColor = Color.Gold;
 
+            label1.Text += login;
         
         
         }

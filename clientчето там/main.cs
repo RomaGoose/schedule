@@ -50,41 +50,74 @@ namespace clientчето_там
             for (int i = 0; i < fac_list.Count; i += 2)
                 faccbx.Items.Add(fac_list[i] + ',' + fac_list[i+1]);
 
-            List<string> gr_list = sql.Select("SELECT name, ID FROM groups");
+            if (faccbx.Text != "")
+            {
+                grcbx.Enabled = true;
+                string[] parts = faccbx.Text.Split(new char[] { ',' });
 
-            for (int i = 0; i < gr_list.Count; i += 2)
-                grcbx.Items.Add(gr_list[i] + ',' + gr_list[i + 1]);
+                List<string> gr_list = sql.Select("SELECT name, ID FROM groups WHERE facID ='" + parts[1] + "'");
+
+                for (int i = 0; i < gr_list.Count; i += 2)
+                    grcbx.Items.Add(gr_list[i] + ',' + gr_list[i + 1]);
+            }
 
          }
 
         private void main_Load(object sender, EventArgs e)
         {
+            if (grcbx.Text != "" && faccbx.Text != "")
+            {
+                string daytext = "";
+                for (int dotw = 0; dotw < 6; dotw++)
+                {
+                    if (dotw == 0) daytext = "mon";
+                    if (dotw == 1) daytext = "tue";
+                    if (dotw == 2) daytext = "wen";
+                    if (dotw == 3) daytext = "thu";
+                    if (dotw == 4) daytext = "fri";
+                    if (dotw == 5) daytext = "sat";
 
-            Label lbl = new Label(); 
-            lbl.Anchor = AnchorStyles.None;
-            lbl.Location = new Point(13, 6);
-            lbl.Name = "label79";
-            lbl.Size = new Size(100, 26);
-            lbl.Text = "защита от темных искусств предм";
-            monpan.Controls.Add(lbl, 0, 0);
+                    string[] parts = grcbx.Text.Split(new char[] { ',' });
+                    List<string> daylist = sql.Select("SELECT s1ID, s2ID, s3ID, s4ID, s5ID FROM dotw WHERE name ='" + daytext + "', groupID ='" + parts[1] + "'");
 
-            Label tlbl = new Label();
-            tlbl.Anchor = AnchorStyles.None;
-            tlbl.Font = new Font("Microsoft Sans Serif", 8F);
-            tlbl.Location = new Point(253, 152);
-            tlbl.Name = "label78";
-            tlbl.Size = new Size(25, 13);
-            tlbl.Text = "102";
-            monpan.Controls.Add(tlbl,2,0);   
+                    foreach (TableLayoutPanel pan in downpan.Controls)
+                    {
+                        if (pan.Name == daytext + "pan")
+                        {
+                            int col = 0;
+                            int row = 0;
 
-            Label clbl = new Label();
-            clbl.Anchor = AnchorStyles.None;
-            clbl.Location = new Point(137, 6);
-            clbl.Name = "label69";
-            clbl.Size = new Size(97, 26);
-            clbl.Text = "учитель типа мегадлинное имя";
-            monpan.Controls.Add(clbl,1,0);
+                            //List<string> sublist = sql.Select("SELECT teachers.name, subjects.name, classrooms.name ");
 
+                            Label lbl = new Label();
+                            lbl.Anchor = AnchorStyles.None;
+                            lbl.Location = new Point(13, 6);
+                            lbl.Name = "label79";
+                            lbl.Size = new Size(100, 26);
+                            lbl.Text = "защита от темных искусств предм";
+                            pan.Controls.Add(lbl, col, row);
+
+                            Label tlbl = new Label();
+                            tlbl.Anchor = AnchorStyles.None;
+                            tlbl.Font = new Font("Microsoft Sans Serif", 8F);
+                            tlbl.Location = new Point(253, 152);
+                            tlbl.Name = "label78";
+                            tlbl.Size = new Size(25, 13);
+                            tlbl.Text = "102";
+                            pan.Controls.Add(tlbl, col + 1, row);
+
+                            Label clbl = new Label();
+                            clbl.Anchor = AnchorStyles.None;
+                            clbl.Location = new Point(137, 6);
+                            clbl.Name = "label69";
+                            clbl.Size = new Size(97, 26);
+                            clbl.Text = "учитель типа мегадлинное имя";
+                            pan.Controls.Add(clbl, col + 2, row);
+                        }
+                    }
+                }
+
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -154,7 +187,7 @@ namespace clientчето_там
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Admin sus = new Admin();
+            AdminLogin sus = new AdminLogin();
             sus.ShowDialog();
         }
 

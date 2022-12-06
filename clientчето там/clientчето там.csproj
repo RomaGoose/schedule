@@ -80,6 +80,12 @@
     <Compile Include="AdminAddSchedule.Designer.cs">
       <DependentUpon>AdminAddSchedule.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminLogin.Designer.cs">
+      <DependentUpon>AdminLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminSubject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminAddSchedule.resx">
       <DependentUpon>AdminAddSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminLogin.resx">
+      <DependentUpon>AdminLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminSubject.resx">
       <DependentUpon>AdminSubject.cs</DependentUpon>
