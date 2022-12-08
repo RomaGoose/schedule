@@ -72,7 +72,7 @@ namespace clientчето_там
             string[] parts1 = subj1cbx.Text.Split(new char[] { ',' });
             string[] parts2 = subj2cbx.Text.Split(new char[] { ',' });
 
-            sql.Select("UPDATE teachers SET name='" + nametb.Text + "' , login='" + logintb.Text + "' , password='" + passtb.Text + "' , subjID='" + parts1[1] + "' , subj2ID='" + parts2[1] + "' WHERE ID ='" + teacherid + "'");
+            sql.Select("UPDATE teachers SET name='" + nametb.Text + "' , login='" + logintb.Text + "' , password='" + passtb.Text + "' , mail='" + mailtb.Text + "' , subjID='" + parts1[1] + "' , subj2ID='" + parts2[1] + "' WHERE ID ='" + teacherid + "'");
             MessageBox.Show("Сохранено");
             Account_Load(sender, e); 
         }

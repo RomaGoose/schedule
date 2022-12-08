@@ -80,53 +80,6 @@ namespace clientчето_там
                 y = 0;
                 x += 170;
             }
-            /*
-            for (int dotw = 0; dotw < 6; dotw++)
-            {
-                if (dotw == 0) daytext = "mon";
-                if (dotw == 1) daytext = "tue";
-                if (dotw == 2) daytext = "wen";
-                if (dotw == 3) daytext = "thu";
-                if (dotw == 4) daytext = "fri";
-                if (dotw == 5) daytext = "sat";
-
-                for (int less = 1; less < 6; less++)
-                {
-                    tcbxname = daytext + less + "teacher";
-                    scbxname = daytext + less + "sub";
-
-
-                    foreach (Control teacher in pan.Controls)
-                    {
-                        hui = "внутри фор";
-                        if (teacher.Name == tcbxname && pomenyalos == true)
-                            hui = "da";
-                        else
-                            hui = "net";
-
-                        if (teacher.Name == tcbxname && pomenyalos)
-                        {
-                            foreach (ComboBox sub in pan.Controls)
-                            {
-                                if (sub.Name == scbxname)
-                                {
-                                    sub.Enabled = true;
-
-                                    string[] parts = teacher.Text.Split(new char[] { ',' });
-
-                                    List<string> prepod = main.MySelect("SELECT name, ID, subjID, subj2ID FROM teachers WHERE ID = '" + parts[1] + "'");
-                                    List<string> sub1 = main.MySelect("SELECT name, ID FROM subjects WHERE ID ='" + prepod[2] + "'");
-                                    List<string> sub2 = main.MySelect("SELECT name, ID FROM subjects WHERE ID ='" + prepod[3] + "'");
-                                    sub.Items.Add(sub1[0] + "," + sub1[1]);
-                                    sub.Items.Add(sub2[0] + "," + sub2[1]);
-                                }
-                            }
-                        }
-                    }
-
-                }
-            }
-            */
           
         }
 
@@ -150,7 +103,7 @@ namespace clientчето_там
                 if (sub.Name == subname)
                 {
                     sub.Enabled = true;
-
+                    sub.Items.Clear();
                     string[] parts = teacher.Text.Split(new char[] { ',' });
 
                     List<string> teacher_data = sql.Select("SELECT name, ID, subjID, subj2ID FROM teachers WHERE ID = '" + parts[1] + "'");
@@ -265,7 +218,7 @@ namespace clientчето_там
                     if (listflag == 15)
                     {
                       //  MessageBox.Show("Заполните" + daytext, "Ошибка");
-                        sql.Update("INSERT INTO dotw (name, groupID) VALUES('" + daytext + "', '" + gparts[2] +"') WHERE ID = '" + list.Last() + "'");
+                        sql.Update("INSERT INTO dotw (name, groupID) VALUES('" + daytext + "', '" + gparts[2] +"')");
                         dayflag++;
                         //goto leave;
                     }

@@ -59,3 +59,29 @@ C:\Users\Роман\source\repos\schedule\clientчето там\obj\Debug\client
 C:\Users\Роман\source\repos\schedule\clientчето там\obj\Debug\clientчето_там.AdminAddSchedule.resources
 C:\Users\Роман\source\repos\schedule\clientчето там\obj\Debug\clientчето_там.AdminClasses.resources
 C:\Users\Роман\source\repos\schedule\clientчето там\obj\Debug\clientчето_там.AdminLogin.resources
+C:\Users\user\source\repos\yjdjtcrfxfqczgt;t\clientчето там\bin\Debug\clientчето там.exe.config
+C:\Users\user\source\repos\yjdjtcrfxfqczgt;t\clientчето там\bin\Debug\clientчето там.exe
+C:\Users\user\source\repos\yjdjtcrfxfqczgt;t\clientчето там\bin\Debug\clientчето там.pdb
+C:\Users\user\source\repos\yjdjtcrfxfqczgt;t\clientчето там\bin\Debug\MySql.Data.dll
+C:\Users\user\source\repos\yjdjtcrfxfqczgt;t\clientчето там\obj\Debug\clientчето там.csproj.AssemblyReference.cache
+C:\Users\user\source\repos\yjdjtcrfxfqczgt;t\clientчето там\obj\Debug\clientчето там.csproj.SuggestedBindingRedirects.cache
+C:\Users\user\source\repos\yjdjtcrfxfqczgt;t\clientчето там\obj\Debug\clientчето_там.Account.resources
+C:\Users\user\source\repos\yjdjtcrfxfqczgt;t\clientчето там\obj\Debug\clientчето_там.Admin.resources
+C:\Users\user\source\repos\yjdjtcrfxfqczgt;t\clientчето там\obj\Debug\clientчето_там.AdminClasses.resources
+C:\Users\user\source\repos\yjdjtcrfxfqczgt;t\clientчето там\obj\Debug\clientчето_там.AdminFacultiesGrs.resources
+C:\Users\user\source\repos\yjdjtcrfxfqczgt;t\clientчето там\obj\Debug\clientчето_там.AdminAddSchedule.resources
+C:\Users\user\source\repos\yjdjtcrfxfqczgt;t\clientчето там\obj\Debug\clientчето_там.AdminLogin.resources
+C:\Users\user\source\repos\yjdjtcrfxfqczgt;t\clientчето там\obj\Debug\clientчето_там.AdminSubject.resources
+C:\Users\user\source\repos\yjdjtcrfxfqczgt;t\clientчето там\obj\Debug\clientчето_там.AdminTeacher.resources
+C:\Users\user\source\repos\yjdjtcrfxfqczgt;t\clientчето там\obj\Debug\clientчето_там.aut.resources
+C:\Users\user\source\repos\yjdjtcrfxfqczgt;t\clientчето там\obj\Debug\clientчето_там.Form1.resources
+C:\Users\user\source\repos\yjdjtcrfxfqczgt;t\clientчето там\obj\Debug\clientчето_там.login.resources
+C:\Users\user\source\repos\yjdjtcrfxfqczgt;t\clientчето там\obj\Debug\clientчето_там.prepodForm.resources
+C:\Users\user\source\repos\yjdjtcrfxfqczgt;t\clientчето там\obj\Debug\clientчето_там.main.resources
+C:\Users\user\source\repos\yjdjtcrfxfqczgt;t\clientчето там\obj\Debug\clientчето_там.Properties.Resources.resources
+C:\Users\user\source\repos\yjdjtcrfxfqczgt;t\clientчето там\obj\Debug\clientчето_там.AdminRequestTeachers.resources
+C:\Users\user\source\repos\yjdjtcrfxfqczgt;t\clientчето там\obj\Debug\clientчето там.csproj.GenerateResource.cache
+C:\Users\user\source\repos\yjdjtcrfxfqczgt;t\clientчето там\obj\Debug\clientчето там.csproj.CoreCompileInputs.cache
+C:\Users\user\source\repos\yjdjtcrfxfqczgt;t\clientчето там\obj\Debug\clientчето там.csproj.CopyComplete
+C:\Users\user\source\repos\yjdjtcrfxfqczgt;t\clientчето там\obj\Debug\clientчето там.exe
+C:\Users\user\source\repos\yjdjtcrfxfqczgt;t\clientчето там\obj\Debug\clientчето там.pdb

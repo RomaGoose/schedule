@@ -50,21 +50,10 @@ namespace clientчето_там
             for (int i = 0; i < fac_list.Count; i += 2)
                 faccbx.Items.Add(fac_list[i] + ',' + fac_list[i+1]);
 
-            if (faccbx.Text != "")
-            {
-                grcbx.Enabled = true;
-                string[] parts = faccbx.Text.Split(new char[] { ',' });
-
-                List<string> gr_list = sql.Select("SELECT name, ID FROM groups WHERE facID ='" + parts[1] + "'");
-
-                for (int i = 0; i < gr_list.Count; i += 2)
-                    grcbx.Items.Add(gr_list[i] + ',' + gr_list[i + 1]);
-            }
-
          }
 
         private void main_Load(object sender, EventArgs e)
-        {
+        {/*
             if (grcbx.Text != "" && faccbx.Text != "")
             {
                 string daytext = "";
@@ -117,7 +106,7 @@ namespace clientчето_там
                     }
                 }
 
-            }
+            }*/
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -204,6 +193,19 @@ namespace clientчето_там
 
         private void presearch_Click(object sender, EventArgs e)
         {
+        }
+
+        private void faccbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            grcbx.Items.Clear();
+            grcbx.Enabled = true;
+            string[] parts = faccbx.Text.Split(new char[] { ',' });
+
+            List<string> gr_list = sql.Select("SELECT name, ID FROM groups WHERE facID ='" + parts[1] + "'");
+
+            for (int i = 0; i < gr_list.Count; i += 2)
+                grcbx.Items.Add(gr_list[i] + ',' + gr_list[i + 1]);
+
         }
     }
 }
