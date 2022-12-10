@@ -35,11 +35,82 @@ namespace clientчето_там
       
         public main()
         {
-            InitializeComponent();
             //List<string> list = sql.Select("SELECT name, subject1, subject2, subject3, subject4, subject5, " +
             //                                          "Teacher1, Teacher2, Teacher3, Teacher4, Teacher5, " +
             //                                          "Classroom1, Classroom2, Classroom3, Classroom4, Classroom5 FROM fullday");
 
+
+            #region lable 
+            // 
+            // mon
+            // 
+            Label mon = new Label();
+            mon.AutoSize = true;
+            mon.Font = new Font("Microsoft Sans Serif", 12F);
+            mon.Location = new Point(20, 173);
+            mon.Name = "mon";
+            mon.Size = new Size(216, 20);
+            mon.Text = "Понедельник";
+            Controls.Add(mon);
+            // 
+            // tue
+            // 
+            Label tue = new Label();
+            tue.AutoSize = true;
+            tue.Font = new Font("Microsoft Sans Serif", 12F);
+            tue.Location = new Point(20, 245 + 160);
+            tue.Name = "tue";
+            tue.Size = new Size(176, 20);
+            tue.Text = "Вторник";
+            Controls.Add(tue);
+            // 
+            // wed
+            // 
+            Label wed = new Label();
+            wed.AutoSize = true;
+            wed.Font = new Font("Microsoft Sans Serif", 12F);
+            wed.Location = new Point(20, 479 + 160);
+            wed.Name = "wed";
+            wed.Size = new Size(161, 20);
+            wed.Text = "Среда";
+            Controls.Add(wed);
+            // 
+            // thu
+            // 
+            Label thu = new Label();
+            thu.AutoSize = true;
+            thu.Font = new Font("Microsoft Sans Serif", 12F);
+            thu.Location = new Point(339, 13 + 160);
+            thu.Name = "thu";
+            thu.Size = new Size(176, 20);
+            thu.Text = "Четверг";
+            Controls.Add(thu);
+            // 
+            // fri
+            // 
+            Label fri = new Label();
+            fri.AutoSize = true;
+            fri.Font = new Font("Microsoft Sans Serif", 12F);
+            fri.Location = new Point(337, 245 + 160);
+            fri.Name = "fri";
+            fri.Size = new Size(178, 20);
+            fri.Text = "Пятница";
+            Controls.Add(fri);
+            // 
+            // sat
+            // 
+            Label sat = new Label();
+            sat.AutoSize = true;
+            sat.Font = new Font("Microsoft Sans Serif", 12F);
+            sat.Location = new Point(337, 479 + 160);
+            sat.Name = "sat";
+            sat.Size = new Size(175, 20);
+            sat.Text = "Суббота";
+            Controls.Add(sat);
+            #endregion
+
+            InitializeComponent();
+           
             List<string> teacher_list = sql.Select("SELECT name FROM teachers");
 
             for (int i = 0; i < teacher_list.Count; i++)
@@ -50,24 +121,25 @@ namespace clientчето_там
             for (int i = 0; i < fac_list.Count; i += 2)
                 faccbx.Items.Add(fac_list[i] + ',' + fac_list[i+1]);
 
-         }
+          
+
+        }
 
         private void main_Load(object sender, EventArgs e)
         {
-            List<string> list = sql.Select(
-                " SELECT subjects.name, teachers.name, classrooms.name, groups.ID" +
-                " FROM dotw " +
-                    " JOIN lessons ON lessons.ID = dotw.s1ID " +
-                    " JOIN groups ON groups.ID = dotw.groupID " +
-                    " JOIN teachers ON teachers.ID = lessons.teacherID " +
-                    " JOIN subjects ON  subjects.ID = lessons.subjID " +
-                    " JOIN classrooms ON classrooms.ID = lessons.classroomID WHERE dotw.groupID = 6");
+            monpan.Controls.Clear();
+            tuepan.Controls.Clear();
+            wenpan.Controls.Clear();
+            thupan.Controls.Clear();
+            fripan.Controls.Clear();
+            satpan.Controls.Clear();
 
-            /*
             if (grcbx.Text != "" && faccbx.Text != "")
             {
-                string daytext = "";
-                for (int dotw = 0; dotw < 1; dotw++)
+                string daytext = ""; 
+                string[] parts = grcbx.Text.Split(new char[] { ',' });
+                   
+                for (int dotw = 0; dotw < 6; dotw++)
                 {
                     if (dotw == 0) daytext = "mon";
                     if (dotw == 1) daytext = "tue";
@@ -76,40 +148,41 @@ namespace clientчето_там
                     if (dotw == 4) daytext = "fri";
                     if (dotw == 5) daytext = "sat";
 
-                    string[] parts = grcbx.Text.Split(new char[] { ',' });
-                    List<string> daylist = sql.Select("SELECT s1ID, s2ID, s3ID, s4ID, s5ID FROM dotw WHERE name ='" + daytext + "', groupID ='" + parts[1] + "'");
+                    //List<string> daylist = sql.Select("SELECT s1ID, s2ID, s3ID, s4ID, s5ID FROM dotw WHERE name ='" + daytext + "', groupID ='" + parts[1] + "'");
 
                     foreach (TableLayoutPanel pan in downpan.Controls)
                     {
+                        string eh = pan.Name;
                         if (pan.Name == daytext + "pan")
                         {
                             int row = 0;
-
-                            for (int i = 0; i < 5; i++)
+                          
+                            for (int less = 0; less < 5; less++)
                             {
                                 List<string> list = sql.Select(
-                                    " SELECT subjects.name, teachers.name, classrooms.name, groups.ID" +
+                                    " SELECT subjects.name, teachers.name, classrooms.name" +
                                     " FROM dotw " +
-                                        " JOIN lessons ON lessons.ID = dotw.s1ID " +
-                                        " JOIN groups ON groups.ID = dotw.groupID " +
-                                        " JOIN teachers ON teachers.ID = lessons.teacherID " +
-                                        " JOIN subjects ON  subjects.ID = lessons.subjID " +
-                                        " JOIN classrooms ON classrooms.ID = lessons.classroomID WHERE groupID = 5");
+                                        " JOIN lessons    ON lessons.ID    = dotw.s" + (less + 1) + "ID " +
+                                        " JOIN groups     ON groups.ID     = dotw.groupID " +
+                                        " JOIN teachers   ON teachers.ID   = lessons.teacherID " +
+                                        " JOIN subjects   ON subjects.ID   = lessons.subjID " +
+                                        " JOIN classrooms ON classrooms.ID = lessons.classroomID " +
+                                        " WHERE dotw.groupID = '" + parts[1] + "' AND dotw.name = '" + daytext + "' ");
 
-                                MessageBox.Show("чето нашел");
+                                //MessageBox.Show("чето нашел");
 
                                 Label lbl = new Label();
                                 lbl.Anchor = AnchorStyles.None;
                                 lbl.Location = new Point(13, 6);
                                 lbl.Size = new Size(100, 26);
-                                lbl.Text = list[i];
+                                lbl.Text = list[0];
                                 pan.Controls.Add(lbl, 0, row);
 
                                 Label tlbl = new Label();
                                 tlbl.Anchor = AnchorStyles.None;
                                 tlbl.Location = new Point(137, 6);
                                 tlbl.Size = new Size(97, 26);
-                                tlbl.Text = list[i + 1];
+                                tlbl.Text = list[1];
                                 pan.Controls.Add(tlbl, 1, row);
 
                                 Label clbl = new Label();
@@ -117,15 +190,18 @@ namespace clientчето_там
                                 clbl.Font = new Font("Microsoft Sans Serif", 8F);
                                 clbl.Location = new Point(253, 152);
                                 clbl.Size = new Size(25, 13);
-                                clbl.Text = list[i + 2];
+                                clbl.Text = list[2];
                                 pan.Controls.Add(clbl, 2, row);
 
                                 row++;
                             }
+
+                            break;
                         }
                     }
                 }
-            }*/
+            }
+          
         }
 
         private void label1_Click(object sender, EventArgs e)

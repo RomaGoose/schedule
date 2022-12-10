@@ -34,71 +34,71 @@ namespace clientчето_там
         private void AdminTeacher_Load(object sender, EventArgs e)
         {
             List<string> list = sql.Select("SELECT name, mail, ID FROM teachers");
-            deletepan.Controls.Clear();
-            namepan.Controls.Clear();
-            mailpan.Controls.Clear();
+            pan.Controls.Clear();
+           
+            
 
             int y = 30;
             for(int i=0; i < list.Count; i+=3)
             {
                 Label lbl = new Label();
                 lbl.Location = new Point(10, y);
-                lbl.Size = new Size(150, 20);
+                lbl.Size = new Size(300, 20);
                 lbl.Font = new Font("Microsoft Sans Serif", 12);
                 lbl.Text = list[i];
                 lbl.Name = "lbl" + i;
                 lbl.Tag = list[i + 2];
                 lbl.Visible = true;
-                namepan.Controls.Add(lbl); 
+                pan.Controls.Add(lbl); 
          
                 TextBox tb = new TextBox();
                 tb.Location = new Point(10, y);
-                tb.Size = new Size(250, 20);
+                tb.Size = new Size(300, 20);
                 tb.Font = new Font("Microsoft Sans Serif", 12);
                 tb.Name = "tb" + i; 
                 tb.Visible = false;
                 tb.Text = list[i];
                 tb.Tag = list[i + 2];
-                namepan.Controls.Add(tb);
+                pan.Controls.Add(tb);
 
                 Label lbl2 = new Label();
-                lbl2.Location = new Point(10, y); 
-                lbl2.Size = new Size(150, 20);
+                lbl2.Location = new Point(320, y); 
+                lbl2.Size = new Size(300, 20);
                 lbl2.Font = new Font("Microsoft Sans Serif", 12);
                 lbl2.Text = list[i + 1];
                 lbl2.Name = "lbl2" + i;
                 lbl2.Tag = list[i + 2];
                 lbl2.Visible = true;
-                mailpan.Controls.Add(lbl2); 
+                pan.Controls.Add(lbl2); 
                 
                 TextBox tb2 = new TextBox();
-                tb2.Location = new Point(10, y);
-                tb2.Size = new Size(250, 20);
+                tb2.Location = new Point(320, y);
+                tb2.Size = new Size(300, 20);
                 tb2.Font = new Font("Microsoft Sans Serif", 12);
                 tb2.Name = "tb2" + i; 
                 tb2.Visible = false;
                 tb2.Text = list[i + 1];
                 tb2.Tag = list[i + 2];
-                mailpan.Controls.Add(tb2);
+                pan.Controls.Add(tb2);
 
                 PictureBox pb = new PictureBox();
                 pb = new PictureBox();
                 pb.Load("../../pictures/change.png");
                 pb.Click += new EventHandler(UpdateNameClick);
-                pb.Location = new Point(10, y);
+                pb.Location = new Point(640, y);
                 pb.Size = new Size(30, 30);
                 pb.SizeMode = PictureBoxSizeMode.Zoom; 
                 toolTip1.SetToolTip(pb, "Изменить");
-                deletepan.Controls.Add(pb);
+                pan.Controls.Add(pb);
 
 
                 Button btn = new Button();
-                btn.Location = new Point(50, y); //(350, y);
+                btn.Location = new Point(680, y);
                 btn.Size = new Size(100, 30);
                 btn.Font = new Font("Microsoft Sans Serif", 12);
                 btn.Click += new EventHandler(DeleteHotelClick);
                 btn.Text = "Удалить";
-                deletepan.Controls.Add(btn);
+                pan.Controls.Add(btn);
 
                 y += 30;
             }
@@ -107,7 +107,7 @@ namespace clientчето_там
         {
             PictureBox btn = (PictureBox)sender;
             int y = btn.Location.Y;
-            foreach (Control control in namepan.Controls)
+            foreach (Control control in pan.Controls)
             {
                 if (control.Location == new Point(10, y))
                 {
@@ -117,9 +117,9 @@ namespace clientчето_там
                         control.Visible = false;
                 }
             }
-            foreach (Control control in mailpan.Controls)
+            foreach (Control control in pan.Controls)
             {
-                if (control.Location.Y == y)
+                if (control.Location == new Point(320, y))
                 {
                     if (control.Name.StartsWith("tb"))
                         control.Visible = true;
@@ -137,7 +137,7 @@ namespace clientчето_там
         {
             PictureBox btn = (PictureBox)sender;
             int y = btn.Location.Y;
-            foreach (Control control in namepan.Controls)
+            foreach (Control control in pan.Controls)
             {
                 if (control.Location == new Point(10, y))
                 {
@@ -151,9 +151,9 @@ namespace clientчето_там
                 }
             }
 
-            foreach (Control control in mailpan.Controls)
+            foreach (Control control in pan.Controls)
             {
-                if (control.Location.Y == y)
+                if (control.Location == new Point (320, y))
                 {
                     if (control.Name.StartsWith("tb"))
                     {
@@ -177,7 +177,7 @@ namespace clientчето_там
             Button btn = (Button)sender;
             int y = btn.Location.Y;
 
-            foreach(Control control in namepan.Controls)
+            foreach(Control control in pan.Controls)
             {
                 if(control.Location == new Point (10, y))
                 {
@@ -245,6 +245,11 @@ namespace clientчето_там
         }
 
         private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+
+        private void addpan_Paint(object sender, PaintEventArgs e)
         {
 
         }

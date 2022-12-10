@@ -44,14 +44,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.mailbx = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.namepan = new System.Windows.Forms.Panel();
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.deletepan = new System.Windows.Forms.Panel();
-            this.mailpan = new System.Windows.Forms.Panel();
-            this.splitter2 = new System.Windows.Forms.Splitter();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.pan = new System.Windows.Forms.Panel();
             this.addpan.SuspendLayout();
-            this.mailpan.SuspendLayout();
             this.SuspendLayout();
             // 
             // addpan
@@ -72,11 +67,12 @@
             this.addpan.Controls.Add(this.mailbx);
             this.addpan.Controls.Add(this.label7);
             this.addpan.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.addpan.Location = new System.Drawing.Point(0, 221);
+            this.addpan.Location = new System.Drawing.Point(0, 301);
             this.addpan.Margin = new System.Windows.Forms.Padding(2);
             this.addpan.Name = "addpan";
-            this.addpan.Size = new System.Drawing.Size(602, 262);
+            this.addpan.Size = new System.Drawing.Size(784, 260);
             this.addpan.TabIndex = 1;
+            this.addpan.Paint += new System.Windows.Forms.PaintEventHandler(this.addpan_Paint);
             // 
             // loginbx
             // 
@@ -119,7 +115,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.button1.Location = new System.Drawing.Point(460, 182);
+            this.button1.Location = new System.Drawing.Point(331, 206);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(112, 34);
@@ -214,66 +210,24 @@
             this.label7.TabIndex = 19;
             this.label7.Text = "Введите Ваше имя...";
             // 
-            // namepan
-            // 
-            this.namepan.BackColor = System.Drawing.SystemColors.Control;
-            this.namepan.Dock = System.Windows.Forms.DockStyle.Left;
-            this.namepan.Location = new System.Drawing.Point(0, 0);
-            this.namepan.Name = "namepan";
-            this.namepan.Size = new System.Drawing.Size(125, 221);
-            this.namepan.TabIndex = 2;
-            // 
-            // splitter1
-            // 
-            this.splitter1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.splitter1.Location = new System.Drawing.Point(125, 0);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 221);
-            this.splitter1.TabIndex = 3;
-            this.splitter1.TabStop = false;
-            // 
-            // deletepan
-            // 
-            this.deletepan.BackColor = System.Drawing.SystemColors.Control;
-            this.deletepan.Dock = System.Windows.Forms.DockStyle.Right;
-            this.deletepan.Location = new System.Drawing.Point(443, 0);
-            this.deletepan.Name = "deletepan";
-            this.deletepan.Size = new System.Drawing.Size(159, 221);
-            this.deletepan.TabIndex = 4;
-            // 
-            // mailpan
-            // 
-            this.mailpan.Controls.Add(this.splitter2);
-            this.mailpan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mailpan.Location = new System.Drawing.Point(128, 0);
-            this.mailpan.Name = "mailpan";
-            this.mailpan.Size = new System.Drawing.Size(315, 221);
-            this.mailpan.TabIndex = 5;
-            // 
-            // splitter2
-            // 
-            this.splitter2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.splitter2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.splitter2.Enabled = false;
-            this.splitter2.Location = new System.Drawing.Point(312, 0);
-            this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(3, 221);
-            this.splitter2.TabIndex = 0;
-            this.splitter2.TabStop = false;
-            // 
             // toolTip1
             // 
             this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
+            // 
+            // pan
+            // 
+            this.pan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pan.Location = new System.Drawing.Point(0, 0);
+            this.pan.Name = "pan";
+            this.pan.Size = new System.Drawing.Size(784, 301);
+            this.pan.TabIndex = 2;
             // 
             // AdminTeacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(602, 483);
-            this.Controls.Add(this.mailpan);
-            this.Controls.Add(this.deletepan);
-            this.Controls.Add(this.splitter1);
-            this.Controls.Add(this.namepan);
+            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.pan);
             this.Controls.Add(this.addpan);
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -283,7 +237,6 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AdminTeacher_KeyDown);
             this.addpan.ResumeLayout(false);
             this.addpan.PerformLayout();
-            this.mailpan.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -304,11 +257,7 @@
         private System.Windows.Forms.ComboBox subj1cbx;
         private System.Windows.Forms.TextBox loginbx;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel namepan;
-        private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.Panel deletepan;
-        private System.Windows.Forms.Panel mailpan;
-        private System.Windows.Forms.Splitter splitter2;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Panel pan;
     }
 }
