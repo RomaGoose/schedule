@@ -23,16 +23,19 @@ namespace clientчето_там
                for (int j = 0; j < faculties.Count; j += 2)
                     if (groups[i + 1] == faculties[j + 1])
                         grcbx.Items.Add(groups[i] + "," + faculties[j] + "," + groups[i + 2]);
-
+        }
+        private void AdminAddSchedule_Load(object sender, EventArgs e)
+        {
             List<string> subject_list    = sql.Select("SELECT name, ID FROM subjects");
             List<string> teachers_list   = sql.Select("SELECT name, ID, subjID, subj2ID FROM teachers");
             List<string> classrooms_list = sql.Select("SELECT name, ID FROM classrooms");
 
+          
             string daytext = "";
             int x = 0;
             int y = 0;
             
-
+            if (grcbx.Text != "")
             for (int dotw = 0; dotw < 6; dotw++)
             {
                 if (dotw == 0) daytext = "mon";
@@ -53,7 +56,18 @@ namespace clientчето_там
                     teachcbx.Size = new Size(131, 21);
                     teachcbx.SelectedIndexChanged += new EventHandler(TeacherSelected);
                     pan.Controls.Add(teachcbx);
-                    for (int i = 0; i < teachers_list.Count; i += 4) teachcbx.Items.Add(teachers_list[i] + "," + teachers_list[i + 1]);
+
+                    List<string> noteacher = sql.Select(
+                        " SELECT teachers.ID from dotw " +
+                            " JOIN lessons ON lessons.ID = dotw.s" + less + "ID" +
+                            " JOIN teachers ON teachers.ID = lessons.teacherID" +
+                            " WHERE dotw.name = '" + daytext + "'");
+
+                    for (int i = 0; i < teachers_list.Count; i += 4)
+                    {
+                        if (!noteacher.Contains(teachers_list[i + 1]))
+                            teachcbx.Items.Add(teachers_list[i] + "," + teachers_list[i + 1]);
+                    }
 
                     ComboBox subcbx = new ComboBox();
                     subcbx.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -72,21 +86,28 @@ namespace clientчето_там
                     classcbx.Name = daytext + less + "class";
                     classcbx.Size = new Size(131, 21);
                     pan.Controls.Add(classcbx);
-                    for (int i = 0; i < classrooms_list.Count; i += 2) classcbx.Items.Add(classrooms_list[i] + "," + classrooms_list[i + 1]);
+                    
+                    List<string> noclass = sql.Select(
+                        " SELECT classrooms.ID from dotw " +
+                            " JOIN lessons ON lessons.ID = dotw.s" + less + "ID" +
+                            " JOIN classrooms ON classrooms.ID = lessons.classroomID" +
+                            " WHERE dotw.name = '" + daytext + "'");
 
+                    for (int i = 0; i < classrooms_list.Count; i += 2)
+                    {
+                        if (!noclass.Contains(classrooms_list[i + 1]))
+                            classcbx.Items.Add(classrooms_list[i] + "," + classrooms_list[i + 1]);
+                    }
+                      
                     y += 94;
                 }
 
                 y = 0;
                 x += 170;
             }
-          
+         
         }
-
-        private void toolTip1_Popup(object sender, PopupEventArgs e)
-        {
-
-        }
+       
         private void TeacherSelected(object sender, EventArgs e)
         {
             ComboBox teacher = (ComboBox)sender;
@@ -117,21 +138,13 @@ namespace clientчето_там
                       
         }
 
-        private void toolStripComboBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
       
-
         private void AddClick(object sender, EventArgs e)
         {
             string daytext = "";
-            char[] aaaa = { 's', 'u', 'b', 't', 'e', 'a', 'c', 'h', 'e', 'r', 'c', 'l', 'a', 's', 's' };
             string[] gparts = grcbx.Text.Split(new char[] { ',' });
             
-            // hz = control.Name.TrimEnd(aaaa);
-            if (gparts.Count() > 1)
+           if (gparts.Count() > 1)
             {
                 int dayflag = 0;
                 for (int dotw = 0; dotw < 6; dotw++)
@@ -218,7 +231,7 @@ namespace clientчето_там
                     if (listflag == 15)
                     {
                       //  MessageBox.Show("Заполните" + daytext, "Ошибка");
-                        sql.Update("INSERT INTO dotw (name, groupID) VALUES('" + daytext + "', '" + gparts[2] +"')");
+                       // sql.Update("INSERT INTO dotw (name, groupID) VALUES('" + daytext + "', '" + gparts[2] +"')");
                         dayflag++;
                         //goto leave;
                     }
@@ -237,12 +250,21 @@ namespace clientчето_там
                 leave:
                    ; 
             
-            }
+           }
             else
                 MessageBox.Show("Выберите группу", "Ошибка");
         }
-        
+       
+
         private void toolStripComboBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+        private void toolStripComboBox1_Click(object sender, EventArgs e)
         {
 
         }
@@ -252,10 +274,7 @@ namespace clientчето_там
 
         }
 
-        private void AdminAddSchedule_Load(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void label33_Click(object sender, EventArgs e)
         {
@@ -264,7 +283,8 @@ namespace clientчето_там
 
         private void grcbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            AdminAddSchedule_Load(sender, e);
+            snachala.Text = " ";
         }
     }
 }

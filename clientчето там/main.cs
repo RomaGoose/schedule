@@ -111,7 +111,7 @@ namespace clientчето_там
 
             InitializeComponent();
            
-            List<string> teacher_list = sql.Select("SELECT name FROM teachers");
+            List<string> teacher_list = sql.Select("SELECT name FROM teachers WHERE ID != 0");
 
             for (int i = 0; i < teacher_list.Count; i++)
                 teachercbx.Items.Add(teacher_list[i]);
@@ -148,9 +148,7 @@ namespace clientчето_там
                     if (dotw == 4) daytext = "fri";
                     if (dotw == 5) daytext = "sat";
 
-                    //List<string> daylist = sql.Select("SELECT s1ID, s2ID, s3ID, s4ID, s5ID FROM dotw WHERE name ='" + daytext + "', groupID ='" + parts[1] + "'");
-
-                    foreach (TableLayoutPanel pan in downpan.Controls)
+                   foreach (TableLayoutPanel pan in downpan.Controls)
                     {
                         string eh = pan.Name;
                         if (pan.Name == daytext + "pan")

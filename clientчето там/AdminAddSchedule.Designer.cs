@@ -62,6 +62,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.snachala = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // grcbx
@@ -384,11 +385,22 @@
             this.label9.TabIndex = 173;
             this.label9.Text = "-можно делать выходные";
             // 
+            // snachala
+            // 
+            this.snachala.AutoSize = true;
+            this.snachala.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.snachala.Location = new System.Drawing.Point(199, 25);
+            this.snachala.Name = "snachala";
+            this.snachala.Size = new System.Drawing.Size(348, 31);
+            this.snachala.TabIndex = 174;
+            this.snachala.Text = "Сначала, выберите группу";
+            // 
             // AdminAddSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1125, 581);
+            this.Controls.Add(this.snachala);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pan);
@@ -463,5 +475,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label snachala;
     }
 }
