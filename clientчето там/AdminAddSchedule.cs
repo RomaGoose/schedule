@@ -26,9 +26,9 @@ namespace clientчето_там
         }
         private void AdminAddSchedule_Load(object sender, EventArgs e)
         {
-            List<string> subject_list    = sql.Select("SELECT name, ID FROM subjects");
-            List<string> teachers_list   = sql.Select("SELECT name, ID, subjID, subj2ID FROM teachers");
-            List<string> classrooms_list = sql.Select("SELECT name, ID FROM classrooms");
+            List<string> subject_list    = sql.Select("SELECT name, ID FROM subjects  WHERE ID != 0");
+            List<string> teachers_list   = sql.Select("SELECT name, ID, subjID, subj2ID FROM teachers  WHERE ID != 0");
+            List<string> classrooms_list = sql.Select("SELECT name, ID FROM classrooms  WHERE ID != 0");
 
           
             string daytext = "";
@@ -61,7 +61,7 @@ namespace clientчето_там
                         " SELECT teachers.ID from dotw " +
                             " JOIN lessons ON lessons.ID = dotw.s" + less + "ID" +
                             " JOIN teachers ON teachers.ID = lessons.teacherID" +
-                            " WHERE dotw.name = '" + daytext + "'");
+                            " WHERE dotw.name = '" + daytext + "' AND WHERE ID != '0'");
 
                     for (int i = 0; i < teachers_list.Count; i += 4)
                     {
@@ -91,7 +91,7 @@ namespace clientчето_там
                         " SELECT classrooms.ID from dotw " +
                             " JOIN lessons ON lessons.ID = dotw.s" + less + "ID" +
                             " JOIN classrooms ON classrooms.ID = lessons.classroomID" +
-                            " WHERE dotw.name = '" + daytext + "'");
+                            " WHERE dotw.name = '" + daytext + "' WHERE ID != '0'");
 
                     for (int i = 0; i < classrooms_list.Count; i += 2)
                     {
@@ -222,7 +222,7 @@ namespace clientчето_там
                         {
                             sql.Update("INSERT INTO lessons (teacherID, subjID, groupID, classroomID, dayID)" +
                                           "VALUES('" + tparts[1] + "', '" + sparts[1] + "', '" + gparts[2] + "', '" + cparts[1] + "', '" + list.Last() + "')");
-                            List<string> lesslist = sql.Select("SELECT ID FROM lessons");
+                            List<string> lesslist = sql.Select("SELECT ID FROM lessons WHERE ID != '0'");
                             lessid.Add(lesslist.Last());
                         }
                         //for less
