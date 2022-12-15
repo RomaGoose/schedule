@@ -46,6 +46,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pan = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.addpan.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -216,17 +218,45 @@
             // 
             // pan
             // 
+            this.pan.AutoScroll = true;
+            this.pan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pan.Location = new System.Drawing.Point(0, 0);
             this.pan.Name = "pan";
             this.pan.Size = new System.Drawing.Size(784, 301);
             this.pan.TabIndex = 2;
+            this.pan.Paint += new System.Windows.Forms.PaintEventHandler(this.pan_Paint);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 31);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Имя";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.SystemColors.Control;
+            this.label9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
+            this.label9.Location = new System.Drawing.Point(326, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(84, 31);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Почта";
             // 
             // AdminTeacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pan);
             this.Controls.Add(this.addpan);
             this.KeyPreview = true;
@@ -238,6 +268,7 @@
             this.addpan.ResumeLayout(false);
             this.addpan.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -259,5 +290,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Panel pan;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label9;
     }
 }

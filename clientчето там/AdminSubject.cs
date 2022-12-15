@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace clientчето_там
 {
@@ -20,7 +21,7 @@ namespace clientчето_там
         public List<string> subjectid = new List<string>();
         private void AdminSubject_Load(object sender, EventArgs e)
         {
-            List<string> list = sql.Select("SELECT name, ID FROM subjects");
+            List<string> list = sql.Select("SELECT name, ID FROM subjects WHERE ID != '0'");
             deletepan.Controls.Clear();
 
             int y = 30;
@@ -36,7 +37,7 @@ namespace clientчето_там
                 lbl.Tag = list[i + 1];
                 deletepan.Controls.Add(lbl);
 
-                TextBox tb = new TextBox();
+                System.Windows.Forms.TextBox tb = new System.Windows.Forms.TextBox();
                 tb.Location = new Point(50, y);
                 tb.Size = new Size(250, 20);
                 tb.Font = new Font("Microsoft Sans Serif", 12);
@@ -51,16 +52,18 @@ namespace clientчето_там
                 pb.Load("../../pictures/change.png");
                 pb.Click += new EventHandler(UpdateNameClick);
                 pb.Location = new Point(435, y);
+                pb.Tag = list[i + 1];
                 pb.Size = new Size(30, 30);
                 toolTip1.SetToolTip(pb, "Изменить");
                 pb.SizeMode = PictureBoxSizeMode.Zoom;
                 deletepan.Controls.Add(pb);
-               
-                Button btn = new Button();
+
+                System.Windows.Forms.Button btn = new System.Windows.Forms.Button();
                 btn.Location = new Point(470, y);
                 btn.Size = new Size(100, 30);
                 btn.Font = new Font("Microsoft Sans Serif", 12);
                 btn.Click += new EventHandler(DeleteHotelClick);
+                btn.Tag = list[i + 1];
                 btn.Text = "Удалить";
                 deletepan.Controls.Add(btn);
 
@@ -73,39 +76,35 @@ namespace clientчето_там
 
         private void DeleteHotelClick(object sender, EventArgs e)
         {
-            Button btn = (Button)sender;
+            System.Windows.Forms.Button btn = (System.Windows.Forms.Button)sender;
             int y = btn.Location.Y;
 
-            foreach (Control control in deletepan.Controls)
-            {
-                if (control.Location == new Point(50, y))
-                {
-                    sql.Select("DELETE FROM subjects WHERE ID = '" + control.Tag + "'");
-                    MessageBox.Show("Низвёл до атомов");
-                    AdminSubject_Load(sender, e);
-                    return;
-                }
-            }
+            sql.Select("DELETE FROM subjects WHERE ID = '" + btn.Tag + "'");
+            MessageBox.Show("Низвёл до атомов");
+            AdminSubject_Load(sender, e);
         }
 
         private void UpdateClick(object sender, EventArgs e)
         {
-            sql.Select("INSERT INTO subjects (name)" +
-                          "VALUES('" + namebx.Text +  "')");
+            if (namebx.Text != "") 
+            { 
+            sql.Select("INSERT INTO subjects (name) VALUES('" + namebx.Text + "')");
             MessageBox.Show("Сохранено");
+            }
+            else MessageBox.Show("Заполните поле");
             AdminSubject_Load(sender, e);
-
             namebx.Text = "";
-            return;
-        }
+         }
         private void UpdateNameClick(object sender, EventArgs e)
         {
             PictureBox btn = (PictureBox)sender;
             int y = btn.Location.Y;
+            object tag = btn.Tag;
             foreach (Control control in deletepan.Controls)
             {
-                if (control.Location == new Point(50, y))
+                if (control.Location.X == 50 && control.Tag == tag)
                 {
+                    control.Location = new Point(50, y);
                     if (control.Name.StartsWith("tb"))
                         control.Visible = true;
                     if (control.Name.StartsWith("lbl"))
@@ -121,11 +120,13 @@ namespace clientчето_там
         private void SaveClick(object sender, EventArgs e)
         {
             PictureBox btn = (PictureBox)sender;
+            object tag = btn.Tag;
             int y = btn.Location.Y;
             foreach (Control control in deletepan.Controls)
             {
-                if (control.Location == new Point(50, y))
+                if (control.Location.X == 50 && control.Tag == tag)
                 {
+                    control.Location = new Point(50, y);
                     if (control.Name.StartsWith("tb"))
                     {
                         control.Visible = false; 

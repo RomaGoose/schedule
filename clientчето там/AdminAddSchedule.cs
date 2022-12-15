@@ -61,7 +61,7 @@ namespace clientчето_там
                         " SELECT teachers.ID from dotw " +
                             " JOIN lessons ON lessons.ID = dotw.s" + less + "ID" +
                             " JOIN teachers ON teachers.ID = lessons.teacherID" +
-                            " WHERE dotw.name = '" + daytext + "' AND WHERE ID != '0'");
+                            " WHERE dotw.name = '" + daytext + "' AND teachers.ID != '0'");
 
                     for (int i = 0; i < teachers_list.Count; i += 4)
                     {
@@ -91,7 +91,7 @@ namespace clientчето_там
                         " SELECT classrooms.ID from dotw " +
                             " JOIN lessons ON lessons.ID = dotw.s" + less + "ID" +
                             " JOIN classrooms ON classrooms.ID = lessons.classroomID" +
-                            " WHERE dotw.name = '" + daytext + "' WHERE ID != '0'");
+                            " WHERE dotw.name = '" + daytext + "' AND classrooms.ID != '0'");
 
                     for (int i = 0; i < classrooms_list.Count; i += 2)
                     {

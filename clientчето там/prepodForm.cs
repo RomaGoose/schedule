@@ -14,6 +14,7 @@ namespace clientчето_там
     public partial class prepodForm : Form
     {
         private string id;
+        private string name;
 
         public prepodForm(string ID)
         {
@@ -21,6 +22,7 @@ namespace clientчето_там
             List<string> list = sql.Select("SELECT name FROM teachers WHERE ID = '" + ID + "'");
            
             id = ID;
+            name = list[0];
             label1.Text = list[0];
         }
 
@@ -49,7 +51,7 @@ namespace clientчето_там
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Account sus = new Account(id);
+            Account sus = new Account(id, name);
             sus.ShowDialog();
         }
     }

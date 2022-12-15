@@ -19,7 +19,7 @@ namespace clientчето_там
         {
             InitializeComponent();
 
-            List<string> subject_list = sql.Select("SELECT name, ID FROM subjects");
+            List<string> subject_list = sql.Select("SELECT name, ID FROM subjects WHERE ID != '0'");
 
 
 
@@ -33,12 +33,12 @@ namespace clientчето_там
 
         private void AdminTeacher_Load(object sender, EventArgs e)
         {
-            List<string> list = sql.Select("SELECT name, mail, ID FROM teachers");
+            List<string> list = sql.Select("SELECT name, mail, ID FROM teachers WHERE ID != '0'");
             pan.Controls.Clear();
            
             
 
-            int y = 30;
+            int y = 70;
             for(int i=0; i < list.Count; i+=3)
             {
                 Label lbl = new Label();
@@ -85,18 +85,20 @@ namespace clientчето_там
                 pb = new PictureBox();
                 pb.Load("../../pictures/change.png");
                 pb.Click += new EventHandler(UpdateNameClick);
-                pb.Location = new Point(640, y);
+                pb.Location = new Point(620, y);
                 pb.Size = new Size(30, 30);
-                pb.SizeMode = PictureBoxSizeMode.Zoom; 
+                pb.SizeMode = PictureBoxSizeMode.Zoom;
+                pb.Tag = list[i + 2];
                 toolTip1.SetToolTip(pb, "Изменить");
                 pan.Controls.Add(pb);
 
 
                 Button btn = new Button();
-                btn.Location = new Point(680, y);
+                btn.Location = new Point(660, y);
                 btn.Size = new Size(100, 30);
                 btn.Font = new Font("Microsoft Sans Serif", 12);
                 btn.Click += new EventHandler(DeleteHotelClick);
+                btn.Tag = list[i + 2];
                 btn.Text = "Удалить";
                 pan.Controls.Add(btn);
 
@@ -107,20 +109,24 @@ namespace clientчето_там
         {
             PictureBox btn = (PictureBox)sender;
             int y = btn.Location.Y;
+            object tag = btn.Tag;
             foreach (Control control in pan.Controls)
             {
-                if (control.Location == new Point(10, y))
+                if (control.Location.X == 10 && control.Tag == tag)
                 {
+                    control.Location = new Point(10, y);
                     if (control.Name.StartsWith("tb"))
                         control.Visible = true;
                     if (control.Name.StartsWith("lbl"))
                         control.Visible = false;
                 }
+             
             }
             foreach (Control control in pan.Controls)
             {
-                if (control.Location == new Point(320, y))
+                if (control.Location.X == 320 && control.Tag == tag)
                 {
+                    control.Location = new Point(320, y);
                     if (control.Name.StartsWith("tb"))
                         control.Visible = true;
                     if (control.Name.StartsWith("lbl"))
@@ -136,11 +142,13 @@ namespace clientчето_там
         private void SaveClick(object sender, EventArgs e)
         {
             PictureBox btn = (PictureBox)sender;
+            object tag = btn.Tag;
             int y = btn.Location.Y;
-            foreach (Control control in pan.Controls)
+             foreach (Control control in pan.Controls)
             {
-                if (control.Location == new Point(10, y))
+                if (control.Location.X == 10 && control.Tag == tag)
                 {
+                    control.Location = new Point(10, y);
                     if (control.Name.StartsWith("tb"))
                     {
                         control.Visible = false;
@@ -153,8 +161,9 @@ namespace clientчето_там
 
             foreach (Control control in pan.Controls)
             {
-                if (control.Location == new Point (320, y))
+                if (control.Location.X == 320 && control.Tag == tag)
                 {
+                    control.Location = new Point(320, y);
                     if (control.Name.StartsWith("tb"))
                     {
                         control.Visible = false;
@@ -177,16 +186,11 @@ namespace clientчето_там
             Button btn = (Button)sender;
             int y = btn.Location.Y;
 
-            foreach(Control control in pan.Controls)
-            {
-                if(control.Location == new Point (10, y))
-                {
-                    sql.Select("DELETE FROM teachers WHERE ID = '" + control.Tag + "'");
-                    MessageBox.Show("Низвёл до атомов");
-                    AdminTeacher_Load(sender, e);
-                    return;
-                }
-            }
+            sql.Select("DELETE FROM teachers WHERE ID = '" + btn.Tag + "'");
+            MessageBox.Show("Низвёл до атомов");
+            AdminTeacher_Load(sender, e);
+           
+            
         }
 
         private void UpdateClick(object sender, EventArgs e)
@@ -250,6 +254,11 @@ namespace clientчето_там
         }
 
         private void addpan_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pan_Paint(object sender, PaintEventArgs e)
         {
 
         }

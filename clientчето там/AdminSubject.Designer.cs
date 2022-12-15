@@ -43,11 +43,12 @@
             // deletepan
             // 
             this.deletepan.AutoScroll = true;
-            this.deletepan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.deletepan.Location = new System.Drawing.Point(0, 31);
+            this.deletepan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.deletepan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.deletepan.Location = new System.Drawing.Point(0, 0);
             this.deletepan.Margin = new System.Windows.Forms.Padding(2);
             this.deletepan.Name = "deletepan";
-            this.deletepan.Size = new System.Drawing.Size(600, 273);
+            this.deletepan.Size = new System.Drawing.Size(600, 506);
             this.deletepan.TabIndex = 0;
             // 
             // addpan
@@ -109,11 +110,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.label1.Location = new System.Drawing.Point(9, 7);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(181, 25);
+            this.label1.Size = new System.Drawing.Size(183, 27);
             this.label1.TabIndex = 2;
             this.label1.Text = "Удалить предмет";
             this.label1.Click += new System.EventHandler(this.label1_Click);

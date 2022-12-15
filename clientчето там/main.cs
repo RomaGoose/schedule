@@ -32,7 +32,7 @@ namespace clientчето_там
         /// <summary>
         /// Функция Select-запроса
         /// </summary>
-      
+       
         public main()
         {
             //List<string> list = sql.Select("SELECT name, subject1, subject2, subject3, subject4, subject5, " +
@@ -110,18 +110,17 @@ namespace clientчето_там
             #endregion
 
             InitializeComponent();
-           
+
+
             List<string> teacher_list = sql.Select("SELECT name FROM teachers WHERE ID != 0");
 
             for (int i = 0; i < teacher_list.Count; i++)
                 teachercbx.Items.Add(teacher_list[i]);
-            
-            List<string> fac_list = sql.Select("SELECT name, ID FROM faculties");
-
-            for (int i = 0; i < fac_list.Count; i += 2)
-                faccbx.Items.Add(fac_list[i] + ',' + fac_list[i+1]);
 
           
+            List<string> fac_list = sql.Select("SELECT name, ID FROM faculties");
+            for (int i = 0; i < fac_list.Count; i += 2)
+                   faccbx.Items.Add(fac_list[i] + ',' + fac_list[i + 1]);
 
         }
 
@@ -269,7 +268,7 @@ namespace clientчето_там
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AdminLogin sus = new AdminLogin();
+            Admin sus = new Admin("fuck");
             sus.ShowDialog();
         }
 
@@ -294,10 +293,11 @@ namespace clientчето_там
             grcbx.Enabled = true;
             string[] parts = faccbx.Text.Split(new char[] { ',' });
 
-            List<string> gr_list = sql.Select("SELECT name, ID FROM groups WHERE facID ='" + parts[1] + "'");
+            List<string> gr_list = sql.Select("SELECT name, ID FROM groups WHERE facID ='" + parts[1] + "' AND ID != '0'");
 
             for (int i = 0; i < gr_list.Count; i += 2)
                 grcbx.Items.Add(gr_list[i] + ',' + gr_list[i + 1]);
+ 
 
         }
     }

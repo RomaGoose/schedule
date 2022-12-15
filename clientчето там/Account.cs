@@ -14,11 +14,13 @@ namespace clientчето_там
     {
         public int teacherid;
         public List<string> subject_list;
-        public Account(string ID)
+        public Account(string ID, string name)
         {
             InitializeComponent();
             
             teacherid = Convert.ToInt32(ID);
+
+            label4.Text = name;
 
             subject_list = sql.Select("SELECT name, ID FROM subjects");
 
@@ -92,22 +94,18 @@ namespace clientчето_там
             linkLabel1.Visible = true;
             button1.Visible = false;
 
-            string name = label1.Text; //еще mail гдето, спросиь можгно ли один цикл фор использовать а не два одинаковых сверху и снизуу
             List<string> user_data = sql.Select("SELECT name, login, password, mail, subjID, subj2ID FROM teachers WHERE ID = '" + teacherid + "'");
-           
-            List<string> sub1 = sql.Select("SELECT name FROM subjects WHERE ID = '" + user_data[4] + "'");
-            List<string> sub2 = sql.Select("SELECT name FROM subjects WHERE ID = '" + user_data[5] + "'");
-
-            int sub1ind = 0;
-            int sub2ind = 0;
-
+         
             for (int i = 0; i < subject_list.Count; i += 2)
             {
-                if (subject_list[i] == sub1[0])
-                    sub1ind = i/2;
-                if (subject_list[i] == sub2[0])
-                    sub2ind = i/2;
+                if (subject_list[i+1] == user_data[4])
+                    subj1cbx.SelectedIndex = i / 2;
+                if (subject_list[i+1] == user_data[5])
+                    subj2cbx.SelectedIndex = i / 2;
             }
+
+            List<string> sub1 = sql.Select("SELECT name FROM subjects WHERE ID = '" + user_data[4] + "'");
+            List<string> sub2 = sql.Select("SELECT name FROM subjects WHERE ID = '" + user_data[5] + "'");
 
             nametb.Text = user_data[0];
             logintb.Text = user_data[1];
@@ -115,9 +113,6 @@ namespace clientчето_там
             mailtb.Text = user_data[3];
             sub1lbl.Text = sub1[0];
             sub2lbl.Text = sub2[0];
-            subj1cbx.SelectedIndex = sub1ind;
-            subj2cbx.SelectedIndex = sub2ind;
-
         }
     }
 }

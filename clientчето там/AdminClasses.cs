@@ -19,22 +19,23 @@ namespace clientчето_там
 
         private void button1_Click(object sender, EventArgs e)
         {
-            sql.Update("INSERT INTO classrooms (name)" +
-                         "VALUES('" + namebx.Text + "')");
-            MessageBox.Show("Сохранено");
+            if (namebx.Text != "")
+            {
+                sql.Select("INSERT INTO classrooms (name) VALUES('" + namebx.Text + "')");
+                MessageBox.Show("Сохранено");
+            }
+            else MessageBox.Show("Заполните поле");
             AdminClasses_Load(sender, e);
-
             namebx.Text = "";
-            return;
         }
         private void DeleteClick(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
             int y = btn.Location.Y;
-
+            object tag = btn.Tag;
             foreach (Control control in deletepan.Controls)
             {
-                if (control.Location == new Point(50, y))
+                if (control.Location.X == 50 && control.Tag == tag)
                 {
                     sql.Select("DELETE FROM classrooms WHERE name = '" + control.Text + "'");
                     MessageBox.Show("Низвёл до атомов");
@@ -46,17 +47,18 @@ namespace clientчето_там
 
         private void AdminClasses_Load(object sender, EventArgs e)
         {
-            List<string> list = sql.Select("SELECT name FROM classrooms");
+            List<string> list = sql.Select("SELECT name, ID FROM classrooms WHERE ID != '0'");
             deletepan.Controls.Clear();
 
             int y = 30;
-            for (int i = 0; i < list.Count; i++)
+            for (int i = 0; i < list.Count; i+=2)
             {
                 Label lbl = new Label();
                 lbl.Location = new Point(50, y);
                 lbl.Size = new Size(100, 20);
                 lbl.Font = new Font("Microsoft Sans Serif", 12);
                 lbl.Text = list[i];
+                lbl.Tag = list[i + 1];
                 deletepan.Controls.Add(lbl);
 
                 Button btn = new Button();
@@ -64,6 +66,7 @@ namespace clientчето_там
                 btn.Size = new Size(100, 30);
                 btn.Font = new Font("Microsoft Sans Serif", 12);
                 btn.Click += new EventHandler(DeleteClick);
+                btn.Tag = list[i + 1];
                 btn.Text = "Удалить";
                 deletepan.Controls.Add(btn);
 
