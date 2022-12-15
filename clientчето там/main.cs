@@ -28,11 +28,11 @@ namespace clientчето_там
 
     public partial class main : Form
     {
-       
+
         /// <summary>
         /// Функция Select-запроса
         /// </summary>
-       
+        private string who = "";
         public main()
         {
             //List<string> list = sql.Select("SELECT name, subject1, subject2, subject3, subject4, subject5, " +
@@ -137,6 +137,7 @@ namespace clientчето_там
             {
                 string daytext = ""; 
                 string[] parts = grcbx.Text.Split(new char[] { ',' });
+                
                    
                 for (int dotw = 0; dotw < 6; dotw++)
                 {
@@ -153,43 +154,59 @@ namespace clientчето_там
                         if (pan.Name == daytext + "pan")
                         {
                             int row = 0;
-                          
+
                             for (int less = 0; less < 5; less++)
                             {
-                                List<string> list = sql.Select(
-                                    " SELECT subjects.name, teachers.name, classrooms.name" +
-                                    " FROM dotw " +
-                                        " JOIN lessons    ON lessons.ID    = dotw.s" + (less + 1) + "ID " +
-                                        " JOIN groups     ON groups.ID     = dotw.groupID " +
-                                        " JOIN teachers   ON teachers.ID   = lessons.teacherID " +
-                                        " JOIN subjects   ON subjects.ID   = lessons.subjID " +
-                                        " JOIN classrooms ON classrooms.ID = lessons.classroomID " +
-                                        " WHERE dotw.groupID = '" + parts[1] + "' AND dotw.name = '" + daytext + "' ");
+                                List<string> list = new List<string>();
+
+                                if (who == "fac")
+                                    list = sql.Select(
+                                        " SELECT subjects.name, teachers.name, classrooms.name" +
+                                        " FROM dotw " +
+                                            " JOIN lessons    ON lessons.ID    = dotw.s" + (less + 1) + "ID " +
+                                            " JOIN groups     ON groups.ID     = dotw.groupID " +
+                                            " JOIN teachers   ON teachers.ID   = lessons.teacherID " +
+                                            " JOIN subjects   ON subjects.ID   = lessons.subjID " +
+                                            " JOIN classrooms ON classrooms.ID = lessons.classroomID " +
+                                            " WHERE dotw.groupID = '" + parts[1] + "' AND dotw.name = '" + daytext + "' ");
+
+                                if (who == "prep")
+                                    list = sql.Select(
+                                        " SELECT subjects.name, groups.name, classrooms.name" +
+                                        " FROM dotw " +
+                                            " JOIN lessons    ON lessons.ID    = dotw.s" + (less + 1) + "ID " +
+                                            " JOIN groups     ON groups.ID     = dotw.groupID " +
+                                            " JOIN teachers   ON teachers.ID   = lessons.teacherID " +
+                                            " JOIN subjects   ON subjects.ID   = lessons.subjID " +
+                                            " JOIN classrooms ON classrooms.ID = lessons.classroomID " +
+                                            " WHERE teachers.ID = '" + teachercbx.Text.Last() + "' AND dotw.name = '" + daytext + "' ");
 
                                 //MessageBox.Show("чето нашел");
 
-                                Label lbl = new Label();
-                                lbl.Anchor = AnchorStyles.None;
-                                lbl.Location = new Point(13, 6);
-                                lbl.Size = new Size(100, 26);
-                                lbl.Text = list[0];
-                                pan.Controls.Add(lbl, 0, row);
+                                if (list.Count > 0) 
+                                { 
+                                    Label lbl = new Label();
+                                    lbl.Anchor = AnchorStyles.None;
+                                    lbl.Location = new Point(13, 6);
+                                    lbl.Size = new Size(100, 26);
+                                    lbl.Text = list[0];
+                                    pan.Controls.Add(lbl, 0, row);
 
-                                Label tlbl = new Label();
-                                tlbl.Anchor = AnchorStyles.None;
-                                tlbl.Location = new Point(137, 6);
-                                tlbl.Size = new Size(97, 26);
-                                tlbl.Text = list[1];
-                                pan.Controls.Add(tlbl, 1, row);
+                                    Label tlbl = new Label();
+                                    tlbl.Anchor = AnchorStyles.None;
+                                    tlbl.Location = new Point(137, 6);
+                                    tlbl.Size = new Size(97, 26);
+                                    tlbl.Text = list[1];
+                                    pan.Controls.Add(tlbl, 1, row);
 
-                                Label clbl = new Label();
-                                clbl.Anchor = AnchorStyles.None;
-                                clbl.Font = new Font("Microsoft Sans Serif", 8F);
-                                clbl.Location = new Point(253, 152);
-                                clbl.Size = new Size(25, 13);
-                                clbl.Text = list[2];
-                                pan.Controls.Add(clbl, 2, row);
-
+                                    Label clbl = new Label();
+                                    clbl.Anchor = AnchorStyles.None;
+                                    clbl.Font = new Font("Microsoft Sans Serif", 8F);
+                                    clbl.Location = new Point(253, 152);
+                                    clbl.Size = new Size(25, 13);
+                                    clbl.Text = list[2];
+                                    pan.Controls.Add(clbl, 2, row);
+                                }
                                 row++;
                             }
 
@@ -224,6 +241,7 @@ namespace clientчето_там
         private void search_Click(object sender, EventArgs e)
         {
             main_Load(sender, e);
+            who = "fac";
         }
 
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
@@ -285,6 +303,8 @@ namespace clientчето_там
 
         private void presearch_Click(object sender, EventArgs e)
         {
+            main_Load(sender, e);
+            who = "prep";
         }
 
         private void faccbx_SelectedIndexChanged(object sender, EventArgs e)
