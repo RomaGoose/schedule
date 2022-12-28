@@ -35,18 +35,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.addpan = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.addpan.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.label1.Location = new System.Drawing.Point(9, 4);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 27);
+            this.label1.Size = new System.Drawing.Size(198, 25);
             this.label1.TabIndex = 5;
             this.label1.Text = "Удалить аудиторию";
             // 
@@ -55,10 +55,10 @@
             this.deletepan.AutoScroll = true;
             this.deletepan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.deletepan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.deletepan.Location = new System.Drawing.Point(0, 0);
+            this.deletepan.Location = new System.Drawing.Point(0, 36);
             this.deletepan.Margin = new System.Windows.Forms.Padding(2);
             this.deletepan.Name = "deletepan";
-            this.deletepan.Size = new System.Drawing.Size(292, 303);
+            this.deletepan.Size = new System.Drawing.Size(292, 267);
             this.deletepan.TabIndex = 3;
             // 
             // label3
@@ -116,6 +116,14 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(292, 36);
+            this.panel1.TabIndex = 6;
+            // 
             // AdminClasses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -124,6 +132,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.deletepan);
             this.Controls.Add(this.addpan);
+            this.Controls.Add(this.panel1);
             this.KeyPreview = true;
             this.Name = "AdminClasses";
             this.Text = "AdminClasses";
@@ -145,5 +154,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel addpan;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

@@ -52,6 +52,7 @@ namespace clientчето_там
                 {
                     prepodForm pf = new prepodForm(user_data[2]);
                     pf.ShowDialog();
+                    Close();
                 }
 
                 if (user_data.Count == 0 && fakeuser_data.Count == 0 && wrong_user_data.Count == 0 && wrong_fakeuser_data.Count == 0)

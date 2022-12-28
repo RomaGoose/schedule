@@ -104,18 +104,6 @@
     <Compile Include="aut.Designer.cs">
       <DependentUpon>aut.cs</DependentUpon>
     </Compile>
-    <Compile Include="change.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="change.Designer.cs">
-      <DependentUpon>change.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,9 +157,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="aut.resx">
       <DependentUpon>aut.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>

@@ -13,15 +13,12 @@ using MySql.Data.MySqlClient;
 using System.Data.Common;
 using System.Xml.Linq;
 using static System.Net.Mime.MediaTypeNames;
+using System.Security.AccessControl;
 
 namespace clientчето_там
 {
     #region подсказки типа
-    /* авто инкрементирование A_I, чтобы айди сам увеличивался
-     * в уадление тоже айди дбавить и удалить запрос длеать по айдишнику тоже
-     * айди как тэг добавить в лейбл который за имя отвечает и соответственоо по нему удалить
-     * добавить айди предметам, сделать айдисабджект в таблице преподов
-     * по рофлу сдлеать преподам айди тоже хотя есть и почта, сделать авто инкремент. см начало
+    /* 
      */
     #endregion
 
@@ -33,13 +30,10 @@ namespace clientчето_там
         /// Функция Select-запроса
         /// </summary>
         private string who = "";
+        List<string> grav = new List<string>();
         public main()
         {
-            //List<string> list = sql.Select("SELECT name, subject1, subject2, subject3, subject4, subject5, " +
-            //                                          "Teacher1, Teacher2, Teacher3, Teacher4, Teacher5, " +
-            //                                          "Classroom1, Classroom2, Classroom3, Classroom4, Classroom5 FROM fullday");
-
-
+       
             #region lable 
             // 
             // mon
@@ -112,15 +106,6 @@ namespace clientчето_там
             InitializeComponent();
 
 
-            List<string> teacher_list = sql.Select("SELECT name FROM teachers WHERE ID != 0");
-
-            for (int i = 0; i < teacher_list.Count; i++)
-                teachercbx.Items.Add(teacher_list[i]);
-
-          
-            List<string> fac_list = sql.Select("SELECT name, ID FROM faculties");
-            for (int i = 0; i < fac_list.Count; i += 2)
-                   faccbx.Items.Add(fac_list[i] + ',' + fac_list[i + 1]);
 
         }
 
@@ -133,12 +118,48 @@ namespace clientчето_там
             fripan.Controls.Clear();
             satpan.Controls.Clear();
 
-            if (grcbx.Text != "" && faccbx.Text != "")
+            #region Заполнение комбобоксов
+            List<string> teacher_list = sql.Select("SELECT name, ID FROM teachers WHERE ID != 0");
+
+            for (int i = 0; i < teacher_list.Count; i+=2)
+                teachercbx.Items.Add(teacher_list[i] + ',' + teacher_list[i+1]);
+
+
+            grav = sql.Select("SELECT DISTINCT groupID FROM dotw");
+            string cmdtext = "SELECT facID FROM groups WHERE ";
+            for (int i = 0; i < grav.Count; i++)
             {
-                string daytext = ""; 
+                if (i == 0) cmdtext += "ID ='" + grav[i] + "' ";
+                else        cmdtext += " OR ID ='" + grav[i] + "' ";
+            }
+
+            List<string> facid = sql.Select(cmdtext);
+            List<string> fac_list = new List<string>();
+
+            for (int i = 0; i < facid.Count; i++)
+            {
+                List<string> a = new List<string>();
+                if (facid.Count > 0)
+                {
+                    a = sql.Select("SELECT name, ID FROM faculties WHERE ID='" + facid[i] + "'");
+                    fac_list.Add(a[0]);
+                    fac_list.Add(a[1]);
+                }
+
+            }
+
+            for (int i = 0; i < fac_list.Count; i += 2)
+                if (fac_list.Contains(fac_list[i+1]))
+                   faccbx.Items.Add(fac_list[i] + ',' + fac_list[i + 1]);
+            #endregion
+
+            if ((grcbx.Text != "" && faccbx.Text != "" && who == "fac") || (teachercbx.Text != "" && who == "prep"))
+            {
+                string daytext = "";
                 string[] parts = grcbx.Text.Split(new char[] { ',' });
-                
-                   
+                string[] tparts = teachercbx.Text.Split(new char[] { ',' });
+
+
                 for (int dotw = 0; dotw < 6; dotw++)
                 {
                     if (dotw == 0) daytext = "mon";
@@ -148,7 +169,7 @@ namespace clientчето_там
                     if (dotw == 4) daytext = "fri";
                     if (dotw == 5) daytext = "sat";
 
-                   foreach (TableLayoutPanel pan in downpan.Controls)
+                    foreach (TableLayoutPanel pan in downpan.Controls)
                     {
                         string eh = pan.Name;
                         if (pan.Name == daytext + "pan")
@@ -179,12 +200,12 @@ namespace clientчето_там
                                             " JOIN teachers   ON teachers.ID   = lessons.teacherID " +
                                             " JOIN subjects   ON subjects.ID   = lessons.subjID " +
                                             " JOIN classrooms ON classrooms.ID = lessons.classroomID " +
-                                            " WHERE teachers.ID = '" + teachercbx.Text.Last() + "' AND dotw.name = '" + daytext + "' ");
+                                            " WHERE teachers.ID = '" + tparts[1] + "' AND dotw.name = '" + daytext + "' ");
 
                                 //MessageBox.Show("чето нашел");
 
-                                if (list.Count > 0) 
-                                { 
+                                if (list.Count > 0)
+                                {
                                     Label lbl = new Label();
                                     lbl.Anchor = AnchorStyles.None;
                                     lbl.Location = new Point(13, 6);
@@ -215,7 +236,9 @@ namespace clientчето_там
                     }
                 }
             }
-          
+
+            else if (who != "")
+                MessageBox.Show("Выберите всё, что требуется", "Ошибка");
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -239,10 +262,10 @@ namespace clientчето_там
 
 
         private void search_Click(object sender, EventArgs e)
-        {
-            main_Load(sender, e);
+        {      
             who = "fac";
-        }
+            main_Load(sender, e);
+         }
 
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
@@ -286,7 +309,7 @@ namespace clientчето_там
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Admin sus = new Admin("fuck");
+            AdminLogin sus = new AdminLogin();
             sus.ShowDialog();
         }
 
@@ -302,9 +325,9 @@ namespace clientчето_там
         }
 
         private void presearch_Click(object sender, EventArgs e)
-        {
-            main_Load(sender, e);
+        {      
             who = "prep";
+            main_Load(sender, e);
         }
 
         private void faccbx_SelectedIndexChanged(object sender, EventArgs e)
@@ -313,12 +336,19 @@ namespace clientчето_там
             grcbx.Enabled = true;
             string[] parts = faccbx.Text.Split(new char[] { ',' });
 
+            //List<string> lflfla = sql.Select("SELECT DISTINCT groupID FROM dotw");
             List<string> gr_list = sql.Select("SELECT name, ID FROM groups WHERE facID ='" + parts[1] + "' AND ID != '0'");
 
             for (int i = 0; i < gr_list.Count; i += 2)
-                grcbx.Items.Add(gr_list[i] + ',' + gr_list[i + 1]);
- 
+                if (grav.Contains(gr_list[i + 1]))
+                    grcbx.Items.Add(gr_list[i] + ',' + gr_list[i + 1]);
 
+          
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            main_Load(sender, e);
         }
     }
 }

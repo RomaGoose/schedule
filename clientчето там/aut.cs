@@ -29,7 +29,7 @@ namespace clientчето_там
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (nametb.Text == "" || passtb.Text == "" || pass2tb.Text == "" || mailtb.Text == "")
+            if (nametb.Text == "" || passtb.Text == "" || pass2tb.Text == "" || mailtb.Text == "" || subj1cbx.Text == "" || subj2cbx.Text == "")
             {
                 MessageBox.Show("Заполните все поля!", "Да блин");
             }

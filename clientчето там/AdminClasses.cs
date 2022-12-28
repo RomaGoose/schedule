@@ -50,7 +50,7 @@ namespace clientчето_там
             List<string> list = sql.Select("SELECT name, ID FROM classrooms WHERE ID != '0'");
             deletepan.Controls.Clear();
 
-            int y = 30;
+            int y = 10;
             for (int i = 0; i < list.Count; i+=2)
             {
                 Label lbl = new Label();

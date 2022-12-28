@@ -37,7 +37,7 @@ namespace clientчето_там
             
             facpan.Controls.Clear();
 
-            int fy = 70;
+            int fy = 10;
             for (int i = 0; i < faclist.Count; i += 2)
             {
                 Label lbl = new Label();
@@ -83,7 +83,7 @@ namespace clientчето_там
                 fy += 30;
             }
 
-            int gy = 70;
+            int gy = 10;
             for (int i = 0; i < grlist.Count; i += 3)
             {
                 Label lbl = new Label();

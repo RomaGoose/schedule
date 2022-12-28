@@ -38,7 +38,7 @@ namespace clientчето_там
            
             
 
-            int y = 70;
+            int y = 10;
             for(int i=0; i < list.Count; i+=3)
             {
                 Label lbl = new Label();

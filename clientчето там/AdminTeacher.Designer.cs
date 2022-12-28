@@ -48,7 +48,9 @@
             this.pan = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.addpan.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // addpan
@@ -90,9 +92,9 @@
             this.label8.Location = new System.Drawing.Point(7, 50);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(114, 13);
+            this.label8.Size = new System.Drawing.Size(90, 13);
             this.label8.TabIndex = 29;
-            this.label8.Text = "Введите Ваш логин...";
+            this.label8.Text = "Введите логин...";
             // 
             // subj2cbx
             // 
@@ -133,9 +135,9 @@
             this.label6.Location = new System.Drawing.Point(7, 189);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(166, 13);
+            this.label6.Size = new System.Drawing.Size(150, 13);
             this.label6.TabIndex = 24;
-            this.label6.Text = "Введите Ваш второй предмет...";
+            this.label6.Text = "Выберите второй предмет...";
             // 
             // label2
             // 
@@ -154,9 +156,9 @@
             this.label5.Location = new System.Drawing.Point(8, 225);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(117, 13);
+            this.label5.Size = new System.Drawing.Size(88, 13);
             this.label5.TabIndex = 22;
-            this.label5.Text = "Введите Вашу почту...";
+            this.label5.Text = "Введите почту...";
             // 
             // namebx
             // 
@@ -172,9 +174,9 @@
             this.label4.Location = new System.Drawing.Point(7, 154);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(128, 13);
+            this.label4.Size = new System.Drawing.Size(112, 13);
             this.label4.TabIndex = 21;
-            this.label4.Text = "Введите Ваш предмет...";
+            this.label4.Text = "Выберите предмет...";
             // 
             // passbx
             // 
@@ -190,9 +192,9 @@
             this.label3.Location = new System.Drawing.Point(7, 119);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 13);
+            this.label3.Size = new System.Drawing.Size(97, 13);
             this.label3.TabIndex = 20;
-            this.label3.Text = "Введите Ваш пароль...";
+            this.label3.Text = "Введите пароль...";
             // 
             // mailbx
             // 
@@ -208,9 +210,9 @@
             this.label7.Location = new System.Drawing.Point(7, 83);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(111, 13);
+            this.label7.Size = new System.Drawing.Size(81, 13);
             this.label7.TabIndex = 19;
-            this.label7.Text = "Введите Ваше имя...";
+            this.label7.Text = "Введите имя...";
             // 
             // toolTip1
             // 
@@ -221,20 +223,19 @@
             this.pan.AutoScroll = true;
             this.pan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pan.Location = new System.Drawing.Point(0, 0);
+            this.pan.Location = new System.Drawing.Point(0, 44);
             this.pan.Name = "pan";
-            this.pan.Size = new System.Drawing.Size(784, 301);
+            this.pan.Size = new System.Drawing.Size(784, 257);
             this.pan.TabIndex = 2;
             this.pan.Paint += new System.Windows.Forms.PaintEventHandler(this.pan_Paint);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 31);
+            this.label1.Size = new System.Drawing.Size(64, 29);
             this.label1.TabIndex = 3;
             this.label1.Text = "Имя";
             // 
@@ -242,23 +243,31 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.SystemColors.Control;
-            this.label9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
             this.label9.Location = new System.Drawing.Point(326, 9);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(84, 31);
+            this.label9.Size = new System.Drawing.Size(82, 29);
             this.label9.TabIndex = 4;
             this.label9.Text = "Почта";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(784, 44);
+            this.panel1.TabIndex = 5;
             // 
             // AdminTeacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.pan);
             this.Controls.Add(this.addpan);
+            this.Controls.Add(this.panel1);
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AdminTeacher";
@@ -267,8 +276,9 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AdminTeacher_KeyDown);
             this.addpan.ResumeLayout(false);
             this.addpan.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -292,5 +302,6 @@
         private System.Windows.Forms.Panel pan;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel1;
     }
 }

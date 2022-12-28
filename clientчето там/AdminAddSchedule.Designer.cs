@@ -62,7 +62,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.snachala = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // grcbx
@@ -72,7 +72,7 @@
             this.grcbx.FormattingEnabled = true;
             this.grcbx.Location = new System.Drawing.Point(16, 32);
             this.grcbx.Name = "grcbx";
-            this.grcbx.Size = new System.Drawing.Size(177, 24);
+            this.grcbx.Size = new System.Drawing.Size(387, 24);
             this.grcbx.TabIndex = 3;
             this.grcbx.SelectedIndexChanged += new System.EventHandler(this.grcbx_SelectedIndexChanged);
             // 
@@ -82,9 +82,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 20);
+            this.label2.Size = new System.Drawing.Size(137, 20);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Группа";
+            this.label2.Text = "Выберите группу";
             // 
             // label3
             // 
@@ -356,7 +356,7 @@
             this.button1.Size = new System.Drawing.Size(171, 47);
             this.button1.TabIndex = 170;
             this.button1.Text = "Сохранить";
-            this.toolTip1.SetToolTip(this.button1, "cj[hfybnm");
+            this.toolTip1.SetToolTip(this.button1, "Всё сохранит, реально");
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.AddClick);
             // 
@@ -385,22 +385,24 @@
             this.label9.TabIndex = 173;
             this.label9.Text = "-можно делать выходные";
             // 
-            // snachala
+            // button2
             // 
-            this.snachala.AutoSize = true;
-            this.snachala.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.snachala.Location = new System.Drawing.Point(199, 25);
-            this.snachala.Name = "snachala";
-            this.snachala.Size = new System.Drawing.Size(348, 31);
-            this.snachala.TabIndex = 174;
-            this.snachala.Text = "Сначала, выберите группу";
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button2.Location = new System.Drawing.Point(500, 36);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(61, 23);
+            this.button2.TabIndex = 175;
+            this.button2.Text = "Поп ит";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // AdminAddSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1125, 581);
-            this.Controls.Add(this.snachala);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pan);
@@ -475,6 +477,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label snachala;
+        private System.Windows.Forms.Button button2;
     }
 }

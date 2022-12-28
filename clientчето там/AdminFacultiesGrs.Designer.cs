@@ -46,6 +46,7 @@
             this.eventLog1 = new System.Diagnostics.EventLog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -55,10 +56,10 @@
             this.facpan.AutoScroll = true;
             this.facpan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.facpan.Dock = System.Windows.Forms.DockStyle.Left;
-            this.facpan.Location = new System.Drawing.Point(0, 0);
+            this.facpan.Location = new System.Drawing.Point(0, 56);
             this.facpan.Margin = new System.Windows.Forms.Padding(2);
             this.facpan.Name = "facpan";
-            this.facpan.Size = new System.Drawing.Size(500, 362);
+            this.facpan.Size = new System.Drawing.Size(500, 306);
             this.facpan.TabIndex = 0;
             // 
             // grpan
@@ -66,10 +67,10 @@
             this.grpan.AutoScroll = true;
             this.grpan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.grpan.Dock = System.Windows.Forms.DockStyle.Right;
-            this.grpan.Location = new System.Drawing.Point(504, 0);
+            this.grpan.Location = new System.Drawing.Point(504, 56);
             this.grpan.Margin = new System.Windows.Forms.Padding(2);
             this.grpan.Name = "grpan";
-            this.grpan.Size = new System.Drawing.Size(516, 362);
+            this.grpan.Size = new System.Drawing.Size(516, 306);
             this.grpan.TabIndex = 1;
             this.grpan.Paint += new System.Windows.Forms.PaintEventHandler(this.grpan_Paint);
             // 
@@ -225,16 +226,25 @@
             this.panel1.Size = new System.Drawing.Size(1020, 169);
             this.panel1.TabIndex = 14;
             // 
+            // panel2
+            // 
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1020, 56);
+            this.panel2.TabIndex = 0;
+            // 
             // AdminFacultiesGrs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1020, 531);
+            this.Controls.Add(this.facpan);
+            this.Controls.Add(this.grpan);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.grpan);
-            this.Controls.Add(this.facpan);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AdminFacultiesGrs";
             this.Text = "AdminFacultiesGrs";
@@ -266,5 +276,6 @@
         private System.Diagnostics.EventLog eventLog1;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
