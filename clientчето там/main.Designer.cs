@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main));
             this.FiltrPanel = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.teachercbx = new System.Windows.Forms.ComboBox();
@@ -48,9 +50,9 @@
             this.fripan = new System.Windows.Forms.TableLayoutPanel();
             this.thupan = new System.Windows.Forms.TableLayoutPanel();
             this.monpan = new System.Windows.Forms.TableLayoutPanel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.FiltrPanel.SuspendLayout();
             this.downpan.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +61,8 @@
             // 
             this.FiltrPanel.BackColor = System.Drawing.Color.DarkOrange;
             this.FiltrPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.FiltrPanel.Controls.Add(this.label6);
+            this.FiltrPanel.Controls.Add(this.label5);
             this.FiltrPanel.Controls.Add(this.button3);
             this.FiltrPanel.Controls.Add(this.label4);
             this.FiltrPanel.Controls.Add(this.label2);
@@ -77,6 +81,30 @@
             this.FiltrPanel.Name = "FiltrPanel";
             this.FiltrPanel.Size = new System.Drawing.Size(657, 160);
             this.FiltrPanel.TabIndex = 0;
+            // 
+            // button3
+            // 
+            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button3.Location = new System.Drawing.Point(606, 110);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(40, 40);
+            this.button3.TabIndex = 16;
+            this.toolTip1.SetToolTip(this.button3, "Обновить");
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
+            this.label4.Location = new System.Drawing.Point(173, 45);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 39);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "ИЛИ";
             // 
             // label2
             // 
@@ -144,7 +172,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 33);
             this.button1.TabIndex = 7;
-            this.button1.Text = "Я Дамблдор";
+            this.button1.Text = "Я админ";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -332,29 +360,24 @@
             this.monpan.Size = new System.Drawing.Size(285, 177);
             this.monpan.TabIndex = 29;
             // 
-            // label4
+            // label5
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-            this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(173, 45);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 39);
-            this.label4.TabIndex = 15;
-            this.label4.Text = "ИЛИ";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 144);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 13);
+            this.label5.TabIndex = 17;
             // 
-            // button3
+            // label6
             // 
-            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.Location = new System.Drawing.Point(606, 110);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(40, 40);
-            this.button3.TabIndex = 16;
-            this.toolTip1.SetToolTip(this.button3, "Обновить");
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(154, 65);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(13, 13);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "?";
+            this.toolTip1.SetToolTip(this.label6, "Не нашли свою группу? Скорее всего расписание для нее еще не добваили :(\r\nПотыкай" +
+        "те на кнопочку обновить, может поможет");
             // 
             // main
             // 
@@ -397,6 +420,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
     }
 }
 

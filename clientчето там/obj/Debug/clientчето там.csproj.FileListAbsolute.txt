@@ -100,7 +100,6 @@ C:\Users\Роман\Source\Repos\schedule2\clientчето там\obj\Debug\clien
 C:\Users\Роман\Source\Repos\schedule2\clientчето там\obj\Debug\clientчето_там.AdminSubject.resources
 C:\Users\Роман\Source\Repos\schedule2\clientчето там\obj\Debug\clientчето_там.AdminTeacher.resources
 C:\Users\Роман\Source\Repos\schedule2\clientчето там\obj\Debug\clientчето_там.aut.resources
-C:\Users\Роман\Source\Repos\schedule2\clientчето там\obj\Debug\clientчето_там.Form1.resources
 C:\Users\Роман\Source\Repos\schedule2\clientчето там\obj\Debug\clientчето_там.login.resources
 C:\Users\Роман\Source\Repos\schedule2\clientчето там\obj\Debug\clientчето_там.prepodForm.resources
 C:\Users\Роман\Source\Repos\schedule2\clientчето там\obj\Debug\clientчето_там.main.resources

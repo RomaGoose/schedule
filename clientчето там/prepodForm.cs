@@ -169,8 +169,6 @@ namespace clientчето_там
 
         private void button1_Click(object sender, EventArgs e)
         {
-            change brr = new change();
-            brr.ShowDialog();
         }
 
         private void prepodForm_Load(object sender, EventArgs e)

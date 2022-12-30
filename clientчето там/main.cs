@@ -32,7 +32,7 @@ namespace clientчето_там
         private string who = "";
         List<string> grav = new List<string>();
         public main()
-        {
+        {   
        
             #region lable 
             // 
@@ -118,19 +118,29 @@ namespace clientчето_там
             fripan.Controls.Clear();
             satpan.Controls.Clear();
 
+            string[] parts = grcbx.Text.Split(new char[] { ',' });
+            string[] tparts = teachercbx.Text.Split(new char[] { ',' });
+
             #region Заполнение комбобоксов
+           
+            if (who == "")
+            {
+                grcbx.Items.Clear();
+                faccbx.Items.Clear();
+                teachercbx.Items.Clear();
+         
             List<string> teacher_list = sql.Select("SELECT name, ID FROM teachers WHERE ID != 0");
 
-            for (int i = 0; i < teacher_list.Count; i+=2)
-                teachercbx.Items.Add(teacher_list[i] + ',' + teacher_list[i+1]);
+            for (int i = 0; i < teacher_list.Count; i += 2)
+                teachercbx.Items.Add(teacher_list[i] + ',' + teacher_list[i + 1]);
 
 
             grav = sql.Select("SELECT DISTINCT groupID FROM dotw");
-            string cmdtext = "SELECT facID FROM groups WHERE ";
+            string cmdtext = "SELECT DISTINCT facID FROM groups WHERE ";
             for (int i = 0; i < grav.Count; i++)
             {
                 if (i == 0) cmdtext += "ID ='" + grav[i] + "' ";
-                else        cmdtext += " OR ID ='" + grav[i] + "' ";
+                else cmdtext += " OR ID ='" + grav[i] + "' ";
             }
 
             List<string> facid = sql.Select(cmdtext);
@@ -149,16 +159,16 @@ namespace clientчето_там
             }
 
             for (int i = 0; i < fac_list.Count; i += 2)
-                if (fac_list.Contains(fac_list[i+1]))
-                   faccbx.Items.Add(fac_list[i] + ',' + fac_list[i + 1]);
+                if (fac_list.Contains(fac_list[i + 1]))
+                    faccbx.Items.Add(fac_list[i] + ',' + fac_list[i + 1]);
+            }
             #endregion
-
+           
+           
             if ((grcbx.Text != "" && faccbx.Text != "" && who == "fac") || (teachercbx.Text != "" && who == "prep"))
             {
                 string daytext = "";
-                string[] parts = grcbx.Text.Split(new char[] { ',' });
-                string[] tparts = teachercbx.Text.Split(new char[] { ',' });
-
+             
 
                 for (int dotw = 0; dotw < 6; dotw++)
                 {
@@ -202,8 +212,6 @@ namespace clientчето_там
                                             " JOIN classrooms ON classrooms.ID = lessons.classroomID " +
                                             " WHERE teachers.ID = '" + tparts[1] + "' AND dotw.name = '" + daytext + "' ");
 
-                                //MessageBox.Show("чето нашел");
-
                                 if (list.Count > 0)
                                 {
                                     Label lbl = new Label();
@@ -239,6 +247,8 @@ namespace clientчето_там
 
             else if (who != "")
                 MessageBox.Show("Выберите всё, что требуется", "Ошибка");
+           
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -320,8 +330,7 @@ namespace clientчето_там
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form1 sus = new Form1();
-            sus.ShowDialog();
+           
         }
 
         private void presearch_Click(object sender, EventArgs e)
@@ -348,6 +357,7 @@ namespace clientчето_там
 
         private void button3_Click_1(object sender, EventArgs e)
         {
+            who = "";
             main_Load(sender, e);
         }
     }

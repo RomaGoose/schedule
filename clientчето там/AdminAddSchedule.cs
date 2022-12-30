@@ -136,8 +136,9 @@ namespace clientчето_там
 
                      
                         }
+                        
                         for (int i = 0; i < avaialableclass.Count; i++)
-       if (sclass.Count > 0 && avaialableclass[i] == sclass[0])
+                            if (sclass.Count > 0 && avaialableclass[i] == sclass[0])
                             {
                                 classcbx.SelectedIndex = i;
                                 TeacherSelected(teachcbx, new EventArgs());
