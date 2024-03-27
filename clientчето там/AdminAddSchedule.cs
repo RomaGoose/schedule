@@ -212,7 +212,7 @@ namespace clientчето_там
                     if (dotw == 0) daytext = "mon";
                     if (dotw == 1) daytext = "tue";
                     if (dotw == 2) daytext = "wen";
-                    if (dotw == 3) daytext = "thu";
+                    if (dotw == 3) daytext = "thu"; 
                     if (dotw == 4) daytext = "fri";
                     if (dotw == 5) daytext = "sat";
 
@@ -340,7 +340,7 @@ namespace clientчето_там
                     if (lessid.Count>0 && listflag != 15)
                     {
                         sql.Update("UPDATE dotw SET s1ID ='" + lessid[0] + "' , s2ID ='" + lessid[1] + "' , s3ID ='" + lessid[2] + "' , s4ID ='" + lessid[3] + "' , s5ID ='" + lessid[4] + "' WHERE ID = '" + dayId + "'");
-                        MessageBox.Show("Сохранено " + daytext, "Успешно");
+                        //MessageBox.Show("Сохранено " + daytext, "Успешно");
                     }
                           
                 }
@@ -352,7 +352,7 @@ namespace clientчето_там
                 leave:
                    ; 
             
-           }
+            }
             else
                 MessageBox.Show("Выберите группу", "Ошибка");
         }

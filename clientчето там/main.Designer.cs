@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main));
             this.FiltrPanel = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,23 +46,32 @@
             this.faccbx = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.downpan = new System.Windows.Forms.Panel();
-            this.wenpan = new System.Windows.Forms.TableLayoutPanel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.monpan = new System.Windows.Forms.TableLayoutPanel();
+            this.thupan = new System.Windows.Forms.TableLayoutPanel();
+            this.fripan = new System.Windows.Forms.TableLayoutPanel();
             this.tuepan = new System.Windows.Forms.TableLayoutPanel();
             this.satpan = new System.Windows.Forms.TableLayoutPanel();
-            this.fripan = new System.Windows.Forms.TableLayoutPanel();
-            this.thupan = new System.Windows.Forms.TableLayoutPanel();
-            this.monpan = new System.Windows.Forms.TableLayoutPanel();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.wenpan = new System.Windows.Forms.TableLayoutPanel();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.welcome = new System.Windows.Forms.Label();
             this.FiltrPanel.SuspendLayout();
             this.downpan.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // FiltrPanel
             // 
             this.FiltrPanel.BackColor = System.Drawing.Color.DarkOrange;
             this.FiltrPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.FiltrPanel.Controls.Add(this.welcome);
+            this.FiltrPanel.Controls.Add(this.pictureBox1);
             this.FiltrPanel.Controls.Add(this.label6);
             this.FiltrPanel.Controls.Add(this.label5);
             this.FiltrPanel.Controls.Add(this.button3);
@@ -79,14 +90,33 @@
             this.FiltrPanel.Location = new System.Drawing.Point(0, 0);
             this.FiltrPanel.Margin = new System.Windows.Forms.Padding(2);
             this.FiltrPanel.Name = "FiltrPanel";
-            this.FiltrPanel.Size = new System.Drawing.Size(657, 160);
+            this.FiltrPanel.Size = new System.Drawing.Size(721, 199);
             this.FiltrPanel.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(154, 115);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(13, 13);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "?";
+            this.toolTip1.SetToolTip(this.label6, "Не нашли свою группу? Скорее всего расписание для нее еще не добваили :(\r\nПотыкай" +
+        "те на кнопочку обновить, может поможет");
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 144);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 13);
+            this.label5.TabIndex = 17;
             // 
             // button3
             // 
             this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button3.Location = new System.Drawing.Point(606, 110);
+            this.button3.Location = new System.Drawing.Point(669, 153);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(40, 40);
             this.button3.TabIndex = 16;
@@ -100,7 +130,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(173, 45);
+            this.label4.Location = new System.Drawing.Point(173, 95);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(91, 39);
             this.label4.TabIndex = 15;
@@ -112,7 +142,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label2.ForeColor = System.Drawing.SystemColors.Info;
-            this.label2.Location = new System.Drawing.Point(7, 63);
+            this.label2.Location = new System.Drawing.Point(7, 113);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(121, 17);
@@ -125,18 +155,18 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label3.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label3.Location = new System.Drawing.Point(270, 18);
+            this.label3.Location = new System.Drawing.Point(270, 68);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(200, 17);
+            this.label3.Size = new System.Drawing.Size(246, 17);
             this.label3.TabIndex = 10;
-            this.label3.Text = "Выберите фамилию препода";
+            this.label3.Text = "Выберите фамилию преподавателя";
             // 
             // teachercbx
             // 
             this.teachercbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.teachercbx.FormattingEnabled = true;
-            this.teachercbx.Location = new System.Drawing.Point(269, 38);
+            this.teachercbx.Location = new System.Drawing.Point(269, 88);
             this.teachercbx.Margin = new System.Windows.Forms.Padding(2);
             this.teachercbx.Name = "teachercbx";
             this.teachercbx.Size = new System.Drawing.Size(220, 21);
@@ -145,7 +175,7 @@
             // 
             // presearch
             // 
-            this.presearch.Location = new System.Drawing.Point(269, 63);
+            this.presearch.Location = new System.Drawing.Point(269, 113);
             this.presearch.Margin = new System.Windows.Forms.Padding(2);
             this.presearch.Name = "presearch";
             this.presearch.Size = new System.Drawing.Size(86, 28);
@@ -156,30 +186,32 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(558, 47);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.button2.Location = new System.Drawing.Point(71, 29);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(88, 33);
+            this.button2.Size = new System.Drawing.Size(88, 29);
             this.button2.TabIndex = 8;
-            this.button2.Text = "Я препод";
+            this.button2.Text = "Войти";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(558, 10);
+            this.button1.Location = new System.Drawing.Point(163, 29);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 33);
+            this.button1.Size = new System.Drawing.Size(161, 29);
             this.button1.TabIndex = 7;
-            this.button1.Text = "Я админ";
+            this.button1.Text = "Панель администратора";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // stusearch
             // 
             this.stusearch.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.stusearch.Location = new System.Drawing.Point(9, 116);
+            this.stusearch.Location = new System.Drawing.Point(9, 166);
             this.stusearch.Margin = new System.Windows.Forms.Padding(2);
             this.stusearch.Name = "stusearch";
             this.stusearch.Size = new System.Drawing.Size(86, 28);
@@ -194,7 +226,7 @@
             this.grcbx.Enabled = false;
             this.grcbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.grcbx.FormattingEnabled = true;
-            this.grcbx.Location = new System.Drawing.Point(9, 84);
+            this.grcbx.Location = new System.Drawing.Point(9, 134);
             this.grcbx.Margin = new System.Windows.Forms.Padding(2);
             this.grcbx.Name = "grcbx";
             this.grcbx.Size = new System.Drawing.Size(161, 28);
@@ -205,7 +237,7 @@
             this.faccbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.faccbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.faccbx.FormattingEnabled = true;
-            this.faccbx.Location = new System.Drawing.Point(7, 31);
+            this.faccbx.Location = new System.Drawing.Point(7, 81);
             this.faccbx.Margin = new System.Windows.Forms.Padding(2);
             this.faccbx.Name = "faccbx";
             this.faccbx.Size = new System.Drawing.Size(161, 28);
@@ -218,172 +250,249 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label1.Location = new System.Drawing.Point(7, 10);
+            this.label1.Location = new System.Drawing.Point(7, 60);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(148, 17);
+            this.label1.Size = new System.Drawing.Size(165, 17);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Выберите факультет";
+            this.label1.Text = "Выберите направление";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // downpan
             // 
-            this.downpan.Controls.Add(this.wenpan);
-            this.downpan.Controls.Add(this.tuepan);
+            this.downpan.Controls.Add(this.label35);
+            this.downpan.Controls.Add(this.label36);
+            this.downpan.Controls.Add(this.label34);
+            this.downpan.Controls.Add(this.label33);
+            this.downpan.Controls.Add(this.label32);
+            this.downpan.Controls.Add(this.label31);
             this.downpan.Controls.Add(this.satpan);
+            this.downpan.Controls.Add(this.wenpan);
             this.downpan.Controls.Add(this.fripan);
+            this.downpan.Controls.Add(this.tuepan);
             this.downpan.Controls.Add(this.thupan);
             this.downpan.Controls.Add(this.monpan);
             this.downpan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.downpan.Location = new System.Drawing.Point(0, 160);
+            this.downpan.Location = new System.Drawing.Point(0, 199);
             this.downpan.Name = "downpan";
-            this.downpan.Size = new System.Drawing.Size(657, 701);
+            this.downpan.Size = new System.Drawing.Size(721, 832);
             this.downpan.TabIndex = 1;
-            // 
-            // wenpan
-            // 
-            this.wenpan.BackColor = System.Drawing.Color.Bisque;
-            this.wenpan.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
-            this.wenpan.ColumnCount = 3;
-            this.wenpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44F));
-            this.wenpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44F));
-            this.wenpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.wenpan.Location = new System.Drawing.Point(24, 499);
-            this.wenpan.Margin = new System.Windows.Forms.Padding(2);
-            this.wenpan.Name = "wenpan";
-            this.wenpan.RowCount = 5;
-            this.wenpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.wenpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.wenpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.wenpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.wenpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.wenpan.Size = new System.Drawing.Size(285, 177);
-            this.wenpan.TabIndex = 34;
-            // 
-            // tuepan
-            // 
-            this.tuepan.BackColor = System.Drawing.Color.Bisque;
-            this.tuepan.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
-            this.tuepan.ColumnCount = 3;
-            this.tuepan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44F));
-            this.tuepan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44F));
-            this.tuepan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tuepan.Location = new System.Drawing.Point(24, 266);
-            this.tuepan.Margin = new System.Windows.Forms.Padding(2);
-            this.tuepan.Name = "tuepan";
-            this.tuepan.RowCount = 5;
-            this.tuepan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tuepan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tuepan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tuepan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tuepan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.tuepan.Size = new System.Drawing.Size(285, 177);
-            this.tuepan.TabIndex = 33;
-            // 
-            // satpan
-            // 
-            this.satpan.BackColor = System.Drawing.Color.Bisque;
-            this.satpan.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
-            this.satpan.ColumnCount = 3;
-            this.satpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44F));
-            this.satpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44F));
-            this.satpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.satpan.Location = new System.Drawing.Point(343, 499);
-            this.satpan.Margin = new System.Windows.Forms.Padding(2);
-            this.satpan.Name = "satpan";
-            this.satpan.RowCount = 5;
-            this.satpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.satpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.satpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.satpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.satpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.satpan.Size = new System.Drawing.Size(285, 177);
-            this.satpan.TabIndex = 32;
-            // 
-            // fripan
-            // 
-            this.fripan.BackColor = System.Drawing.Color.Bisque;
-            this.fripan.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
-            this.fripan.ColumnCount = 3;
-            this.fripan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44F));
-            this.fripan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44F));
-            this.fripan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.fripan.Location = new System.Drawing.Point(343, 266);
-            this.fripan.Margin = new System.Windows.Forms.Padding(2);
-            this.fripan.Name = "fripan";
-            this.fripan.RowCount = 5;
-            this.fripan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.fripan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.fripan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.fripan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.fripan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.fripan.Size = new System.Drawing.Size(285, 177);
-            this.fripan.TabIndex = 31;
-            // 
-            // thupan
-            // 
-            this.thupan.BackColor = System.Drawing.Color.Bisque;
-            this.thupan.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
-            this.thupan.ColumnCount = 3;
-            this.thupan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44F));
-            this.thupan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44F));
-            this.thupan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.thupan.Location = new System.Drawing.Point(343, 34);
-            this.thupan.Margin = new System.Windows.Forms.Padding(2);
-            this.thupan.Name = "thupan";
-            this.thupan.RowCount = 5;
-            this.thupan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.thupan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.thupan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.thupan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.thupan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.thupan.Size = new System.Drawing.Size(285, 177);
-            this.thupan.TabIndex = 30;
             // 
             // monpan
             // 
             this.monpan.BackColor = System.Drawing.Color.Bisque;
             this.monpan.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
-            this.monpan.ColumnCount = 3;
-            this.monpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44F));
-            this.monpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44F));
+            this.monpan.ColumnCount = 4;
+            this.monpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.monpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39F));
+            this.monpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39F));
             this.monpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.monpan.Location = new System.Drawing.Point(24, 34);
-            this.monpan.Margin = new System.Windows.Forms.Padding(2);
+            this.monpan.Location = new System.Drawing.Point(25, 42);
             this.monpan.Name = "monpan";
-            this.monpan.RowCount = 5;
-            this.monpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.monpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.monpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.monpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.monpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
-            this.monpan.Size = new System.Drawing.Size(285, 177);
-            this.monpan.TabIndex = 29;
+            this.monpan.RowCount = 6;
+            this.monpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13F));
+            this.monpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.monpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.monpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.monpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.monpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.monpan.Size = new System.Drawing.Size(312, 234);
+            this.monpan.TabIndex = 35;
             // 
-            // label5
+            // thupan
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 144);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(0, 13);
-            this.label5.TabIndex = 17;
+            this.thupan.BackColor = System.Drawing.Color.Bisque;
+            this.thupan.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
+            this.thupan.ColumnCount = 4;
+            this.thupan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.thupan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39F));
+            this.thupan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39F));
+            this.thupan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.thupan.Location = new System.Drawing.Point(384, 42);
+            this.thupan.Name = "thupan";
+            this.thupan.RowCount = 6;
+            this.thupan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13F));
+            this.thupan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.thupan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.thupan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.thupan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.thupan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.thupan.Size = new System.Drawing.Size(312, 234);
+            this.thupan.TabIndex = 36;
             // 
-            // label6
+            // fripan
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(154, 65);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(13, 13);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "?";
-            this.toolTip1.SetToolTip(this.label6, "Не нашли свою группу? Скорее всего расписание для нее еще не добваили :(\r\nПотыкай" +
-        "те на кнопочку обновить, может поможет");
+            this.fripan.BackColor = System.Drawing.Color.Bisque;
+            this.fripan.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
+            this.fripan.ColumnCount = 4;
+            this.fripan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.fripan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39F));
+            this.fripan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39F));
+            this.fripan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.fripan.Location = new System.Drawing.Point(384, 309);
+            this.fripan.Name = "fripan";
+            this.fripan.RowCount = 6;
+            this.fripan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13F));
+            this.fripan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.fripan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.fripan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.fripan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.fripan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.fripan.Size = new System.Drawing.Size(312, 234);
+            this.fripan.TabIndex = 38;
+            this.fripan.Paint += new System.Windows.Forms.PaintEventHandler(this.fripan_Paint);
+            // 
+            // tuepan
+            // 
+            this.tuepan.BackColor = System.Drawing.Color.Bisque;
+            this.tuepan.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
+            this.tuepan.ColumnCount = 4;
+            this.tuepan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tuepan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39F));
+            this.tuepan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39F));
+            this.tuepan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.tuepan.Location = new System.Drawing.Point(25, 309);
+            this.tuepan.Name = "tuepan";
+            this.tuepan.RowCount = 6;
+            this.tuepan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13F));
+            this.tuepan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.tuepan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.tuepan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.tuepan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.tuepan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.tuepan.Size = new System.Drawing.Size(312, 234);
+            this.tuepan.TabIndex = 37;
+            this.tuepan.Paint += new System.Windows.Forms.PaintEventHandler(this.tuepan_Paint);
+            // 
+            // satpan
+            // 
+            this.satpan.BackColor = System.Drawing.Color.Bisque;
+            this.satpan.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
+            this.satpan.ColumnCount = 4;
+            this.satpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.satpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39F));
+            this.satpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39F));
+            this.satpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.satpan.Location = new System.Drawing.Point(384, 576);
+            this.satpan.Name = "satpan";
+            this.satpan.RowCount = 6;
+            this.satpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13F));
+            this.satpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.satpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.satpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.satpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.satpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.satpan.Size = new System.Drawing.Size(312, 234);
+            this.satpan.TabIndex = 40;
+            // 
+            // wenpan
+            // 
+            this.wenpan.BackColor = System.Drawing.Color.Bisque;
+            this.wenpan.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetDouble;
+            this.wenpan.ColumnCount = 4;
+            this.wenpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.wenpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39F));
+            this.wenpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39F));
+            this.wenpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
+            this.wenpan.Location = new System.Drawing.Point(25, 579);
+            this.wenpan.Name = "wenpan";
+            this.wenpan.RowCount = 6;
+            this.wenpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13F));
+            this.wenpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.wenpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.wenpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.wenpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.wenpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
+            this.wenpan.Size = new System.Drawing.Size(312, 234);
+            this.wenpan.TabIndex = 39;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label31.Location = new System.Drawing.Point(21, 19);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(113, 20);
+            this.label31.TabIndex = 41;
+            this.label31.Text = "Понедельник";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label32.Location = new System.Drawing.Point(380, 19);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(73, 20);
+            this.label32.TabIndex = 42;
+            this.label32.Text = "Четверг";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label33.Location = new System.Drawing.Point(21, 286);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(73, 20);
+            this.label33.TabIndex = 43;
+            this.label33.Text = "Вторник";
+            this.label33.Click += new System.EventHandler(this.label33_Click);
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label34.Location = new System.Drawing.Point(380, 286);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(75, 20);
+            this.label34.TabIndex = 44;
+            this.label34.Text = "Пятница";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label35.Location = new System.Drawing.Point(380, 553);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(72, 20);
+            this.label35.TabIndex = 46;
+            this.label35.Text = "Суббота";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label36.Location = new System.Drawing.Point(21, 553);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(58, 20);
+            this.label36.TabIndex = 45;
+            this.label36.Text = "Среда";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(5, 5);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(60, 56);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 19;
+            this.pictureBox1.TabStop = false;
+            // 
+            // welcome
+            // 
+            this.welcome.AutoSize = true;
+            this.welcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.welcome.Location = new System.Drawing.Point(66, 2);
+            this.welcome.Name = "welcome";
+            this.welcome.Size = new System.Drawing.Size(220, 25);
+            this.welcome.TabIndex = 20;
+            this.welcome.Text = "Вы не авторизовались";
             // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(657, 861);
+            this.ClientSize = new System.Drawing.Size(721, 1031);
             this.Controls.Add(this.downpan);
             this.Controls.Add(this.FiltrPanel);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -393,6 +502,8 @@
             this.FiltrPanel.ResumeLayout(false);
             this.FiltrPanel.PerformLayout();
             this.downpan.ResumeLayout(false);
+            this.downpan.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -411,17 +522,25 @@
         private System.Windows.Forms.Button presearch;
         private System.Windows.Forms.ComboBox teachercbx;
         private System.Windows.Forms.Panel downpan;
-        private System.Windows.Forms.TableLayoutPanel wenpan;
-        private System.Windows.Forms.TableLayoutPanel tuepan;
-        private System.Windows.Forms.TableLayoutPanel satpan;
-        private System.Windows.Forms.TableLayoutPanel fripan;
-        private System.Windows.Forms.TableLayoutPanel thupan;
-        private System.Windows.Forms.TableLayoutPanel monpan;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TableLayoutPanel satpan;
+        private System.Windows.Forms.TableLayoutPanel wenpan;
+        private System.Windows.Forms.TableLayoutPanel fripan;
+        private System.Windows.Forms.TableLayoutPanel tuepan;
+        private System.Windows.Forms.TableLayoutPanel thupan;
+        private System.Windows.Forms.TableLayoutPanel monpan;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label welcome;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

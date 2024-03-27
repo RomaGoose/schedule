@@ -29,11 +29,14 @@ namespace clientчето_там
         /// <summary>
         /// Функция Select-запроса
         /// </summary>
+        public static string username;
+        public static string userid = "no";
+        public static string usertype;
         private string who = "";
         List<string> grav = new List<string>();
         public main()
         {   
-       
+       /*
             #region lable 
             // 
             // mon
@@ -102,14 +105,14 @@ namespace clientчето_там
             sat.Text = "Суббота";
             Controls.Add(sat);
             #endregion
-
+            */
             InitializeComponent();
 
 
 
         }
 
-        private void main_Load(object sender, EventArgs e)
+        public void main_Load(object sender, EventArgs e)
         {
             monpan.Controls.Clear();
             tuepan.Controls.Clear();
@@ -118,6 +121,22 @@ namespace clientчето_там
             fripan.Controls.Clear();
             satpan.Controls.Clear();
 
+            List<string> user_info = new List<string>();
+
+            if (userid != "no")
+            {
+                user_info = sql.Select("SELECT name, role FROM " + usertype + " WHERE ID = '" + userid + "'");
+                welcome.Text = user_info[0];
+            
+
+                if (user_info[1] == "admin" || user_info[1] == "changer")
+                { 
+                    button1.Visible = true;
+                    if (user_info[1] == "admin")
+                         button1.Text = "Панель администратора";
+                    else button1.Text = "Внести изменения";
+                }
+            }
             string[] parts = grcbx.Text.Split(new char[] { ',' });
             string[] tparts = teachercbx.Text.Split(new char[] { ',' });
 
@@ -163,84 +182,158 @@ namespace clientчето_там
                     faccbx.Items.Add(fac_list[i] + ',' + fac_list[i + 1]);
             }
             #endregion
-           
-           
-            if ((grcbx.Text != "" && faccbx.Text != "" && who == "fac") || (teachercbx.Text != "" && who == "prep"))
+
+            #region отрисовка шапок и номеров
+
+            foreach (Control con in downpan.Controls)
             {
-                string daytext = "";
-             
-
-                for (int dotw = 0; dotw < 6; dotw++)
+                if (con is TableLayoutPanel && con.Name.Contains("pan"))
                 {
-                    if (dotw == 0) daytext = "mon";
-                    if (dotw == 1) daytext = "tue";
-                    if (dotw == 2) daytext = "wen";
-                    if (dotw == 3) daytext = "thu";
-                    if (dotw == 4) daytext = "fri";
-                    if (dotw == 5) daytext = "sat";
+                    TableLayoutPanel pan = (TableLayoutPanel)con;
 
-                    foreach (TableLayoutPanel pan in downpan.Controls)
+                    #region отрисовка шапок
+
+                    Label nlbl = new Label();
+                    nlbl.Anchor = AnchorStyles.None;
+                    nlbl.AutoSize = true;
+                    nlbl.Location = new Point(8, 10);
+                    nlbl.Size = new Size(18, 13);
+                    nlbl.TabIndex = 0;
+                    nlbl.Text = "№";
+                    pan.Controls.Add(nlbl);
+
+                    Label ssbsblbl = new Label();
+                    ssbsblbl.Anchor = AnchorStyles.None;
+                    ssbsblbl.AutoSize = true;
+                    ssbsblbl.Location = new Point(66, 10);
+                    ssbsblbl.Size = new Size(52, 13);
+                    ssbsblbl.TabIndex = 36;
+                    ssbsblbl.Text = "Предмет";
+                    pan.Controls.Add(ssbsblbl);
+
+                    Label tctctlbl = new Label();
+                    tctctlbl.Anchor = AnchorStyles.None;
+                    tctctlbl.AutoSize = true;
+                    tctctlbl.Location = new Point(156, 3);
+                    tctctlbl.Size = new Size(109, 27);
+                    tctctlbl.TabIndex = 2;
+                    if (who == "prep")
+                    tctctlbl.Text = "Группа";
+                    else
+                    tctctlbl.Text = "Преподаватель";
+                    tctctlbl.TextAlign = ContentAlignment.MiddleCenter;
+                    pan.Controls.Add(tctctlbl);
+
+                    Label aulbl = new Label();
+                    aulbl.BackColor = Color.Bisque;
+                    aulbl.Font = new Font("Microsoft Sans Serif", 8F);
+                    aulbl.TextAlign = ContentAlignment.MiddleCenter;
+                    aulbl.Anchor = AnchorStyles.None;
+                    aulbl.AutoSize = true;
+                    aulbl.Location = new Point(8, 10);
+                    aulbl.Size = new Size(38, 27);
+                    aulbl.TabIndex = 3;
+                    aulbl.Margin = new Padding(0);
+                    aulbl.Text = "№ аудитории";
+                    pan.Controls.Add(aulbl);
+
+                    #endregion
+
+                    // номер пары
+                    for (int row = 1; row < 6; row++)
                     {
-                        string eh = pan.Name;
-                        if (pan.Name == daytext + "pan")
+                        Label mnlbl = new Label();
+                        mnlbl.Anchor = AnchorStyles.None;
+                        mnlbl.Location = new Point(13, 6);
+                        mnlbl.Size = new Size(100, 26);
+                        mnlbl.Text = row.ToString();
+                        pan.Controls.Add(mnlbl, 0, row);
+                    }
+                }
+            }
+
+            #endregion
+
+
+                if ((grcbx.Text != "" && faccbx.Text != "" && who == "fac") || (teachercbx.Text != "" && who == "prep"))
+                {
+                string daytext = "";
+
+
+                    for (int dotw = 0; dotw < 6; dotw++)
+                    {
+                        if (dotw == 5) daytext = "mon";
+                        if (dotw == 4) daytext = "thu";
+                        if (dotw == 3) daytext = "tue";
+                        if (dotw == 2) daytext = "fri";
+                        if (dotw == 1) daytext = "wen";
+                        if (dotw == 0) daytext = "sat";
+
+
+                        foreach (Control con in downpan.Controls)
                         {
-                            int row = 0;
+                        if (con is TableLayoutPanel && con.Name == daytext + "pan")
+                        {
+                            TableLayoutPanel pan = (TableLayoutPanel)con;
+                       
+                            int row = 1;
 
                             for (int less = 0; less < 5; less++)
                             {
-                                List<string> list = new List<string>();
+                            List<string> list = new List<string>();
 
-                                if (who == "fac")
-                                    list = sql.Select(
-                                        " SELECT subjects.name, teachers.name, classrooms.name" +
-                                        " FROM dotw " +
-                                            " JOIN lessons    ON lessons.ID    = dotw.s" + (less + 1) + "ID " +
-                                            " JOIN groups     ON groups.ID     = dotw.groupID " +
-                                            " JOIN teachers   ON teachers.ID   = lessons.teacherID " +
-                                            " JOIN subjects   ON subjects.ID   = lessons.subjID " +
-                                            " JOIN classrooms ON classrooms.ID = lessons.classroomID " +
-                                            " WHERE dotw.groupID = '" + parts[1] + "' AND dotw.name = '" + daytext + "' ");
+                            if (who == "fac")
+                                list = sql.Select(
+                                    " SELECT subjects.name, teachers.name, classrooms.name" +
+                                    " FROM dotw " +
+                                        " JOIN lessons    ON lessons.ID    = dotw.s" + (less + 1) + "ID " +
+                                        " JOIN groups     ON groups.ID     = dotw.groupID " +
+                                        " JOIN teachers   ON teachers.ID   = lessons.teacherID " +
+                                        " JOIN subjects   ON subjects.ID   = lessons.subjID " +
+                                        " JOIN classrooms ON classrooms.ID = lessons.classroomID " +
+                                        " WHERE dotw.groupID = '" + parts[1] + "' AND dotw.name = '" + daytext + "' ");
 
-                                if (who == "prep")
-                                    list = sql.Select(
-                                        " SELECT subjects.name, groups.name, classrooms.name" +
-                                        " FROM dotw " +
-                                            " JOIN lessons    ON lessons.ID    = dotw.s" + (less + 1) + "ID " +
-                                            " JOIN groups     ON groups.ID     = dotw.groupID " +
-                                            " JOIN teachers   ON teachers.ID   = lessons.teacherID " +
-                                            " JOIN subjects   ON subjects.ID   = lessons.subjID " +
-                                            " JOIN classrooms ON classrooms.ID = lessons.classroomID " +
-                                            " WHERE teachers.ID = '" + tparts[1] + "' AND dotw.name = '" + daytext + "' ");
+                            if (who == "prep")
+                                list = sql.Select(
+                                    " SELECT subjects.name, groups.name, classrooms.name" +
+                                    " FROM dotw " +
+                                        " JOIN lessons    ON lessons.ID    = dotw.s" + (less + 1) + "ID " +
+                                        " JOIN groups     ON groups.ID     = dotw.groupID " +
+                                        " JOIN teachers   ON teachers.ID   = lessons.teacherID " +
+                                        " JOIN subjects   ON subjects.ID   = lessons.subjID " +
+                                        " JOIN classrooms ON classrooms.ID = lessons.classroomID " +
+                                        " WHERE teachers.ID = '" + tparts[1] + "' AND dotw.name = '" + daytext + "' ");
 
-                                if (list.Count > 0)
-                                {
-                                    Label lbl = new Label();
-                                    lbl.Anchor = AnchorStyles.None;
-                                    lbl.Location = new Point(13, 6);
-                                    lbl.Size = new Size(100, 26);
-                                    lbl.Text = list[0];
-                                    pan.Controls.Add(lbl, 0, row);
+                            if (list.Count > 0)
+                            { 
+                                Label lbl = new Label();
+                                lbl.Anchor = AnchorStyles.None;
+                                lbl.Location = new Point(13, 6);
+                                lbl.Size = new Size(100, 26);
+                                lbl.Text = list[0];
+                                pan.Controls.Add(lbl, 1, row);
 
-                                    Label tlbl = new Label();
-                                    tlbl.Anchor = AnchorStyles.None;
-                                    tlbl.Location = new Point(137, 6);
-                                    tlbl.Size = new Size(97, 26);
-                                    tlbl.Text = list[1];
-                                    pan.Controls.Add(tlbl, 1, row);
+                                Label tlbl = new Label();
+                                tlbl.Anchor = AnchorStyles.None;
+                                tlbl.Location = new Point(137, 6);
+                                tlbl.Size = new Size(97, 26);
+                                tlbl.Text = list[1];
+                                pan.Controls.Add(tlbl, 2, row);
 
-                                    Label clbl = new Label();
-                                    clbl.Anchor = AnchorStyles.None;
-                                    clbl.Font = new Font("Microsoft Sans Serif", 8F);
-                                    clbl.Location = new Point(253, 152);
-                                    clbl.Size = new Size(25, 13);
-                                    clbl.Text = list[2];
-                                    pan.Controls.Add(clbl, 2, row);
-                                }
-                                row++;
+                                Label clbl = new Label();
+                                clbl.Anchor = AnchorStyles.None;
+                                clbl.Font = new Font("Microsoft Sans Serif", 8F);
+                                clbl.Location = new Point(253, 152);
+                                clbl.Size = new Size(25, 13);
+                                clbl.Text = list[2];
+                                pan.Controls.Add(clbl, 3, row);
+                            }
+                            row++;
                             }
 
                             break;
                         }
+                    
                     }
                 }
             }
@@ -249,6 +342,12 @@ namespace clientчето_там
                 MessageBox.Show("Выберите всё, что требуется", "Ошибка");
            
 
+        }
+
+        public static void looooaddd(object sender, EventArgs e)
+        {
+            main mi = new main();
+            mi.main_Load(sender, e);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -268,6 +367,8 @@ namespace clientчето_там
         {
             login li = new login();
             li.ShowDialog();
+            welcome.Text = username;
+            button2.Text = "Выйти";
         }
 
 
@@ -359,6 +460,36 @@ namespace clientчето_там
         {
             who = "";
             main_Load(sender, e);
+        }
+
+        private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label33_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fripan_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tuepan_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

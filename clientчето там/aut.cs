@@ -12,6 +12,8 @@ namespace clientчето_там
 {
     public partial class aut : Form
     {
+
+        string who = "st";
         public aut()
         {
             InitializeComponent();
@@ -66,6 +68,20 @@ namespace clientчето_там
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            subj1cbx.Enabled = true;
+            subj2cbx.Enabled = true;
+            who = "prep";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            subj1cbx.Enabled = false;
+            subj2cbx.Enabled = false;
+            who = "st";
         }
     }
 }
