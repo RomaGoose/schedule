@@ -13,7 +13,7 @@ namespace clientчето_там
     public partial class aut : Form
     {
 
-        string who = "st";
+        string who = "students";
         public aut()
         {
             InitializeComponent();
@@ -31,14 +31,14 @@ namespace clientчето_там
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (nametb.Text == "" || passtb.Text == "" || pass2tb.Text == "" || mailtb.Text == "" || subj1cbx.Text == "" || subj2cbx.Text == "")
+            if (nametb.Text == "" || passtb.Text == "" || pass2tb.Text == "" || mailtb.Text == "" || (who == "prep" && subj1cbx.Text == "" && subj2cbx.Text == ""))
             {
-                MessageBox.Show("Заполните все поля!", "Да блин");
+                MessageBox.Show("Заполните все поля", "Ошибка");
             }
             else 
             {
                 if (passtb.Text != pass2tb.Text)
-                    MessageBox.Show("Пароли не совпадают!", "Перепроверь");
+                    MessageBox.Show("Пароли не совпадают", "Ошибка");
 
                 else
                 {
@@ -47,14 +47,23 @@ namespace clientчето_там
                     string[] parts2 = subj2cbx.Text.Split(new char[] { ',' });
 
                     if (subj1cbx.Text == subj2cbx.Text)
-                        MessageBox.Show("О, Юлий Цезарь, выбери два РАЗНЫХ предмета.");
+                        MessageBox.Show("Выберите два РАЗНЫХ предмета.");
 
                     else
                     {
-                        sql.Select("INSERT INTO requestteachers (name, login, password, mail, subjID, subj2ID)" +
-                                      "VALUES('" + nametb.Text + "', '" + logintb.Text + "', '" + passtb.Text + "', '" + mailtb.Text + "', '"
-                                      + parts1[1] + "', '" + parts2[1] + "')");
-                        MessageBox.Show("Вы успешно зарегистрированы, ожидайте подтверждения", "Крутяк");
+                        if (who == "requestteachers")
+                        {
+                            sql.Select("INSERT INTO requestteachers (name, login, password, mail, subjID, subj2ID)" +
+                                 "VALUES('" + nametb.Text + "', '" + logintb.Text + "', '" + passtb.Text + "', '" + mailtb.Text + "', '"
+                                 + parts1[1] + "', '" + parts2[1] + "')");
+                            MessageBox.Show("Заявка отправлена, ожидайте подтверждения", "Успех");
+                        }
+                        else
+                        {
+                            sql.Select("INSERT INTO students (name, login, password, mail)" +
+                                 "VALUES('" + nametb.Text + "', '" + logintb.Text + "', '" + passtb.Text + "', '" + mailtb.Text + "')");
+                            MessageBox.Show("Вы успешно зарегистрированы", "Успех");
+                        }
                     }
                 }
             }
@@ -74,14 +83,14 @@ namespace clientчето_там
         {
             subj1cbx.Enabled = true;
             subj2cbx.Enabled = true;
-            who = "prep";
+            who = "requestteachers";
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             subj1cbx.Enabled = false;
             subj2cbx.Enabled = false;
-            who = "st";
+            who = "students";
         }
     }
 }

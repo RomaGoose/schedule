@@ -22,8 +22,8 @@ namespace clientчето_там
             List<string> faculties = sql.Select("SELECT name, ID FROM faculties");
             List<string> groups = sql.Select("SELECT name, facID, ID FROM groups");
            
-            for (int i = 0; i < groups.Count; i += 3)
-               for (int j = 0; j < faculties.Count; j += 2)
+            for (int j = 0; j < faculties.Count; j += 2)
+                for (int i = 0; i < groups.Count; i += 3)
                     if (groups[i + 1] == faculties[j + 1])
                         grcbx.Items.Add(groups[i] + "," + faculties[j] + "," + groups[i + 2]);
         }
@@ -61,8 +61,6 @@ namespace clientчето_там
                     subcbx.Name = daytext + less + "sub";
                     subcbx.Size = new Size(131, 21);
                     pan.Controls.Add(subcbx);
-                 
-                        
 
                     ComboBox teachcbx = new ComboBox();
                     teachcbx.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -202,6 +200,7 @@ namespace clientчето_там
         private void AddClick(object sender, EventArgs e)
         {
             string daytext = "";
+            string rustxt = "";
             string[] gparts = grcbx.Text.Split(new char[] { ',' });
             
             if (gparts.Count() > 1)
@@ -209,12 +208,12 @@ namespace clientчето_там
                 int dayflag = 0;
                 for (int dotw = 0; dotw < 6; dotw++)
                 {
-                    if (dotw == 0) daytext = "mon";
-                    if (dotw == 1) daytext = "tue";
-                    if (dotw == 2) daytext = "wen";
-                    if (dotw == 3) daytext = "thu"; 
-                    if (dotw == 4) daytext = "fri";
-                    if (dotw == 5) daytext = "sat";
+                    if (dotw == 0) { daytext = "mon"; rustxt = "понедельник"; }
+                    if (dotw == 1) { daytext = "tue"; rustxt = "вторник"; }
+                    if (dotw == 2) { daytext = "wen"; rustxt = "среда"; }
+                    if (dotw == 3) { daytext = "thu"; rustxt = "четверг"; }
+                    if (dotw == 4) { daytext = "fri"; rustxt = "пятница"; }
+                    if (dotw == 5) { daytext = "sat"; rustxt = "суббота"; }
 
                     int dayId;
 
@@ -250,7 +249,7 @@ namespace clientчето_там
                             {
                                 if (control.Text == "") 
                                 {
-                                    message += daytext + less + "teacher, не заполнено \n";
+                                    message += rustxt + ", " + less + ", учитель не заполнено \n";
                                     flag++; listflag++;
                                 }
                                 else tparts = control.Text.Split(new char[] { ',' });
@@ -260,25 +259,21 @@ namespace clientчето_там
                             {
                                 if (control.Text == "") 
                                 { 
-                                    message += daytext + less + "sub, не заполнено \n";
+                                    message += daytext + ", " + less + ", предмет не заполнено \n";
                                     flag++; listflag++;
                                 }
                                 else sparts = control.Text.Split(new char[] { ',' });
                             }
 
-
                             if (control.Name == (daytext + less + "class"))
                             {
                                 if (control.Text == "")
                                 {
-                                    message += daytext + less + "class, не заполнено \n";
+                                    message += daytext + ", " + less + ", аудитория не заполнено \n";
                                     flag++; listflag++;
                                 }
                                 else cparts = control.Text.Split(new char[] { ',' });
                             }
-
-                    
-
                         }
 
 
@@ -292,7 +287,7 @@ namespace clientчето_там
 
                         if (flag == 0 && (tparts[1] == "0" && cparts[1] != "0" || tparts[1] != "0" && cparts[1] == "0"))
                         {
-                            MessageBox.Show("Либо все три поля пустые, либо все три поля заполнены действительными вариантами (" + daytext + ", "+ less + " урок)", "Ошибка");
+                            MessageBox.Show("Либо все три поля пустые, либо все три поля заполнены действительными вариантами (" + rustxt + ", "+ less + ")", "Ошибка");
                             if (dday.Count < 1)
                                 sql.Update("DELETE FROM dotw WHERE ID = '" + dayId + "'");
                             goto leave;
@@ -340,9 +335,9 @@ namespace clientчето_там
                     if (lessid.Count>0 && listflag != 15)
                     {
                         sql.Update("UPDATE dotw SET s1ID ='" + lessid[0] + "' , s2ID ='" + lessid[1] + "' , s3ID ='" + lessid[2] + "' , s4ID ='" + lessid[3] + "' , s5ID ='" + lessid[4] + "' WHERE ID = '" + dayId + "'");
-                        //MessageBox.Show("Сохранено " + daytext, "Успешно");
                     }
-                          
+                    MessageBox.Show("Сохранено", "Успешно");
+                   
                 }
 
                 if (dayflag == 6)

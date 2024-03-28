@@ -32,6 +32,7 @@ namespace clientчето_там
         public static string username;
         public static string userid = "no";
         public static string usertype;
+        List<string> user_info = new List<string>();
         private string who = "";
         List<string> grav = new List<string>();
         public main()
@@ -121,7 +122,6 @@ namespace clientчето_там
             fripan.Controls.Clear();
             satpan.Controls.Clear();
 
-            List<string> user_info = new List<string>();
 
             if (userid != "no")
             {
@@ -244,8 +244,9 @@ namespace clientчето_там
                     {
                         Label mnlbl = new Label();
                         mnlbl.Anchor = AnchorStyles.None;
-                        mnlbl.Location = new Point(13, 6);
+                        mnlbl.Location = new Point(15, 8);
                         mnlbl.Size = new Size(100, 26);
+                        mnlbl.Font = new Font("Microsoft Sans Serif", 15F);
                         mnlbl.Text = row.ToString();
                         pan.Controls.Add(mnlbl, 0, row);
                     }
@@ -255,23 +256,23 @@ namespace clientчето_там
             #endregion
 
 
-                if ((grcbx.Text != "" && faccbx.Text != "" && who == "fac") || (teachercbx.Text != "" && who == "prep"))
+            if ((grcbx.Text != "" && faccbx.Text != "" && who == "fac") || (teachercbx.Text != "" && who == "prep"))
+            {
+            string daytext = "";
+
+
+                for (int dotw = 0; dotw < 6; dotw++)
                 {
-                string daytext = "";
+                    if (dotw == 5) daytext = "mon";
+                    if (dotw == 4) daytext = "thu";
+                    if (dotw == 3) daytext = "tue";
+                    if (dotw == 2) daytext = "fri";
+                    if (dotw == 1) daytext = "wen";
+                    if (dotw == 0) daytext = "sat";
 
 
-                    for (int dotw = 0; dotw < 6; dotw++)
+                    foreach (Control con in downpan.Controls)
                     {
-                        if (dotw == 5) daytext = "mon";
-                        if (dotw == 4) daytext = "thu";
-                        if (dotw == 3) daytext = "tue";
-                        if (dotw == 2) daytext = "fri";
-                        if (dotw == 1) daytext = "wen";
-                        if (dotw == 0) daytext = "sat";
-
-
-                        foreach (Control con in downpan.Controls)
-                        {
                         if (con is TableLayoutPanel && con.Name == daytext + "pan")
                         {
                             TableLayoutPanel pan = (TableLayoutPanel)con;
@@ -365,10 +366,41 @@ namespace clientчето_там
 
         private void button2_Click(object sender, EventArgs e)
         {
-            login li = new login();
-            li.ShowDialog();
-            welcome.Text = username;
-            button2.Text = "Выйти";
+            if (button2.Text == "Войти")
+            {
+                AdminTeacher adm = new AdminTeacher();
+                adm.ShowDialog();
+
+
+                login li = new login();
+                li.ShowDialog();
+                if (userid != "no")
+                {  
+                    welcome.Text = username;
+                    button2.Text = "Выйти";
+              
+                    user_info = sql.Select("SELECT name, role FROM " + usertype + " WHERE ID = '" + userid + "'");
+                    welcome.Text = user_info[0];
+
+
+                    if (user_info[1] == "admin" || user_info[1] == "changer")
+                    {
+                        button1.Visible = true;
+                        if (user_info[1] == "admin")
+                            button1.Text = "Панель администратора";
+                        else button1.Text = "Внести изменения";
+                    }
+                }
+            }
+
+            else if (button2.Text == "Выйти")
+            {
+                welcome.Text = "Вы не авторизовались";
+                button2.Text = "Войти";
+                button1.Visible = false;
+                userid= "no";
+                user_info.Clear();
+            }
         }
 
 
@@ -419,9 +451,14 @@ namespace clientчето_там
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            AdminLogin sus = new AdminLogin();
-            sus.ShowDialog();
+        { 
+            Admin sus = new Admin(user_info[0]);
+            AdminAddSchedule add = new AdminAddSchedule();
+            if (button1.Text == "Панель администратора")
+                sus.ShowDialog();
+            else 
+                add.ShowDialog();
+     
         }
 
         private void teachercbx_SelectedIndexChanged(object sender, EventArgs e)

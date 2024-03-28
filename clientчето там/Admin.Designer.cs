@@ -35,10 +35,12 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button7 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.SystemColors.Control;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
             this.button1.Location = new System.Drawing.Point(16, 58);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
@@ -76,22 +78,22 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.button4.Location = new System.Drawing.Point(407, 58);
+            this.button4.Location = new System.Drawing.Point(455, 59);
             this.button4.Margin = new System.Windows.Forms.Padding(2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(182, 89);
+            this.button4.Size = new System.Drawing.Size(197, 89);
             this.button4.TabIndex = 3;
-            this.button4.Text = "Факультеты и группы";
+            this.button4.Text = "Направления и группы";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.button5.Location = new System.Drawing.Point(407, 151);
+            this.button5.Location = new System.Drawing.Point(455, 152);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(182, 89);
+            this.button5.Size = new System.Drawing.Size(197, 89);
             this.button5.TabIndex = 4;
             this.button5.Text = "Добавить расписание";
             this.button5.UseVisualStyleBackColor = true;
@@ -100,10 +102,10 @@
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.button6.Location = new System.Drawing.Point(407, 244);
+            this.button6.Location = new System.Drawing.Point(455, 245);
             this.button6.Margin = new System.Windows.Forms.Padding(2);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(182, 89);
+            this.button6.Size = new System.Drawing.Size(197, 89);
             this.button6.TabIndex = 5;
             this.button6.Text = "Аудитории";
             this.button6.UseVisualStyleBackColor = true;
@@ -119,11 +121,22 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Бонжур ";
             // 
+            // button7
+            // 
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.button7.Location = new System.Drawing.Point(248, 58);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(184, 89);
+            this.button7.TabIndex = 7;
+            this.button7.Text = "Студенты";
+            this.button7.UseVisualStyleBackColor = true;
+            // 
             // Admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 349);
+            this.ClientSize = new System.Drawing.Size(663, 349);
+            this.Controls.Add(this.button7);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -134,6 +147,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Admin";
             this.Text = "Admin";
+            this.Load += new System.EventHandler(this.Admin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,5 +162,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button7;
     }
 }

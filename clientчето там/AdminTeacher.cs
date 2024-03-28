@@ -10,37 +10,70 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace clientчето_там
 {
     public partial class AdminTeacher : Form
     {
+        bool prep = true;
+        string table = "";
+        
         public AdminTeacher()
         {
             InitializeComponent();
 
-            List<string> subject_list = sql.Select("SELECT name, ID FROM subjects WHERE ID != '0'");
-
-
-
-            subj1cbx.Items.Clear();
-            for (int i = 0; i < subject_list.Count; i += 2)
-            {
-                subj1cbx.Items.Add(subject_list[i] + "," + subject_list[i + 1]);
-                subj2cbx.Items.Add(subject_list[i] + "," + subject_list[i + 1]);
-            }
-        }
+             }
 
         private void AdminTeacher_Load(object sender, EventArgs e)
         {
-            List<string> list = sql.Select("SELECT name, mail, ID FROM teachers WHERE ID != '0'");
+            List<string> subject_list = sql.Select("SELECT name, ID FROM subjects WHERE ID != '0'");
+            List<string> faculties = sql.Select("SELECT name, ID FROM faculties");
+            List<string> groups = sql.Select("SELECT name, facID, ID FROM groups");
+
+
+            if (!prep)
+                table = "students";
+            else
+                table = "teachers";
+
+            subj1cbx.Items.Clear();
+            if (prep)
+                for (int i = 0; i < subject_list.Count; i += 2)
+                {
+                    subj1cbx.Items.Add(subject_list[i] + "," + subject_list[i + 1]);
+                    subj2cbx.Items.Add(subject_list[i] + "," + subject_list[i + 1]);
+                }
+
+            if (!prep)
+                for (int j = 0; j < faculties.Count; j += 2)
+                    for (int i = 0; i < groups.Count; i += 3)
+                        if (groups[i + 1] == faculties[j + 1])
+                            subj1cbx.Items.Add(groups[i] + "," + faculties[j] + "," + groups[i + 2]);
+
+            if (!prep)
+                table = "students";
+            else
+                table = "teachers";
+            List<string> list = sql.Select("SELECT name, mail, ID, role FROM " + table +" WHERE ID != '0'");
             pan.Controls.Clear();
-           
-            
 
             int y = 10;
-            for(int i=0; i < list.Count; i+=3)
+            for(int i=0; i < list.Count; i+=4)
             {
+                int nd = 0;
+                string txt = "";
+
+                if (list[i + 3] == "no") nd = 0;
+                if (list[i + 3] == "admin") nd = 1;
+                if (list[i + 3] == "changer") nd = 2;
+
+                if (list[i + 3] == "no") txt = "нет";
+                if (list[i + 3] == "admin") txt = "админ";
+                if (list[i + 3] == "changer") txt = "староста";
+
+
+
                 Label lbl = new Label();
                 lbl.Location = new Point(10, y);
                 lbl.Size = new Size(300, 20);
@@ -62,30 +95,54 @@ namespace clientчето_там
                 pan.Controls.Add(tb);
 
                 Label lbl2 = new Label();
-                lbl2.Location = new Point(320, y); 
-                lbl2.Size = new Size(300, 20);
+                lbl2.Location = new Point(320, y);
+                lbl2.Size = new Size(250, 20);
                 lbl2.Font = new Font("Microsoft Sans Serif", 12);
                 lbl2.Text = list[i + 1];
                 lbl2.Name = "lbl2" + i;
                 lbl2.Tag = list[i + 2];
                 lbl2.Visible = true;
-                pan.Controls.Add(lbl2); 
-                
+                pan.Controls.Add(lbl2);
+
                 TextBox tb2 = new TextBox();
                 tb2.Location = new Point(320, y);
-                tb2.Size = new Size(300, 20);
+                tb2.Size = new Size(250, 20);
                 tb2.Font = new Font("Microsoft Sans Serif", 12);
-                tb2.Name = "tb2" + i; 
+                tb2.Name = "tb2" + i;
                 tb2.Visible = false;
                 tb2.Text = list[i + 1];
                 tb2.Tag = list[i + 2];
-                pan.Controls.Add(tb2);
+                pan.Controls.Add(tb2); 
+                
+                Label lbl3 = new Label();
+                lbl3.Location = new Point(585, y);
+                lbl3.Size = new Size(120, 20);
+                lbl3.Font = new Font("Microsoft Sans Serif", 12);
+                lbl3.Text = txt;
+                lbl3.Name = "lbl3" + i;
+                lbl3.Tag = list[i + 2];
+                lbl3.Visible = true;
+                pan.Controls.Add(lbl3);
+
+                ComboBox cmbx = new ComboBox();
+                cmbx.Location = new Point(585, y);
+                cmbx.Size = new Size(120, 20);
+                cmbx.Font = new Font("Microsoft Sans Serif", 12);
+                cmbx.Name = "cmbx" + i;
+                cmbx.Items.Add("нет");
+                cmbx.Items.Add("админ");
+                cmbx.Items.Add("староста");
+                cmbx.DropDownStyle = ComboBoxStyle.DropDownList;
+                cmbx.SelectedIndex = nd;
+                cmbx.Visible = false;
+                cmbx.Tag = list[i + 2];
+                pan.Controls.Add(cmbx);
 
                 PictureBox pb = new PictureBox();
                 pb = new PictureBox();
                 pb.Load("../../pictures/change.png");
                 pb.Click += new EventHandler(UpdateNameClick);
-                pb.Location = new Point(620, y);
+                pb.Location = new Point(720, y);
                 pb.Size = new Size(30, 30);
                 pb.SizeMode = PictureBoxSizeMode.Zoom;
                 pb.Tag = list[i + 2];
@@ -94,7 +151,7 @@ namespace clientчето_там
 
 
                 Button btn = new Button();
-                btn.Location = new Point(660, y);
+                btn.Location = new Point(760, y);
                 btn.Size = new Size(100, 30);
                 btn.Font = new Font("Microsoft Sans Serif", 12);
                 btn.Click += new EventHandler(DeleteHotelClick);
@@ -120,10 +177,6 @@ namespace clientчето_там
                     if (control.Name.StartsWith("lbl"))
                         control.Visible = false;
                 }
-             
-            }
-            foreach (Control control in pan.Controls)
-            {
                 if (control.Location.X == 320 && control.Tag == tag)
                 {
                     control.Location = new Point(320, y);
@@ -132,7 +185,19 @@ namespace clientчето_там
                     if (control.Name.StartsWith("lbl"))
                         control.Visible = false;
                 }
+                if (control.Location.X == 585 && control.Tag == tag)
+                {
+                    control.Location = new Point(585, y);
+                    if (control.Name.StartsWith("cmbx"))
+                        control.Visible = true;
+                    if (control.Name.StartsWith("lbl"))
+                        control.Visible = false;
+                }
             }
+           // foreach (Control control in pan.Controls)
+           // {
+               
+          //  }
             btn.Load("../../pictures/save.png");
             btn.Click += new EventHandler(SaveClick);
             toolTip1.SetToolTip(btn, "Сохранить");
@@ -141,40 +206,60 @@ namespace clientчето_там
         }
         private void SaveClick(object sender, EventArgs e)
         {
+            
+             
             PictureBox btn = (PictureBox)sender;
             object tag = btn.Tag;
             int y = btn.Location.Y;
              foreach (Control control in pan.Controls)
-            {
+             {
                 if (control.Location.X == 10 && control.Tag == tag)
                 {
                     control.Location = new Point(10, y);
                     if (control.Name.StartsWith("tb"))
                     {
                         control.Visible = false;
-                        sql.Update("UPDATE teachers SET name='" + control.Text + "' WHERE ID ='" + control.Tag + "'");
+                        sql.Update("UPDATE " + table + " SET name='" + control.Text + "' WHERE ID ='" + control.Tag + "'");
                     }
                     if (control.Name.StartsWith("lbl"))
                         control.Visible = true;
                 }
-            }
+                //   }
 
-            foreach (Control control in pan.Controls)
-            {
+                //   foreach (Control control in pan.Controls)
+                //   {
                 if (control.Location.X == 320 && control.Tag == tag)
                 {
                     control.Location = new Point(320, y);
                     if (control.Name.StartsWith("tb"))
                     {
                         control.Visible = false;
-                        sql.Update("UPDATE teachers SET mail='" + control.Text + "' WHERE ID ='" + control.Tag + "'");
-                        MessageBox.Show("Сохранено"); 
-                      
+                        sql.Update("UPDATE " + table + " SET mail='" + control.Text + "' WHERE ID ='" + control.Tag + "'");
+               
                     }
                     if (control.Name.StartsWith("lbl"))
                         control.Visible = true;
                 }
-            }
+                if (control.Location.X == 585 && control.Tag == tag)
+                {
+                    control.Location = new Point(585, y);
+                    if (control.Name.StartsWith("cmbx"))
+                    {
+                        string txt = "";
+                        if (control.Text == "нет") txt = "no";
+                        if (control.Text == "админ") txt = "admin";
+                        if (control.Text == "староста") txt = "changer";
+
+                        control.Visible = false;
+                        if (txt != "")
+                        sql.Update("UPDATE " + table + " SET role='" + txt + "' WHERE ID ='" + control.Tag + "'");
+                        MessageBox.Show("Сохранено");
+
+                    }
+                    if (control.Name.StartsWith("lbl"))
+                        control.Visible = true;
+                }
+             }
             btn.Load("../../pictures/change.png");
             btn.Click += new EventHandler(UpdateNameClick);
             AdminTeacher_Load(sender, e);
@@ -186,8 +271,8 @@ namespace clientчето_там
             Button btn = (Button)sender;
             int y = btn.Location.Y;
 
-            sql.Select("DELETE FROM teachers WHERE ID = '" + btn.Tag + "'");
-            MessageBox.Show("Низвёл до атомов");
+            sql.Select("DELETE FROM " + table + " WHERE ID = '" + btn.Tag + "'");
+            MessageBox.Show("Удалено");
             AdminTeacher_Load(sender, e);
            
             
@@ -197,27 +282,57 @@ namespace clientчето_там
         {
             string[] parts1 = subj1cbx.Text.Split(new char[] { ',' });
             string[] parts2 = subj2cbx.Text.Split(new char[] { ',' });
+            string fk;
+            if (parts2[0] == "") fk = "0";
+            else fk = parts2[1];
 
-            if (subj1cbx.Text == subj2cbx.Text)
-                MessageBox.Show("Bыбери два РАЗНЫХ предмета.");
-               
-            else
+
+            string txt = "";
+            if (rulecbx.Text == "нет") txt = "no";
+            if (rulecbx.Text == "админ") txt = "admin";
+            if (rulecbx.Text == "староста") txt = "changer";
+
+            if (loginbx.Text != "" && namebx.Text != "" && passbx.Text != "" && mailbx.Text != "" && rulecbx.Text != "") { 
+
+                if (prep)
+                {
+                    if ((subj1cbx.Text == "" && subj2cbx.Text == "") || (subj1cbx.Text == ",0" && subj2cbx.Text == ",0"))
+                        MessageBox.Show("Bыберите хотя бы один предмет.");
+
+                    else if (subj1cbx.Text == subj2cbx.Text)
+                        MessageBox.Show("Bыберите два РАЗНЫХ предмета.");
+
+                    else
+                    {
+                        sql.Select("INSERT INTO teachers (name, login, password, mail, subjID, subj2ID, role)" +
+                                      "VALUES('" + namebx.Text + "', '" + loginbx.Text + "', '" + passbx.Text + "', '" + mailbx.Text + "', '"
+                                      + parts1[1] + "', '" + fk + "', '" + txt + "')");
+                        MessageBox.Show("Сохранено");
+                    }
+                }
+                else
             {
-                sql.Select("INSERT INTO teachers (name, login, password, mail, subjID, subj2ID)" +
-                              "VALUES('" + namebx.Text + "', '" + loginbx.Text + "', '" + passbx.Text + "', '" + mailbx.Text + "', '" 
-                              + parts1[1] + "', '" + parts2[1] + "')");
+                sql.Select("INSERT INTO students (name, login, password, mail, role)" +
+                                "VALUES('" + namebx.Text + "', '" + loginbx.Text + "', '" + passbx.Text + "', '" + mailbx.Text + "', '" + txt + "')");
                 MessageBox.Show("Сохранено");
+                
             }
 
-            loginbx.Text = "";
-            namebx.Text = "";
-            passbx.Text = "";
-            subj1cbx.Text = "";
-            subj2cbx.Text = "";
-            mailbx.Text = "";
+                loginbx.Text = "";
+                namebx.Text = "";
+                passbx.Text = "";
+                subj1cbx.SelectedIndex = -1;
+                subj2cbx.SelectedIndex = -1;
+                rulecbx.SelectedIndex = -1;
+                mailbx.Text = "";
 
-            AdminTeacher_Load(sender, e);
-            return;
+                AdminTeacher_Load(sender, e);
+                return;
+            }
+            else
+                MessageBox.Show("Заполните все поля.", "Ошибка");
+
+          
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -259,6 +374,27 @@ namespace clientчето_там
         }
 
         private void pan_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void subj2cbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            prep = !prep;
+            subj1cbx.Items.Clear();
+            if (prep) { subj1cbx.Width = 140; label4.Text = "Выберите предмет..."; }
+            if (!prep) { subj1cbx.Width = 250; label4.Text = "Выберите группу..."; }
+            subj2cbx.Visible = !subj2cbx.Visible;
+            label6.Visible = !label6.Visible;
+            AdminTeacher_Load(sender, e);
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
 
         }

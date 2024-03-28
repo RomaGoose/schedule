@@ -43,6 +43,11 @@ namespace clientчето_там
 
             AdminRequestTeachers sus = new AdminRequestTeachers();
             sus.ShowDialog();
+            List<string> list = sql.Select("SELECT name FROM requestteachers");
+
+            if (list.Count == 0)
+                button3.UseVisualStyleBackColor = true;
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -61,6 +66,11 @@ namespace clientчето_там
         {
             AdminClasses sus = new AdminClasses();
             sus.ShowDialog();
+        }
+
+        private void Admin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
