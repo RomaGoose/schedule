@@ -433,6 +433,8 @@ namespace clientчето_там
 
         private void button3_Click_1(object sender, EventArgs e)
         {
+            new Send().ShowDialog();
+
             who = "";
             main_Load(sender, e);
         }

@@ -31,6 +31,7 @@ namespace clientчето_там
             {
                 label6.Text = "Предмет";
                 label7.Text = "Второй предмет";
+                button2.Text = "Сообщения";
 
                 subject_list = sql.Select("SELECT name, ID FROM subjects");
 
@@ -45,6 +46,7 @@ namespace clientчето_там
             {
                 label6.Text = "Направление";
                 label7.Text = "Группа";
+                button2.Text = "Отправить сообщение";
 
                 faculties = sql.Select("SELECT name, ID FROM faculties");
 
@@ -194,6 +196,12 @@ namespace clientчето_там
                     subj2cbx.Items.Add(grlist[i] + ',' + grlist[i + 1]);
 
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (prep) new prepodForm().ShowDialog();
+            else new Send().ShowDialog();
         }
     }
 }
