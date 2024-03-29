@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main));
             this.FiltrPanel = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.welcome = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -70,6 +71,7 @@
             // 
             this.FiltrPanel.BackColor = System.Drawing.Color.DarkOrange;
             this.FiltrPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.FiltrPanel.Controls.Add(this.button4);
             this.FiltrPanel.Controls.Add(this.welcome);
             this.FiltrPanel.Controls.Add(this.pictureBox1);
             this.FiltrPanel.Controls.Add(this.label6);
@@ -93,11 +95,21 @@
             this.FiltrPanel.Size = new System.Drawing.Size(721, 173);
             this.FiltrPanel.TabIndex = 0;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(327, 5);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(118, 29);
+            this.button4.TabIndex = 21;
+            this.button4.Text = "Личный кабинет";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Visible = false;
+            // 
             // welcome
             // 
             this.welcome.AutoSize = true;
             this.welcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.welcome.Location = new System.Drawing.Point(66, 2);
+            this.welcome.Location = new System.Drawing.Point(70, 35);
             this.welcome.Name = "welcome";
             this.welcome.Size = new System.Drawing.Size(220, 25);
             this.welcome.TabIndex = 20;
@@ -196,7 +208,7 @@
             // 
             // presearch
             // 
-            this.presearch.Location = new System.Drawing.Point(550, 107);
+            this.presearch.Location = new System.Drawing.Point(389, 107);
             this.presearch.Margin = new System.Windows.Forms.Padding(2);
             this.presearch.Name = "presearch";
             this.presearch.Size = new System.Drawing.Size(86, 28);
@@ -208,7 +220,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.button2.Location = new System.Drawing.Point(71, 29);
+            this.button2.Location = new System.Drawing.Point(69, 5);
             this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(88, 29);
@@ -219,7 +231,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(163, 29);
+            this.button1.Location = new System.Drawing.Point(161, 5);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(161, 29);
@@ -296,14 +308,14 @@
             this.downpan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.downpan.Location = new System.Drawing.Point(0, 173);
             this.downpan.Name = "downpan";
-            this.downpan.Size = new System.Drawing.Size(721, 839);
+            this.downpan.Size = new System.Drawing.Size(721, 733);
             this.downpan.TabIndex = 1;
             // 
             // label35
             // 
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label35.Location = new System.Drawing.Point(380, 553);
+            this.label35.Location = new System.Drawing.Point(380, 485);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(72, 20);
             this.label35.TabIndex = 46;
@@ -313,7 +325,7 @@
             // 
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label36.Location = new System.Drawing.Point(21, 553);
+            this.label36.Location = new System.Drawing.Point(21, 485);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(58, 20);
             this.label36.TabIndex = 45;
@@ -323,7 +335,7 @@
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label34.Location = new System.Drawing.Point(380, 286);
+            this.label34.Location = new System.Drawing.Point(380, 252);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(75, 20);
             this.label34.TabIndex = 44;
@@ -333,7 +345,7 @@
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label33.Location = new System.Drawing.Point(21, 286);
+            this.label33.Location = new System.Drawing.Point(21, 252);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(73, 20);
             this.label33.TabIndex = 43;
@@ -369,16 +381,16 @@
             this.satpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39F));
             this.satpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39F));
             this.satpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.satpan.Location = new System.Drawing.Point(384, 576);
+            this.satpan.Location = new System.Drawing.Point(384, 508);
             this.satpan.Name = "satpan";
             this.satpan.RowCount = 6;
-            this.satpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13F));
-            this.satpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.satpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.satpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.satpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.satpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.satpan.Size = new System.Drawing.Size(312, 234);
+            this.satpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.satpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.satpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.satpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.satpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.satpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.satpan.Size = new System.Drawing.Size(312, 197);
             this.satpan.TabIndex = 40;
             // 
             // wenpan
@@ -390,16 +402,16 @@
             this.wenpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39F));
             this.wenpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39F));
             this.wenpan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.wenpan.Location = new System.Drawing.Point(25, 579);
+            this.wenpan.Location = new System.Drawing.Point(25, 511);
             this.wenpan.Name = "wenpan";
             this.wenpan.RowCount = 6;
-            this.wenpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13F));
-            this.wenpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.wenpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.wenpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.wenpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.wenpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.wenpan.Size = new System.Drawing.Size(312, 234);
+            this.wenpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.wenpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.wenpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.wenpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.wenpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.wenpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.wenpan.Size = new System.Drawing.Size(312, 197);
             this.wenpan.TabIndex = 39;
             // 
             // fripan
@@ -411,16 +423,16 @@
             this.fripan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39F));
             this.fripan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39F));
             this.fripan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.fripan.Location = new System.Drawing.Point(384, 309);
+            this.fripan.Location = new System.Drawing.Point(384, 275);
             this.fripan.Name = "fripan";
             this.fripan.RowCount = 6;
-            this.fripan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13F));
-            this.fripan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.fripan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.fripan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.fripan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.fripan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.fripan.Size = new System.Drawing.Size(312, 234);
+            this.fripan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.fripan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.fripan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.fripan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.fripan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.fripan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.fripan.Size = new System.Drawing.Size(312, 197);
             this.fripan.TabIndex = 38;
             this.fripan.Paint += new System.Windows.Forms.PaintEventHandler(this.fripan_Paint);
             // 
@@ -433,16 +445,16 @@
             this.tuepan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39F));
             this.tuepan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39F));
             this.tuepan.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12F));
-            this.tuepan.Location = new System.Drawing.Point(25, 309);
+            this.tuepan.Location = new System.Drawing.Point(25, 275);
             this.tuepan.Name = "tuepan";
             this.tuepan.RowCount = 6;
-            this.tuepan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13F));
-            this.tuepan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.tuepan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.tuepan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.tuepan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.tuepan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.tuepan.Size = new System.Drawing.Size(312, 234);
+            this.tuepan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tuepan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tuepan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tuepan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tuepan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tuepan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tuepan.Size = new System.Drawing.Size(312, 197);
             this.tuepan.TabIndex = 37;
             this.tuepan.Paint += new System.Windows.Forms.PaintEventHandler(this.tuepan_Paint);
             // 
@@ -458,13 +470,13 @@
             this.thupan.Location = new System.Drawing.Point(384, 42);
             this.thupan.Name = "thupan";
             this.thupan.RowCount = 6;
-            this.thupan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13F));
-            this.thupan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.thupan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.thupan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.thupan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.thupan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.thupan.Size = new System.Drawing.Size(312, 234);
+            this.thupan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.thupan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.thupan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.thupan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.thupan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.thupan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.thupan.Size = new System.Drawing.Size(312, 197);
             this.thupan.TabIndex = 36;
             // 
             // monpan
@@ -479,20 +491,20 @@
             this.monpan.Location = new System.Drawing.Point(25, 42);
             this.monpan.Name = "monpan";
             this.monpan.RowCount = 6;
-            this.monpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13F));
-            this.monpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.monpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.monpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.monpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.monpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.4F));
-            this.monpan.Size = new System.Drawing.Size(312, 234);
+            this.monpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.monpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.monpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.monpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.monpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.monpan.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.monpan.Size = new System.Drawing.Size(312, 197);
             this.monpan.TabIndex = 35;
             // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(721, 1012);
+            this.ClientSize = new System.Drawing.Size(721, 906);
             this.Controls.Add(this.downpan);
             this.Controls.Add(this.FiltrPanel);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -541,6 +553,7 @@
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label welcome;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button4;
     }
 }
 

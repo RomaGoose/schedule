@@ -82,9 +82,9 @@
             this.label1.Location = new System.Drawing.Point(10, 14);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(169, 33);
+            this.label1.Size = new System.Drawing.Size(185, 33);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Факультеты";
+            this.label1.Text = "Направления";
             // 
             // label2
             // 
@@ -127,9 +127,9 @@
             this.label5.Location = new System.Drawing.Point(6, 67);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(223, 17);
+            this.label5.Size = new System.Drawing.Size(232, 17);
             this.label5.TabIndex = 6;
-            this.label5.Text = "Введите название факультета...";
+            this.label5.Text = "Введите название направления...";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // facnametb
@@ -166,9 +166,9 @@
             this.label7.Location = new System.Drawing.Point(511, 117);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(160, 17);
+            this.label7.Size = new System.Drawing.Size(177, 17);
             this.label7.TabIndex = 10;
-            this.label7.Text = "Выберите факультет...";
+            this.label7.Text = "Выберите направление...";
             // 
             // comboBox1
             // 

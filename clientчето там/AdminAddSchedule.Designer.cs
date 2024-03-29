@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.grcbx = new System.Windows.Forms.ComboBox();
+            this.faccbx = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -63,18 +63,20 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.grcbx = new System.Windows.Forms.ComboBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // grcbx
+            // faccbx
             // 
-            this.grcbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.grcbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.grcbx.FormattingEnabled = true;
-            this.grcbx.Location = new System.Drawing.Point(16, 32);
-            this.grcbx.Name = "grcbx";
-            this.grcbx.Size = new System.Drawing.Size(387, 24);
-            this.grcbx.TabIndex = 3;
-            this.grcbx.SelectedIndexChanged += new System.EventHandler(this.grcbx_SelectedIndexChanged);
+            this.faccbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.faccbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.faccbx.FormattingEnabled = true;
+            this.faccbx.Location = new System.Drawing.Point(207, 6);
+            this.faccbx.Name = "faccbx";
+            this.faccbx.Size = new System.Drawing.Size(248, 24);
+            this.faccbx.TabIndex = 3;
+            this.faccbx.SelectedIndexChanged += new System.EventHandler(this.faccbx_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -82,9 +84,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label2.Location = new System.Drawing.Point(12, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 20);
+            this.label2.Size = new System.Drawing.Size(189, 20);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Выберите группу";
+            this.label2.Text = "Выберите направление";
             // 
             // label3
             // 
@@ -388,7 +390,7 @@
             // button2
             // 
             this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button2.Location = new System.Drawing.Point(500, 36);
+            this.button2.Location = new System.Drawing.Point(566, 59);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(61, 23);
             this.button2.TabIndex = 175;
@@ -397,11 +399,35 @@
             this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // grcbx
+            // 
+            this.grcbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.grcbx.Enabled = false;
+            this.grcbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.grcbx.FormattingEnabled = true;
+            this.grcbx.Location = new System.Drawing.Point(207, 35);
+            this.grcbx.Name = "grcbx";
+            this.grcbx.Size = new System.Drawing.Size(248, 24);
+            this.grcbx.TabIndex = 177;
+            this.grcbx.SelectedIndexChanged += new System.EventHandler(this.grcbx_SelectedIndexChanged);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label29.Location = new System.Drawing.Point(12, 39);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(137, 20);
+            this.label29.TabIndex = 176;
+            this.label29.Text = "Выберите группу";
+            // 
             // AdminAddSchedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1125, 581);
+            this.ClientSize = new System.Drawing.Size(1125, 587);
+            this.Controls.Add(this.grcbx);
+            this.Controls.Add(this.label29);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label1);
@@ -433,7 +459,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.grcbx);
+            this.Controls.Add(this.faccbx);
             this.Controls.Add(this.label2);
             this.Name = "AdminAddSchedule";
             this.Text = "AdminSchedule";
@@ -444,7 +470,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.ComboBox grcbx;
+        private System.Windows.Forms.ComboBox faccbx;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -478,5 +504,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox grcbx;
+        private System.Windows.Forms.Label label29;
     }
 }

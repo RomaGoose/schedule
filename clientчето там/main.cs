@@ -37,90 +37,128 @@ namespace clientчето_там
         List<string> grav = new List<string>();
         public main()
         {   
-       /*
-            #region lable 
-            // 
-            // mon
-            // 
-            Label mon = new Label();
-            mon.AutoSize = true;
-            mon.Font = new Font("Microsoft Sans Serif", 12F);
-            mon.Location = new Point(20, 173);
-            mon.Name = "mon";
-            mon.Size = new Size(216, 20);
-            mon.Text = "Понедельник";
-            Controls.Add(mon);
-            // 
-            // tue
-            // 
-            Label tue = new Label();
-            tue.AutoSize = true;
-            tue.Font = new Font("Microsoft Sans Serif", 12F);
-            tue.Location = new Point(20, 245 + 160);
-            tue.Name = "tue";
-            tue.Size = new Size(176, 20);
-            tue.Text = "Вторник";
-            Controls.Add(tue);
-            // 
-            // wed
-            // 
-            Label wed = new Label();
-            wed.AutoSize = true;
-            wed.Font = new Font("Microsoft Sans Serif", 12F);
-            wed.Location = new Point(20, 479 + 160);
-            wed.Name = "wed";
-            wed.Size = new Size(161, 20);
-            wed.Text = "Среда";
-            Controls.Add(wed);
-            // 
-            // thu
-            // 
-            Label thu = new Label();
-            thu.AutoSize = true;
-            thu.Font = new Font("Microsoft Sans Serif", 12F);
-            thu.Location = new Point(339, 13 + 160);
-            thu.Name = "thu";
-            thu.Size = new Size(176, 20);
-            thu.Text = "Четверг";
-            Controls.Add(thu);
-            // 
-            // fri
-            // 
-            Label fri = new Label();
-            fri.AutoSize = true;
-            fri.Font = new Font("Microsoft Sans Serif", 12F);
-            fri.Location = new Point(337, 245 + 160);
-            fri.Name = "fri";
-            fri.Size = new Size(178, 20);
-            fri.Text = "Пятница";
-            Controls.Add(fri);
-            // 
-            // sat
-            // 
-            Label sat = new Label();
-            sat.AutoSize = true;
-            sat.Font = new Font("Microsoft Sans Serif", 12F);
-            sat.Location = new Point(337, 479 + 160);
-            sat.Name = "sat";
-            sat.Size = new Size(175, 20);
-            sat.Text = "Суббота";
-            Controls.Add(sat);
-            #endregion
-            */
+     
             InitializeComponent();
 
+
+            #region создание элементов таблиц
+
+            foreach (Control con in downpan.Controls)
+            {
+                if (con is TableLayoutPanel && con.Name.Contains("pan"))
+                {
+                    TableLayoutPanel pan = (TableLayoutPanel)con;
+
+                    #region отрисовка шапок
+
+                    Label nlbl = new Label();
+                    nlbl.Anchor = AnchorStyles.None;
+                    nlbl.AutoSize = true;
+                    nlbl.Location = new Point(8, 10);
+                    nlbl.Size = new Size(18, 13);
+                    nlbl.TabIndex = 0;
+                    nlbl.Text = "№";
+                    pan.Controls.Add(nlbl);
+
+                    Label ssbsblbl = new Label();
+                    ssbsblbl.Anchor = AnchorStyles.None;
+                    ssbsblbl.AutoSize = true;
+                    ssbsblbl.Location = new Point(66, 10);
+                    ssbsblbl.Size = new Size(52, 13);
+                    ssbsblbl.TabIndex = 36;
+                    ssbsblbl.Text = "Предмет";
+                    pan.Controls.Add(ssbsblbl);
+
+                    Label tctctlbl = new Label();
+                    tctctlbl.Anchor = AnchorStyles.None;
+                    tctctlbl.AutoSize = true;
+                    tctctlbl.Location = new Point(156, 3);
+                    tctctlbl.Size = new Size(109, 27);
+                    tctctlbl.TabIndex = 2;
+                    if (who == "prep")
+                        tctctlbl.Text = "Группа";
+                    else
+                        tctctlbl.Text = "Преподаватель";
+                    tctctlbl.TextAlign = ContentAlignment.MiddleCenter;
+                    pan.Controls.Add(tctctlbl);
+
+                    Label aulbl = new Label();
+                    aulbl.BackColor = Color.Bisque;
+                    aulbl.Font = new Font("Microsoft Sans Serif", 7F);
+                    aulbl.TextAlign = ContentAlignment.MiddleCenter;
+                    aulbl.Anchor = AnchorStyles.None;
+                    aulbl.AutoSize = true;
+                    aulbl.Location = new Point(8, 3);
+                    aulbl.Size = new Size(38, 35);
+                    aulbl.TabIndex = 3;
+                    aulbl.Margin = new Padding(0);
+                    aulbl.Text = "№ аудитории";
+                    pan.Controls.Add(aulbl);
+
+                    #endregion
+
+                    #region отризовка строчек
+                    for (int row = 1; row < 6; row++)
+                    {
+                        Label mnlbl = new Label();
+                        mnlbl.Anchor = AnchorStyles.None;
+                        mnlbl.Location = new Point(15, 8);
+                        mnlbl.Size = new Size(100, 26);
+                        mnlbl.Font = new Font("Microsoft Sans Serif", 15F);
+                        mnlbl.Text = row.ToString();
+                        pan.Controls.Add(mnlbl, 0, row);
+                  
+                        Label lbl = new Label();
+                        lbl.Anchor = AnchorStyles.None;
+                        lbl.Location = new Point(13, 6);
+                        lbl.Size = new Size(100, 26);
+                        lbl.Name = pan.Name.Substring(0, 3) + row.ToString() + "lbl";
+                        pan.Controls.Add(lbl, 1, row);
+
+                        Label tlbl = new Label();
+                        tlbl.Anchor = AnchorStyles.None;
+                        tlbl.Location = new Point(137, 6);
+                        tlbl.Size = new Size(97, 26);
+                        tlbl.Name = pan.Name.Substring(0, 3) + row.ToString() + "tlbl";
+                        pan.Controls.Add(tlbl, 2, row);
+
+                        Label clbl = new Label();
+                        clbl.Anchor = AnchorStyles.None;
+                        clbl.Font = new Font("Microsoft Sans Serif", 8F);
+                        clbl.Location = new Point(253, 152);
+                        clbl.Size = new Size(25, 13);
+                        clbl.Name = pan.Name.Substring(0, 3) + row.ToString() + "clbl";
+                        pan.Controls.Add(clbl, 3, row);
+                    }
+                    #endregion
+
+                }
+            }
+
+            #endregion
 
 
         }
 
         public void main_Load(object sender, EventArgs e)
         {
-            monpan.Controls.Clear();
-            tuepan.Controls.Clear();
-            wenpan.Controls.Clear();
-            thupan.Controls.Clear();
-            fripan.Controls.Clear();
-            satpan.Controls.Clear();
+            for (int col = 1; col < 4; col ++)  
+                for(int row = 1; row < 6; row++)
+                {
+                    Control m = monpan.GetControlFromPosition(col, row);
+                    Control t = tuepan.GetControlFromPosition(col, row);
+                    Control w = wenpan.GetControlFromPosition(col, row);
+                    Control h = thupan.GetControlFromPosition(col, row);
+                    Control f = fripan.GetControlFromPosition(col, row);
+                    Control s = satpan.GetControlFromPosition(col, row);
+                    if (m != null) m.Text = "";
+                    if (t != null) t.Text = "";
+                    if (w != null) w.Text = "";
+                    if (h != null) h.Text = "";
+                    if (f != null) f.Text = "";
+                    if (s != null) s.Text = "";
+                }
+            
 
 
             if (userid != "no")
@@ -183,111 +221,27 @@ namespace clientчето_там
             }
             #endregion
 
-            #region отрисовка шапок и номеров
-
-            foreach (Control con in downpan.Controls)
-            {
-                if (con is TableLayoutPanel && con.Name.Contains("pan"))
-                {
-                    TableLayoutPanel pan = (TableLayoutPanel)con;
-
-                    #region отрисовка шапок
-
-                    Label nlbl = new Label();
-                    nlbl.Anchor = AnchorStyles.None;
-                    nlbl.AutoSize = true;
-                    nlbl.Location = new Point(8, 10);
-                    nlbl.Size = new Size(18, 13);
-                    nlbl.TabIndex = 0;
-                    nlbl.Text = "№";
-                    pan.Controls.Add(nlbl);
-
-                    Label ssbsblbl = new Label();
-                    ssbsblbl.Anchor = AnchorStyles.None;
-                    ssbsblbl.AutoSize = true;
-                    ssbsblbl.Location = new Point(66, 10);
-                    ssbsblbl.Size = new Size(52, 13);
-                    ssbsblbl.TabIndex = 36;
-                    ssbsblbl.Text = "Предмет";
-                    pan.Controls.Add(ssbsblbl);
-
-                    Label tctctlbl = new Label();
-                    tctctlbl.Anchor = AnchorStyles.None;
-                    tctctlbl.AutoSize = true;
-                    tctctlbl.Location = new Point(156, 3);
-                    tctctlbl.Size = new Size(109, 27);
-                    tctctlbl.TabIndex = 2;
-                    if (who == "prep")
-                    tctctlbl.Text = "Группа";
-                    else
-                    tctctlbl.Text = "Преподаватель";
-                    tctctlbl.TextAlign = ContentAlignment.MiddleCenter;
-                    pan.Controls.Add(tctctlbl);
-
-                    Label aulbl = new Label();
-                    aulbl.BackColor = Color.Bisque;
-                    aulbl.Font = new Font("Microsoft Sans Serif", 8F);
-                    aulbl.TextAlign = ContentAlignment.MiddleCenter;
-                    aulbl.Anchor = AnchorStyles.None;
-                    aulbl.AutoSize = true;
-                    aulbl.Location = new Point(8, 10);
-                    aulbl.Size = new Size(38, 27);
-                    aulbl.TabIndex = 3;
-                    aulbl.Margin = new Padding(0);
-                    aulbl.Text = "№ аудитории";
-                    pan.Controls.Add(aulbl);
-
-                    #endregion
-
-                    // номер пары
-                    for (int row = 1; row < 6; row++)
-                    {
-                        Label mnlbl = new Label();
-                        mnlbl.Anchor = AnchorStyles.None;
-                        mnlbl.Location = new Point(15, 8);
-                        mnlbl.Size = new Size(100, 26);
-                        mnlbl.Font = new Font("Microsoft Sans Serif", 15F);
-                        mnlbl.Text = row.ToString();
-                        pan.Controls.Add(mnlbl, 0, row);
-                    }
-                }
-            }
-
-            #endregion
-
-
+            #region заполнение расписания 
             if ((grcbx.Text != "" && faccbx.Text != "" && who == "fac") || (teachercbx.Text != "" && who == "prep"))
             {
-            string daytext = "";
-
-
-                for (int dotw = 0; dotw < 6; dotw++)
+                foreach (Control con in downpan.Controls)
                 {
-                    if (dotw == 5) daytext = "mon";
-                    if (dotw == 4) daytext = "thu";
-                    if (dotw == 3) daytext = "tue";
-                    if (dotw == 2) daytext = "fri";
-                    if (dotw == 1) daytext = "wen";
-                    if (dotw == 0) daytext = "sat";
-
-
-                    foreach (Control con in downpan.Controls)
+                    if (con is TableLayoutPanel)
                     {
-                        if (con is TableLayoutPanel && con.Name == daytext + "pan")
-                        {
-                            TableLayoutPanel pan = (TableLayoutPanel)con;
+                        TableLayoutPanel pan = (TableLayoutPanel)con;
                        
-                            int row = 1;
+                        string daytext = pan.Name.Substring(0, 3);
+                        TableLayoutControlCollection hos = pan.Controls;
 
-                            for (int less = 0; less < 5; less++)
-                            {
+                        for (int less = 1; less < 6; less++)
+                        {
                             List<string> list = new List<string>();
 
                             if (who == "fac")
                                 list = sql.Select(
                                     " SELECT subjects.name, teachers.name, classrooms.name" +
                                     " FROM dotw " +
-                                        " JOIN lessons    ON lessons.ID    = dotw.s" + (less + 1) + "ID " +
+                                        " JOIN lessons    ON lessons.ID    = dotw.s" + less + "ID " +
                                         " JOIN groups     ON groups.ID     = dotw.groupID " +
                                         " JOIN teachers   ON teachers.ID   = lessons.teacherID " +
                                         " JOIN subjects   ON subjects.ID   = lessons.subjID " +
@@ -298,7 +252,7 @@ namespace clientчето_там
                                 list = sql.Select(
                                     " SELECT subjects.name, groups.name, classrooms.name" +
                                     " FROM dotw " +
-                                        " JOIN lessons    ON lessons.ID    = dotw.s" + (less + 1) + "ID " +
+                                        " JOIN lessons    ON lessons.ID    = dotw.s" + less + "ID " +
                                         " JOIN groups     ON groups.ID     = dotw.groupID " +
                                         " JOIN teachers   ON teachers.ID   = lessons.teacherID " +
                                         " JOIN subjects   ON subjects.ID   = lessons.subjID " +
@@ -306,42 +260,24 @@ namespace clientчето_там
                                         " WHERE teachers.ID = '" + tparts[1] + "' AND dotw.name = '" + daytext + "' ");
 
                             if (list.Count > 0)
-                            { 
-                                Label lbl = new Label();
-                                lbl.Anchor = AnchorStyles.None;
-                                lbl.Location = new Point(13, 6);
-                                lbl.Size = new Size(100, 26);
-                                lbl.Text = list[0];
-                                pan.Controls.Add(lbl, 1, row);
-
-                                Label tlbl = new Label();
-                                tlbl.Anchor = AnchorStyles.None;
-                                tlbl.Location = new Point(137, 6);
-                                tlbl.Size = new Size(97, 26);
-                                tlbl.Text = list[1];
-                                pan.Controls.Add(tlbl, 2, row);
-
-                                Label clbl = new Label();
-                                clbl.Anchor = AnchorStyles.None;
-                                clbl.Font = new Font("Microsoft Sans Serif", 8F);
-                                clbl.Location = new Point(253, 152);
-                                clbl.Size = new Size(25, 13);
-                                clbl.Text = list[2];
-                                pan.Controls.Add(clbl, 3, row);
+                            {
+                                pan.Controls.Find(daytext+less.ToString()+"lbl", false)[0].Text = list[0];
+                                pan.Controls.Find(daytext+less.ToString()+"tlbl", false)[0].Text = list[1];
+                                pan.Controls.Find(daytext+less.ToString()+"clbl", false)[0].Text = list[2];
                             }
-                            row++;
-                            }
-
-                            break;
                         }
-                    
+
+                       
                     }
+                    
                 }
+                
             }
+
 
             else if (who != "")
                 MessageBox.Show("Выберите всё, что требуется", "Ошибка");
-           
+            #endregion
 
         }
 
@@ -368,8 +304,8 @@ namespace clientчето_там
         {
             if (button2.Text == "Войти")
             {
-                AdminTeacher adm = new AdminTeacher();
-                adm.ShowDialog();
+                //AdminTeacher adm = new AdminTeacher();
+                //adm.ShowDialog();
 
 
                 login li = new login();
@@ -385,6 +321,7 @@ namespace clientчето_там
 
                     if (user_info[1] == "admin" || user_info[1] == "changer")
                     {
+                        button4.Visible = true;
                         button1.Visible = true;
                         if (user_info[1] == "admin")
                             button1.Text = "Панель администратора";
@@ -398,7 +335,8 @@ namespace clientчето_там
                 welcome.Text = "Вы не авторизовались";
                 button2.Text = "Войти";
                 button1.Visible = false;
-                userid= "no";
+                button4.Visible = false;
+                userid = "no";
                 user_info.Clear();
             }
         }

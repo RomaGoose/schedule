@@ -12,6 +12,8 @@ namespace clientчето_там
 {
     public partial class login : Form
     {
+
+        bool cl = false;
         public login()
         {
             InitializeComponent();
@@ -70,6 +72,13 @@ namespace clientчето_там
         private void login_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            cl = !cl;
+            if (cl) { pictureBox1.Load("../../pictures/eye.png"); passtb.UseSystemPasswordChar = true; }
+            if (!cl) { pictureBox1.Load("../../pictures/opneye.png"); passtb.UseSystemPasswordChar = false; }
         }
     }
 }

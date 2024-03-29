@@ -12,25 +12,42 @@ namespace clientчето_там
 {
     public partial class Account : Form
     {
-        public int teacherid;
+        string name = main.username;
+        string who = main.usertype;
+        bool prep = main.usertype == "teachers";
+        public string uid = main.userid;
         public List<string> subject_list;
-        public Account(string ID, string name)
+        List<string> faculties;
+
+        public Account()
         {
             InitializeComponent();
-            
-            teacherid = Convert.ToInt32(ID);
-
             label4.Text = name;
-
             subject_list = sql.Select("SELECT name, ID FROM subjects");
+            List<string> faclist = sql.Select("SELECT ");
 
-            subj1cbx.Items.Clear();
-            for (int i = 0; i < subject_list.Count; i += 2)
+            if (prep)
             {
-                subj1cbx.Items.Add(subject_list[i] + "," + subject_list[i + 1]);
-                subj2cbx.Items.Add(subject_list[i] + "," + subject_list[i + 1]);
+                label6.Text = "Предмет";
+                label7.Text = "Второй предмет(если есть)";
+
+                subject_list = sql.Select("SELECT name, ID FROM subjects");
+
+                for (int i = 0; i < subject_list.Count; i += 2)
+                    subj1cbx.Items.Add(subject_list[i] + "," + subject_list[i + 1]);
             }
 
+            if (!prep)
+            {
+                label6.Text = "Выберите Ваше направление...";
+                label7.Text = "Выберите Вашу группу...";
+
+                List<string> faculties = sql.Select("SELECT name, ID FROM faculties");
+
+                for (int j = 0; j < faculties.Count; j += 2)
+                    subj1cbx.Items.Add(faculties[j] + "," + faculties[j + 1]);
+
+            }
 
         }
 
@@ -74,7 +91,10 @@ namespace clientчето_там
             string[] parts1 = subj1cbx.Text.Split(new char[] { ',' });
             string[] parts2 = subj2cbx.Text.Split(new char[] { ',' });
 
-            sql.Select("UPDATE teachers SET name='" + nametb.Text + "' , login='" + logintb.Text + "' , password='" + passtb.Text + "' , mail='" + mailtb.Text + "' , subjID='" + parts1[1] + "' , subj2ID='" + parts2[1] + "' WHERE ID ='" + teacherid + "'");
+            if (prep)
+                sql.Select("UPDATE teachers SET name='" + nametb.Text + "' , login='" + logintb.Text + "' , password='" + passtb.Text + "' , mail='" + mailtb.Text + "' , subjID='" + parts1[1] + "' , subj2ID='" + parts2[1] + "' WHERE ID ='" + uid + "'");
+            if (!prep)
+                sql.Select("UPDATE students SET name='" + nametb.Text + "' , login='" + logintb.Text + "' , password='" + passtb.Text + "' , mail='" + mailtb.Text + "' , grID='" + parts2[1] + "' WHERE ID ='" + uid + "'");
             MessageBox.Show("Сохранено");
             Account_Load(sender, e); 
         }
@@ -94,8 +114,17 @@ namespace clientчето_там
             linkLabel1.Visible = true;
             button1.Visible = false;
 
-            List<string> user_data = sql.Select("SELECT name, login, password, mail, subjID, subj2ID FROM teachers WHERE ID = '" + teacherid + "'");
-         
+            List<string> user_data;
+            if (prep)
+            {
+                user_data = sql.Select("SELECT name, login, password, mail, subjID, subj2ID FROM teachers WHERE ID = '" + uid + "'");
+
+            }
+            else
+            {
+                user_data = sql.Select("SELECT students.name, students.login, students.password, students.mail, groups.facID, students.grID FROM students " +
+                                          "JOIN groups ON students.grID = groups.ID WHERE students.ID = '" + uid + "'");
+            }
             for (int i = 0; i < subject_list.Count; i += 2)
             {
                 if (subject_list[i+1] == user_data[4])

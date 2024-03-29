@@ -20,12 +20,9 @@ namespace clientчето_там
             InitializeComponent();
 
             List<string> faculties = sql.Select("SELECT name, ID FROM faculties");
-            List<string> groups = sql.Select("SELECT name, facID, ID FROM groups");
-           
+          
             for (int j = 0; j < faculties.Count; j += 2)
-                for (int i = 0; i < groups.Count; i += 3)
-                    if (groups[i + 1] == faculties[j + 1])
-                        grcbx.Items.Add(groups[i] + "," + faculties[j] + "," + groups[i + 2]);
+                faccbx.Items.Add(faculties[j] + "," + faculties[j+1]);
         }
         private void AdminAddSchedule_Load(object sender, EventArgs e)
         {
@@ -75,12 +72,12 @@ namespace clientчето_там
                     List<string> noteacher = sql.Select(
                         " SELECT lessons.teacherID from dotw " +
                             " JOIN lessons ON lessons.ID = dotw.s" + less + "ID" +
-                            " WHERE dotw.name = '" + daytext + "' AND lessons.teacherID != '0' AND lessons.groupID != '" + gparts[2] + "'");
+                            " WHERE dotw.name = '" + daytext + "' AND lessons.teacherID != '0' AND lessons.groupID != '" + gparts[1] + "'");
                     
                     List<string> steacher = sql.Select(
                         " SELECT lessons.teacherID from dotw " +
                             " JOIN lessons ON lessons.ID = dotw.s" + less + "ID" +
-                            " WHERE dotw.name = '" + daytext + "' AND lessons.teacherID != '0' AND lessons.groupID = '" + gparts[2] + "'");
+                            " WHERE dotw.name = '" + daytext + "' AND lessons.teacherID != '0' AND lessons.groupID = '" + gparts[1] + "'");
                     
                     List<string> avaialableteacher = new List<string>();
                     
@@ -115,12 +112,12 @@ namespace clientчето_там
                         " SELECT classrooms.ID from dotw " +
                             " JOIN lessons ON lessons.ID = dotw.s" + less + "ID" +
                             " JOIN classrooms ON classrooms.ID = lessons.classroomID" +
-                            " WHERE dotw.name = '" + daytext + "' AND classrooms.ID != '0' AND lessons.groupID != '" + gparts[2] + "'");
+                            " WHERE dotw.name = '" + daytext + "' AND classrooms.ID != '0' AND lessons.groupID != '" + gparts[1] + "'");
 
                     List<string> sclass = sql.Select(
                         " SELECT lessons.classroomID from dotw " +
                             " JOIN lessons ON lessons.ID = dotw.s" + less + "ID" +
-                            " WHERE dotw.name = '" + daytext + "' AND lessons.classroomID != '0' AND lessons.groupID = '" + gparts[2] + "'");
+                            " WHERE dotw.name = '" + daytext + "' AND lessons.classroomID != '0' AND lessons.groupID = '" + gparts[1] + "'");
                     
                         List<string> avaialableclass = new List<string>();
 
@@ -161,7 +158,7 @@ namespace clientчето_там
             List<string> ssubj = sql.Select(
                    " SELECT lessons.subjID from dotw " +
                        " JOIN lessons ON lessons.ID = dotw.s" + teacher.Name[3] + "ID" +
-                       " WHERE dotw.name = '" + teacher.Name.Substring(0, 3) + "' AND lessons.teacherID != '0' AND lessons.groupID = '" + gparts[2] + "'");
+                       " WHERE dotw.name = '" + teacher.Name.Substring(0, 3) + "' AND lessons.teacherID != '0' AND lessons.groupID = '" + gparts[1] + "'");
 
             string subname = "";
             for (int i = 0; i < 4; i++)
@@ -217,7 +214,7 @@ namespace clientчето_там
 
                     int dayId;
 
-                    List<string> dday = sql.Select("SELECT ID FROM dotw WHERE name = '" + daytext + "' AND groupID = '" + gparts[2] + "'");
+                    List<string> dday = sql.Select("SELECT ID FROM dotw WHERE name = '" + daytext + "' AND groupID = '" + gparts[1] + "'");
 
                     if (dday.Count > 0)
                     {
@@ -225,7 +222,7 @@ namespace clientчето_там
                     }
                     else
                     {
-                        sql.Update("INSERT INTO dotw (name, groupID) VALUES('" + daytext + "', '" + gparts[2] + "')");
+                        sql.Update("INSERT INTO dotw (name, groupID) VALUES('" + daytext + "', '" + gparts[1] + "')");
                         List<string> list = sql.Select("SELECT ID FROM dotw");
                         dayId = Convert.ToInt32(list.Last());
                     }
@@ -259,7 +256,7 @@ namespace clientчето_там
                             {
                                 if (control.Text == "") 
                                 { 
-                                    message += daytext + ", " + less + ", предмет не заполнено \n";
+                                    message += rustxt + ", " + less + ", предмет не заполнено \n";
                                     flag++; listflag++;
                                 }
                                 else sparts = control.Text.Split(new char[] { ',' });
@@ -269,7 +266,7 @@ namespace clientчето_там
                             {
                                 if (control.Text == "")
                                 {
-                                    message += daytext + ", " + less + ", аудитория не заполнено \n";
+                                    message += rustxt + ", " + less + ", аудитория не заполнено \n";
                                     flag++; listflag++;
                                 }
                                 else cparts = control.Text.Split(new char[] { ',' });
@@ -311,7 +308,7 @@ namespace clientчето_там
                             if (dday.Count < 1 || id[0] == "0")
                             {
                                 sql.Update("INSERT INTO lessons (teacherID, subjID, groupID, classroomID, dayID)" +
-                                              "VALUES('" + tparts[1] + "', '" + sparts[1] + "', '" + gparts[2] + "', '" + cparts[1] + "', '" + dayId + "')");
+                                              "VALUES('" + tparts[1] + "', '" + sparts[1] + "', '" + gparts[1] + "', '" + cparts[1] + "', '" + dayId + "')");
                                 List<string> lesslist = sql.Select("SELECT ID FROM lessons WHERE ID != '0'");
                                 lessid.Add(lesslist.Last());
                             }
@@ -336,10 +333,10 @@ namespace clientчето_там
                     {
                         sql.Update("UPDATE dotw SET s1ID ='" + lessid[0] + "' , s2ID ='" + lessid[1] + "' , s3ID ='" + lessid[2] + "' , s4ID ='" + lessid[3] + "' , s5ID ='" + lessid[4] + "' WHERE ID = '" + dayId + "'");
                     }
-                    MessageBox.Show("Сохранено", "Успешно");
                    
                 }
-
+                 MessageBox.Show("Сохранено", "Успешно");
+                   
                 if (dayflag == 6)
                     MessageBox.Show("Заполните хотя бы один день", "Ошибка");
                 dayflag = 0;
@@ -381,6 +378,18 @@ namespace clientчето_там
         private void grcbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             AdminAddSchedule_Load(sender, e);
+        }
+        private void faccbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string[] parts = faccbx.Text.Split(',');
+            grcbx.Enabled = true;
+            grcbx.Items.Clear();
+
+            List<string> groups = sql.Select("SELECT name, facID, ID FROM groups WHERE facID = '" + parts[1] + "'");
+
+            for (int i = 0; i < groups.Count; i+=3)
+                grcbx.Items.Add(groups[i] + "," + groups[i+2]);
+            
         }
 
         private void button2_Click(object sender, EventArgs e)

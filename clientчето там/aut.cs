@@ -13,7 +13,7 @@ namespace clientчето_там
     public partial class aut : Form
     {
 
-        string who = "students";
+        bool prep = true;
         public aut()
         {
             InitializeComponent();
@@ -25,13 +25,12 @@ namespace clientчето_там
             for (int i = 0; i < subject_list.Count; i += 2)
             {
                 subj1cbx.Items.Add(subject_list[i] + "," + subject_list[i + 1]);
-                subj2cbx.Items.Add(subject_list[i] + "," + subject_list[i + 1]);
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (nametb.Text == "" || passtb.Text == "" || pass2tb.Text == "" || mailtb.Text == "" || (who == "prep" && subj1cbx.Text == "" && subj2cbx.Text == ""))
+            if (nametb.Text == "" || passtb.Text == "" || pass2tb.Text == "" || mailtb.Text == "" ||subj1cbx.Text == "" )
             {
                 MessageBox.Show("Заполните все поля", "Ошибка");
             }
@@ -42,29 +41,30 @@ namespace clientчето_там
 
                 else
                 {
+                    if (prep)
+                    {
+                        string[] parts1 = subj1cbx.Text.Split(new char[] { ',' });
+                        string[] parts2 = subj2cbx.Text.Split(new char[] { ',' });
+                        string s2;
+                        if (parts1.Length == 0)
+                            s2 = "0";
+                        else s2 = parts1[1];
 
-                    string[] parts1 = subj1cbx.Text.Split(new char[] { ',' });
-                    string[] parts2 = subj2cbx.Text.Split(new char[] { ',' });
 
-                    if (subj1cbx.Text == subj2cbx.Text)
-                        MessageBox.Show("Выберите два РАЗНЫХ предмета.");
-
+                        sql.Select("INSERT INTO requestteachers (name, login, password, mail, subjID, subj2ID)" +
+                                "VALUES('" + nametb.Text + "', '" + logintb.Text + "', '" + passtb.Text + "', '" + mailtb.Text + "', '"
+                                + parts1[1] + "', '" + parts2[1] + "')");
+                        MessageBox.Show("Заявка отправлена, ожидайте подтверждения", "Успех");
+                    }
                     else
                     {
-                        if (who == "requestteachers")
-                        {
-                            sql.Select("INSERT INTO requestteachers (name, login, password, mail, subjID, subj2ID)" +
-                                 "VALUES('" + nametb.Text + "', '" + logintb.Text + "', '" + passtb.Text + "', '" + mailtb.Text + "', '"
-                                 + parts1[1] + "', '" + parts2[1] + "')");
-                            MessageBox.Show("Заявка отправлена, ожидайте подтверждения", "Успех");
-                        }
-                        else
-                        {
-                            sql.Select("INSERT INTO students (name, login, password, mail)" +
-                                 "VALUES('" + nametb.Text + "', '" + logintb.Text + "', '" + passtb.Text + "', '" + mailtb.Text + "')");
-                            MessageBox.Show("Вы успешно зарегистрированы", "Успех");
-                        }
+                        string[] parts1 = subj1cbx.Text.Split(new char[] { ',' });
+
+                        sql.Select("INSERT INTO students (name, login, password, mail, groupID)" +
+                                "VALUES('" + nametb.Text + "', '" + logintb.Text + "', '" + passtb.Text + "', '" + mailtb.Text + "', '" + parts1[1] + "')");
+                        MessageBox.Show("Вы успешно зарегистрированы", "Успех");
                     }
+                    
                 }
             }
         }
@@ -81,16 +81,88 @@ namespace clientчето_там
 
         private void button3_Click(object sender, EventArgs e)
         {
-            subj1cbx.Enabled = true;
-            subj2cbx.Enabled = true;
-            who = "requestteachers";
+           
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            subj1cbx.Enabled = false;
-            subj2cbx.Enabled = false;
-            who = "students";
+           
+        }
+
+        private void aut_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            //foreach (TextBox con in Controls)
+            //    con.Text = "";
+            subj2cbx.Items.Clear();
+            subj1cbx.Items.Clear();
+            subj2cbx.Enabled= false;
+            prep = !prep;
+            if (prep) 
+            { 
+                label6.Text = "Выберите Ваш предмет...";
+                label7.Text = "Выберите Ваш второй предмет...(если есть)";
+
+                List<string> subject_list = sql.Select("SELECT name, ID FROM subjects");
+
+                for (int i = 0; i < subject_list.Count; i += 2)
+                    subj1cbx.Items.Add(subject_list[i] + "," + subject_list[i + 1]);
+            }
+
+            if (!prep) 
+            { 
+                label6.Text = "Выберите Ваше направление...";
+                label7.Text = "Выберите Вашу группу...";
+
+                List<string> faculties = sql.Select("SELECT name, ID FROM faculties");
+              
+                for (int j = 0; j < faculties.Count; j += 2)
+                    subj1cbx.Items.Add( faculties[j] + "," + faculties[j + 1]);
+
+            }
+
+        }
+
+        bool cl = true;
+        bool cl2 = true;
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            cl = !cl;
+            if (cl) { pictureBox1.Load("../../pictures/eye.png"); passtb.UseSystemPasswordChar = true; }
+            if (!cl) { pictureBox1.Load("../../pictures/opneye.png"); passtb.UseSystemPasswordChar = false; }
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            cl2 = !cl2;
+            if (cl2) { pictureBox2.Load("../../pictures/eye.png"); pass2tb.UseSystemPasswordChar = true; }
+            if (!cl2) { pictureBox2.Load("../../pictures/opneye.png"); pass2tb.UseSystemPasswordChar = false; }
+        }
+
+        private void subj1cbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string[] parts = subj1cbx.Text.Split(',');
+            subj2cbx.Enabled = true;
+            if (!prep)
+            {
+                List<string> groups = sql.Select("SELECT name, ID FROM groups WHERE facID = '" + parts[1] + "'");
+
+                for (int i = 0; i < groups.Count; i += 2)
+                    subj2cbx.Items.Add(groups[i] + "," + groups[i + 1]);
+            }
+            if (prep)
+            {
+                List<string> groups = sql.Select("SELECT name, ID FROM subjects WHERE ID != '" + parts[1] + "'");
+
+                for (int i = 0; i < groups.Count; i += 2)
+                    subj2cbx.Items.Add(groups[i] + "," + groups[i + 1]);
+            }
         }
     }
 }
