@@ -250,8 +250,6 @@ namespace clientчето_там
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Account sus = new Account(id, name);
-            sus.ShowDialog();
         }
     }
 }

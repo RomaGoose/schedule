@@ -40,30 +40,35 @@ namespace clientчето_там
                 MessageBox.Show("Заполните все поля", "Ошибка");
             }
             else
-            {
-                List<string> wrong_user_data = sql.Select("SELECT name FROM teachers WHERE login = '" + logintb.Text + "'");
-                //List<string> wrong_fakeuser_data = sql.Select("SELECT name FROM requestteachers WHERE login = '" + logintb.Text + "'");
-                List<string> user_data = sql.Select("SELECT login, name, ID FROM teachers WHERE login = '" + logintb.Text + "' and password = '" + passtb.Text + "'");
+            {   
                 List<string> fakeuser_data = sql.Select("SELECT login, name FROM requestteachers WHERE login = '" + logintb.Text + "'");
-               // if (fakeuser_data.Count == 0 && wrong_fakeuser_data.Count > 0)
-                  //  MessageBox.Show("Во-первых, " + wrong_fakeuser_data[0] + ", Вы не угадали пароль, во-вторых админы вашу заявку ещё не одобрили", "Комбо");
-
                 if (fakeuser_data.Count > 0)
                     MessageBox.Show("Ваша заявка еще не одобрена", "Ошибка");
 
+                List<string> t = sql.Select("SELECT login FROM teachers WHERE login = '" + logintb.Text + "'");
+                List<string> s = sql.Select("SELECT login FROM students WHERE login = '" + logintb.Text + "'");
+                
+                if (t.Count == 0 && s.Count == 0)
+                    MessageBox.Show("Неправильный логин", "Ошибка"); 
+             
+                string who = t.Count() > s.Count() ? "teachers" : "students";
+
+               
+                List<string> wrong_user_data = sql.Select("SELECT name FROM " + who + " WHERE login = '" + logintb.Text + "'");
+                List<string> user_data = sql.Select("SELECT name, ID FROM " + who + " WHERE login = '" + logintb.Text + "' and password = '" + passtb.Text + "'");
+
+               
                 if (user_data.Count == 0 && wrong_user_data.Count > 0)
                     MessageBox.Show(wrong_user_data[0] + ", пароль неправильный.", "Ошибка");
                 
                 if (user_data.Count > 0)
                 {
-                    main.userid = user_data[2];
-                    main.username = user_data[1];
-                    main.usertype = "teachers";
+                    main.userid = user_data[1];
+                    main.username = user_data[0];
+                    main.usertype = who;
                     Close();
                 }
 
-                if (user_data.Count == 0 && fakeuser_data.Count == 0 && wrong_user_data.Count == 0)
-                    MessageBox.Show("Неправильный логин", "Ошибка");
 
                
             }

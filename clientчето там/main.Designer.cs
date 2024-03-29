@@ -97,13 +97,14 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(327, 5);
+            this.button4.Location = new System.Drawing.Point(162, 5);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(118, 29);
             this.button4.TabIndex = 21;
             this.button4.Text = "Личный кабинет";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Visible = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // welcome
             // 
@@ -231,7 +232,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(161, 5);
+            this.button1.Location = new System.Drawing.Point(285, 5);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(161, 29);

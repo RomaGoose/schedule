@@ -41,29 +41,37 @@ namespace clientчето_там
 
                 else
                 {
-                    if (prep)
-                    {
-                        string[] parts1 = subj1cbx.Text.Split(new char[] { ',' });
-                        string[] parts2 = subj2cbx.Text.Split(new char[] { ',' });
-                        string s2;
-                        if (parts1.Length == 0)
-                            s2 = "0";
-                        else s2 = parts1[1];
-
-
-                        sql.Select("INSERT INTO requestteachers (name, login, password, mail, subjID, subj2ID)" +
-                                "VALUES('" + nametb.Text + "', '" + logintb.Text + "', '" + passtb.Text + "', '" + mailtb.Text + "', '"
-                                + parts1[1] + "', '" + parts2[1] + "')");
-                        MessageBox.Show("Заявка отправлена, ожидайте подтверждения", "Успех");
-                    }
+                    List<string> t = sql.Select("SELECT login FROM teachers WHERE login = '" + logintb.Text + "'");
+                    List<string> s = sql.Select("SELECT login FROM students WHERE login = '" + logintb.Text + "'");
+                    if (t.Contains(logintb.Text) || s.Contains(logintb.Text))
+                        MessageBox.Show("Такой логин уже занят", "Ошибка");
                     else
                     {
-                        string[] parts1 = subj1cbx.Text.Split(new char[] { ',' });
+                        if (prep)
+                        {
+                            string[] parts1 = subj1cbx.Text.Split(new char[] { ',' });
+                            string[] parts2 = subj2cbx.Text.Split(new char[] { ',' });
+                            string s2;
+                            if (parts1.Length == 0)
+                                s2 = "0";
+                            else s2 = parts1[1];
 
-                        sql.Select("INSERT INTO students (name, login, password, mail, groupID)" +
-                                "VALUES('" + nametb.Text + "', '" + logintb.Text + "', '" + passtb.Text + "', '" + mailtb.Text + "', '" + parts1[1] + "')");
-                        MessageBox.Show("Вы успешно зарегистрированы", "Успех");
+
+                            sql.Select("INSERT INTO requestteachers (name, login, password, mail, subjID, subj2ID)" +
+                                    "VALUES('" + nametb.Text + "', '" + logintb.Text + "', '" + passtb.Text + "', '" + mailtb.Text + "', '"
+                                    + parts1[1] + "', '" + parts2[1] + "')");
+                            MessageBox.Show("Заявка отправлена, ожидайте подтверждения", "Успех");
+                        }
+                        else
+                        {
+                            string[] parts1 = subj1cbx.Text.Split(new char[] { ',' });
+
+                            sql.Select("INSERT INTO students (name, login, password, mail, groupID)" +
+                                    "VALUES('" + nametb.Text + "', '" + logintb.Text + "', '" + passtb.Text + "', '" + mailtb.Text + "', '" + parts1[1] + "')");
+                            MessageBox.Show("Вы успешно зарегистрированы", "Успех");
+                        }
                     }
+                    
                     
                 }
             }

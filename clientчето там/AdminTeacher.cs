@@ -292,45 +292,53 @@ namespace clientчето_там
             if (rulecbx.Text == "админ") txt = "admin";
             if (rulecbx.Text == "староста") txt = "changer";
 
-            if (loginbx.Text != "" && namebx.Text != "" && passbx.Text != "" && mailbx.Text != "" && rulecbx.Text != "") { 
-
-                if (prep)
+            if (loginbx.Text != "" && namebx.Text != "" && passbx.Text != "" && mailbx.Text != "" && rulecbx.Text != "" && (!prep && subj1cbx.Text != ""))
+            {
+                List<string> t = sql.Select("SELECT login FROM teachers WHERE login = '" + loginbx.Text + "'");
+                List<string> s = sql.Select("SELECT login FROM students WHERE login = '" + loginbx.Text + "'");
+                if (t.Contains(loginbx.Text) || s.Contains(loginbx.Text))
+                    MessageBox.Show("Такой логин уже занят", "Ошибка");
+                else
                 {
-                    if ((subj1cbx.Text == "" && subj2cbx.Text == "") || (subj1cbx.Text == ",0" && subj2cbx.Text == ",0"))
-                        MessageBox.Show("Bыберите хотя бы один предмет.");
-
-                    else if (subj1cbx.Text == subj2cbx.Text)
-                        MessageBox.Show("Bыберите два РАЗНЫХ предмета.");
-
-                    else
+                    if (prep)
                     {
-                        sql.Select("INSERT INTO teachers (name, login, password, mail, subjID, subj2ID, role)" +
-                                      "VALUES('" + namebx.Text + "', '" + loginbx.Text + "', '" + passbx.Text + "', '" + mailbx.Text + "', '"
-                                      + parts1[1] + "', '" + fk + "', '" + txt + "')");
+                        if ((subj1cbx.Text == "" && subj2cbx.Text == "") || (subj1cbx.Text == ",0" && subj2cbx.Text == ",0"))
+                            MessageBox.Show("Bыберите хотя бы один предмет.");
+
+                        else if (subj1cbx.Text == subj2cbx.Text)
+                            MessageBox.Show("Bыберите два РАЗНЫХ предмета.");
+
+                        else
+                        {
+                            sql.Select("INSERT INTO teachers (name, login, password, mail, subjID, subj2ID, role)" +
+                                          "VALUES('" + namebx.Text + "', '" + loginbx.Text + "', '" + passbx.Text + "', '" + mailbx.Text + "', '"
+                                          + parts1[1] + "', '" + fk + "', '" + txt + "')");
+                            MessageBox.Show("Сохранено");
+                        }
+                    }
+                    else 
+                    {
+                        sql.Select("INSERT INTO students (name, login, password, mail, role)" +
+                                        "VALUES('" + namebx.Text + "', '" + loginbx.Text + "', '" + passbx.Text + "', '" + mailbx.Text + "', '" + txt + "')");
                         MessageBox.Show("Сохранено");
                     }
+
+                    loginbx.Text = "";
+                    namebx.Text = "";
+                    passbx.Text = "";
+                    subj1cbx.SelectedIndex = -1;
+                    subj2cbx.SelectedIndex = -1;
+                    rulecbx.SelectedIndex = -1;
+                    mailbx.Text = "";
+
+                    AdminTeacher_Load(sender, e);
+                    return;
                 }
-                else
-            {
-                sql.Select("INSERT INTO students (name, login, password, mail, role)" +
-                                "VALUES('" + namebx.Text + "', '" + loginbx.Text + "', '" + passbx.Text + "', '" + mailbx.Text + "', '" + txt + "')");
-                MessageBox.Show("Сохранено");
-                
+               
             }
 
-                loginbx.Text = "";
-                namebx.Text = "";
-                passbx.Text = "";
-                subj1cbx.SelectedIndex = -1;
-                subj2cbx.SelectedIndex = -1;
-                rulecbx.SelectedIndex = -1;
-                mailbx.Text = "";
-
-                AdminTeacher_Load(sender, e);
-                return;
-            }
             else
-                MessageBox.Show("Заполните все поля.", "Ошибка");
+            MessageBox.Show("Заполните все поля.", "Ошибка");
 
           
         }

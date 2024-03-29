@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace clientчето_там
 {
@@ -24,29 +25,31 @@ namespace clientчето_там
             InitializeComponent();
             label4.Text = name;
             subject_list = sql.Select("SELECT name, ID FROM subjects");
-            List<string> faclist = sql.Select("SELECT ");
+            List<string> faclist = sql.Select("SELECT name, ID FROM faculties");
 
             if (prep)
             {
                 label6.Text = "Предмет";
-                label7.Text = "Второй предмет(если есть)";
+                label7.Text = "Второй предмет";
 
                 subject_list = sql.Select("SELECT name, ID FROM subjects");
 
                 for (int i = 0; i < subject_list.Count; i += 2)
+                {
                     subj1cbx.Items.Add(subject_list[i] + "," + subject_list[i + 1]);
+                    subj2cbx.Items.Add(subject_list[i] + "," + subject_list[i + 1]);
+                }
             }
 
             if (!prep)
             {
-                label6.Text = "Выберите Ваше направление...";
-                label7.Text = "Выберите Вашу группу...";
+                label6.Text = "Направление";
+                label7.Text = "Группа";
 
-                List<string> faculties = sql.Select("SELECT name, ID FROM faculties");
+                faculties = sql.Select("SELECT name, ID FROM faculties");
 
                 for (int j = 0; j < faculties.Count; j += 2)
                     subj1cbx.Items.Add(faculties[j] + "," + faculties[j + 1]);
-
             }
 
         }
@@ -91,13 +94,32 @@ namespace clientчето_там
             string[] parts1 = subj1cbx.Text.Split(new char[] { ',' });
             string[] parts2 = subj2cbx.Text.Split(new char[] { ',' });
 
-            if (prep)
-                sql.Select("UPDATE teachers SET name='" + nametb.Text + "' , login='" + logintb.Text + "' , password='" + passtb.Text + "' , mail='" + mailtb.Text + "' , subjID='" + parts1[1] + "' , subj2ID='" + parts2[1] + "' WHERE ID ='" + uid + "'");
-            if (!prep)
-                sql.Select("UPDATE students SET name='" + nametb.Text + "' , login='" + logintb.Text + "' , password='" + passtb.Text + "' , mail='" + mailtb.Text + "' , grID='" + parts2[1] + "' WHERE ID ='" + uid + "'");
-            MessageBox.Show("Сохранено");
-            Account_Load(sender, e); 
-        }
+            string s1 = subj1cbx.Text;
+            string s2 = subj2cbx.Text;
+
+            List<string> t = sql.Select("SELECT login FROM teachers WHERE login = '" + logintb.Text + "'");
+            List<string> s = sql.Select("SELECT login FROM students WHERE login = '" + logintb.Text + "'");
+            if (t.Contains(logintb.Text) || s.Contains(logintb.Text))
+                MessageBox.Show("Такой логин уже занят", "Ошибка");
+            else
+            {
+                if (prep && !(s1 == s2 || s1 == ",0"))
+                {
+                    sql.Select("UPDATE teachers SET name='" + nametb.Text + "' , login='" + logintb.Text + "' , password='" + passtb.Text + "' , mail='" + mailtb.Text + "' , subjID='" + parts1[1] + "' , subj2ID='" + parts2[1] + "' WHERE ID ='" + uid + "'");
+                    MessageBox.Show("Сохранено");
+                }
+                else
+                    MessageBox.Show("Ошибка в выборе предметов");
+
+                if (!prep)
+                {
+                    sql.Select("UPDATE students SET name='" + nametb.Text + "' , login='" + logintb.Text + "' , password='" + passtb.Text + "' , mail='" + mailtb.Text + "' , grID='" + parts2[1] + "' WHERE ID ='" + uid + "'");
+                    MessageBox.Show("Сохранено");
+                }
+                Account_Load(sender, e); 
+       
+            }
+           }
 
         private void Account_Load(object sender, EventArgs e)
         {
@@ -114,27 +136,44 @@ namespace clientчето_там
             linkLabel1.Visible = true;
             button1.Visible = false;
 
+            List<string> sub1;
+            List<string> sub2;
+          
             List<string> user_data;
             if (prep)
             {
                 user_data = sql.Select("SELECT name, login, password, mail, subjID, subj2ID FROM teachers WHERE ID = '" + uid + "'");
+                for (int i = 0; i < subject_list.Count; i += 2)
+                {
+                    if (subject_list[i+1] == user_data[4])
+                        subj1cbx.SelectedIndex = i / 2;
+                    if (subject_list[i+1] == user_data[5])
+                        subj2cbx.SelectedIndex = i / 2;
+                    
+                }
+                sub1 = sql.Select("SELECT name FROM subjects WHERE ID = '" + user_data[4] + "'");
+                sub2 = sql.Select("SELECT name FROM subjects WHERE ID = '" + user_data[5] + "'");
 
             }
             else
             {
-                user_data = sql.Select("SELECT students.name, students.login, students.password, students.mail, groups.facID, students.grID FROM students " +
-                                          "JOIN groups ON students.grID = groups.ID WHERE students.ID = '" + uid + "'");
-            }
-            for (int i = 0; i < subject_list.Count; i += 2)
-            {
-                if (subject_list[i+1] == user_data[4])
-                    subj1cbx.SelectedIndex = i / 2;
-                if (subject_list[i+1] == user_data[5])
-                    subj2cbx.SelectedIndex = i / 2;
-            }
+                user_data = sql.Select("SELECT students.name, students.login, students.password, students.mail, groups.facID, students.groupID FROM students " +
+                                          "JOIN groups ON students.groupID = groups.ID WHERE students.ID = '" + uid + "'");
+                List<string> grs = sql.Select("SELECT name, ID FROM groups WHERE facID = '" + user_data[4] + "'");
+                for (int i = 0; i < grs.Count; i += 2)
+                {
+                    subj2cbx.Items.Add(grs[i] + "," + grs[i + 1]);
+                    if (grs[i + 1] == user_data[5])
+                        subj2cbx.SelectedIndex = i / 2;
+                }
 
-            List<string> sub1 = sql.Select("SELECT name FROM subjects WHERE ID = '" + user_data[4] + "'");
-            List<string> sub2 = sql.Select("SELECT name FROM subjects WHERE ID = '" + user_data[5] + "'");
+                for (int i = 0; i < faculties.Count; i += 2)
+                    if (faculties[i + 1] == user_data[4])
+                        subj1cbx.SelectedIndex = i / 2;
+
+                sub1 = sql.Select("SELECT name FROM faculties WHERE ID = '" + user_data[4] + "'");
+                sub2 = sql.Select("SELECT name FROM groups WHERE ID = '" + user_data[5] + "'");
+            }
 
             nametb.Text = user_data[0];
             logintb.Text = user_data[1];
@@ -142,6 +181,19 @@ namespace clientчето_там
             mailtb.Text = user_data[3];
             sub1lbl.Text = sub1[0];
             sub2lbl.Text = sub2[0];
+        }
+
+        private void subj1cbx_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            if (!prep)
+            {
+                string[] parts = subj1cbx.Text.Split(',');
+                subj2cbx.Items.Clear();
+                List<string> grlist = sql.Select("SELECT name, ID FROM groups WHERE ID = '" + parts[1] + "'");
+                for (int i = 0; i < grlist.Count; i += 2)
+                    subj2cbx.Items.Add(grlist[i] + ',' + grlist[i + 1]);
+
+            }
         }
     }
 }

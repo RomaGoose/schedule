@@ -208,6 +208,7 @@
             this.subj1cbx.Name = "subj1cbx";
             this.subj1cbx.Size = new System.Drawing.Size(293, 33);
             this.subj1cbx.TabIndex = 51;
+            this.subj1cbx.SelectedIndexChanged += new System.EventHandler(this.subj1cbx_SelectedIndexChanged_1);
             // 
             // subj2cbx
             // 

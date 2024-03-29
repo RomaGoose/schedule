@@ -314,14 +314,14 @@ namespace clientчето_там
                 {  
                     welcome.Text = username;
                     button2.Text = "Выйти";
-              
+                    button4.Visible = true;
+
                     user_info = sql.Select("SELECT name, role FROM " + usertype + " WHERE ID = '" + userid + "'");
                     welcome.Text = user_info[0];
 
 
                     if (user_info[1] == "admin" || user_info[1] == "changer")
                     {
-                        button4.Visible = true;
                         button1.Visible = true;
                         if (user_info[1] == "admin")
                             button1.Text = "Панель администратора";
@@ -465,6 +465,12 @@ namespace clientчето_там
         private void tuepan_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Account acc = new Account();
+            acc.ShowDialog();
         }
     }
 }
