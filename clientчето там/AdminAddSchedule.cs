@@ -14,15 +14,31 @@ namespace clientчето_там
     {
         public List<string> subject_list = sql.Select("SELECT name, ID FROM subjects");
         public int flag = 0;
+        public List<string> grname;
 
         public AdminAddSchedule()
         {
             InitializeComponent();
+            List<string> faculties;
 
-            List<string> faculties = sql.Select("SELECT name, ID FROM faculties");
+            if (main.usertype == "teachers")
+            {
+                faculties = sql.Select("SELECT name, ID FROM faculties");
           
-            for (int j = 0; j < faculties.Count; j += 2)
-                faccbx.Items.Add(faculties[j] + "," + faculties[j+1]);
+                for (int j = 0; j < faculties.Count; j += 2)
+                    faccbx.Items.Add(faculties[j] + "," + faculties[j+1]);
+            }
+            else
+            {
+                grname = sql.Select("SELECT groups.name, groups.ID FROM groups " +
+                                                   "JOIN students ON groups.ID = students.groupID " +
+                                                   "WHERE students.ID = '" + main.userid + "'");
+                label29.Visible= false;
+                label2.Text = "Изменить расписание для " + grname[0];
+                faccbx.Visible= false;
+                grcbx.Visible= false;
+            }
+                
         }
         private void AdminAddSchedule_Load(object sender, EventArgs e)
         {
@@ -39,8 +55,8 @@ namespace clientчето_там
             if (grcbx.Text != "")
             for (int dotw = 0; dotw < 6; dotw++)
             {
-                string[] gparts = grcbx.Text.Split(new char[] {','});
-
+                string[] gparts = main.usertype == "teachers" ? grcbx.Text.Split(new char[] { ',' }) : (grname[0] + "," + grname[1]).Split(',');
+               
                 if (dotw == 0) daytext = "mon";
                 if (dotw == 1) daytext = "tue";
                 if (dotw == 2) daytext = "wen";
@@ -152,7 +168,7 @@ namespace clientчето_там
         private void TeacherSelected(object sender, EventArgs e)
         {
             ComboBox teacher = (ComboBox)sender;
-            string[] gparts = grcbx.Text.Split(new char[] { ',' });
+            string[] gparts = main.usertype == "teachers" ? grcbx.Text.Split(new char[] { ',' }) : (grname[0] + "," + grname[1]).Split(',');
 
 
             List<string> ssubj = sql.Select(
@@ -198,7 +214,7 @@ namespace clientчето_там
         {
             string daytext = "";
             string rustxt = "";
-            string[] gparts = grcbx.Text.Split(new char[] { ',' });
+            string[] gparts = main.usertype == "teachers" ? grcbx.Text.Split(new char[] { ',' }) : (grname[0] + "," + grname[1]).Split(',');
             
             if (gparts.Count() > 1)
             {

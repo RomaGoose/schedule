@@ -318,8 +318,8 @@ namespace clientчето_там
                     }
                     else 
                     {
-                        sql.Select("INSERT INTO students (name, login, password, mail, role)" +
-                                        "VALUES('" + namebx.Text + "', '" + loginbx.Text + "', '" + passbx.Text + "', '" + mailbx.Text + "', '" + txt + "')");
+                        sql.Select("INSERT INTO students (name, login, password, mail, role, groupID)" +
+                                        "VALUES('" + namebx.Text + "', '" + loginbx.Text + "', '" + passbx.Text + "', '" + mailbx.Text + "', '" + txt + "', '" + parts1[1] + "')");
                         MessageBox.Show("Сохранено");
                     }
 

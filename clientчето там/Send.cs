@@ -34,6 +34,8 @@ namespace clientчето_там
         private void button1_Click(object sender, EventArgs e)
         {
             sql.Update("INSERT INTO messages (theme, text, studID, teachID) VALUES ('"+theme.Text+"', '"+ textBox3.Text +"', '"+ main.userid + "', '" + CB.Text.Split(',')[1] + "')");
+            MessageBox.Show("Сообщение отправлено");
+            this.Close();
         }
     }
 }
