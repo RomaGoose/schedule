@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.addpan = new System.Windows.Forms.Panel();
+            this.rulecbx = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.loginbx = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.subj2cbx = new System.Windows.Forms.ComboBox();
@@ -49,11 +51,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.rulecbx = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.label10 = new System.Windows.Forms.Label();
             this.addpan.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -84,6 +84,30 @@
             this.addpan.Size = new System.Drawing.Size(876, 289);
             this.addpan.TabIndex = 1;
             this.addpan.Paint += new System.Windows.Forms.PaintEventHandler(this.addpan_Paint);
+            // 
+            // rulecbx
+            // 
+            this.rulecbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.rulecbx.FormattingEnabled = true;
+            this.rulecbx.Items.AddRange(new object[] {
+            "нет",
+            "админ",
+            "староста"});
+            this.rulecbx.Location = new System.Drawing.Point(181, 181);
+            this.rulecbx.Margin = new System.Windows.Forms.Padding(2);
+            this.rulecbx.Name = "rulecbx";
+            this.rulecbx.Size = new System.Drawing.Size(140, 21);
+            this.rulecbx.TabIndex = 31;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(15, 189);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(99, 13);
+            this.label11.TabIndex = 30;
+            this.label11.Text = "Выберите права...";
             // 
             // loginbx
             // 
@@ -126,6 +150,7 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.button1.Location = new System.Drawing.Point(340, 240);
             this.button1.Margin = new System.Windows.Forms.Padding(2);
@@ -134,7 +159,7 @@
             this.button1.TabIndex = 25;
             this.button1.Text = "Добавить";
             this.toolTip1.SetToolTip(this.button1, "Изменить");
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.UpdateClick);
             // 
             // label6
@@ -273,17 +298,17 @@
             this.panel1.Size = new System.Drawing.Size(876, 82);
             this.panel1.TabIndex = 5;
             // 
-            // label10
+            // radioButton2
             // 
-            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.SystemColors.Control;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
-            this.label10.Location = new System.Drawing.Point(585, 43);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(83, 29);
-            this.label10.TabIndex = 5;
-            this.label10.Text = "Права";
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.radioButton2.Location = new System.Drawing.Point(187, 15);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(103, 24);
+            this.radioButton2.TabIndex = 31;
+            this.radioButton2.Text = "Студенты";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // radioButton1
             // 
@@ -299,41 +324,17 @@
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
-            // radioButton2
+            // label10
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.radioButton2.Location = new System.Drawing.Point(187, 15);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(103, 24);
-            this.radioButton2.TabIndex = 31;
-            this.radioButton2.Text = "Студенты";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
-            // 
-            // rulecbx
-            // 
-            this.rulecbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.rulecbx.FormattingEnabled = true;
-            this.rulecbx.Items.AddRange(new object[] {
-            "нет",
-            "админ",
-            "староста"});
-            this.rulecbx.Location = new System.Drawing.Point(181, 181);
-            this.rulecbx.Margin = new System.Windows.Forms.Padding(2);
-            this.rulecbx.Name = "rulecbx";
-            this.rulecbx.Size = new System.Drawing.Size(140, 21);
-            this.rulecbx.TabIndex = 31;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(15, 189);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(99, 13);
-            this.label11.TabIndex = 30;
-            this.label11.Text = "Выберите права...";
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.SystemColors.Control;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
+            this.label10.Location = new System.Drawing.Point(585, 43);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(83, 29);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "Права";
             // 
             // AdminTeacher
             // 

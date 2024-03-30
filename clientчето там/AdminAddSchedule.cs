@@ -52,7 +52,7 @@ namespace clientчето_там
             int x = 0;
             int y = 0;
             
-            if (grcbx.Text != "")
+            if (grcbx.Text != "" || main.usertype == "students")
             for (int dotw = 0; dotw < 6; dotw++)
             {
                 string[] gparts = main.usertype == "teachers" ? grcbx.Text.Split(new char[] { ',' }) : (grname[0] + "," + grname[1]).Split(',');

@@ -433,8 +433,9 @@ namespace clientчето_там
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            new Send().ShowDialog();
-
+            //new prepodForm().ShowDialog();
+            prepodForm pr = new prepodForm();
+            pr.ShowDialog();
             who = "";
             main_Load(sender, e);
         }

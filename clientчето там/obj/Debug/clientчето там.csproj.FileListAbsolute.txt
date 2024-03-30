@@ -111,3 +111,4 @@ C:\Users\Роман\Source\Repos\schedule2\clientчето там\obj\Debug\clien
 C:\Users\Роман\Source\Repos\schedule2\clientчето там\obj\Debug\clientчето там.exe
 C:\Users\Роман\Source\Repos\schedule2\clientчето там\obj\Debug\clientчето там.pdb
 C:\Users\Роман\source\repos\schedule2\clientчето там\obj\Debug\clientчето_там.Send.resources
+C:\Users\Роман\source\repos\schedule2\clientчето там\obj\Debug\clientчето_там.Read.resources

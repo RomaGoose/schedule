@@ -130,6 +130,12 @@
     <Compile Include="AdminRequestTeachers.Designer.cs">
       <DependentUpon>AdminRequestTeachers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Read.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Read.Designer.cs">
+      <DependentUpon>Read.cs</DependentUpon>
+    </Compile>
     <Compile Include="Send.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +191,9 @@
     </Compile>
     <EmbeddedResource Include="AdminRequestTeachers.resx">
       <DependentUpon>AdminRequestTeachers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Read.resx">
+      <DependentUpon>Read.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Send.resx">
       <DependentUpon>Send.cs</DependentUpon>
